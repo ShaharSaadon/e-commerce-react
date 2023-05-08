@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import '../src/assets/styles/global.scss';
+import { Route, HashRouter as Router, Routes } from 'react-router-dom';
+import { AppHeader } from './components/AppHeader.jsx';
+import { AppFooter } from './components/AppFooter.jsx';
+import { HomePage } from './views/HomePage.jsx';
+import { ProductIndex } from './views/ProductIndex.jsx';
+import { ProductDetails } from './views/ProductDetails.jsx';
+import { ProductEdit } from './views/ProductEdit.jsx';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <section className="App">
+        <AppHeader />
+
+        <main className="main-container">
+          <Routes>
+            {/* 
+            <Route path="/user" element={<UserDetails />} />
+          <Route path="/counter" element={<Counter />} /> */}
+            <Route path="/product/edit/:id?" element={<ProductEdit />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/shop" element={<ProductIndex />} />
+            <Route path="/" element={<HomePage />} />
+          </Routes>
+        </main>
+
+        <AppFooter />
+      </section>
+    </Router>
   );
 }
 
