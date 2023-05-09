@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart, updateCartItem } from '../store/actions/product.actions';
+import { removeFromCart, updateCartItem } from '../store/actions/cart.actions';
 
 export function ShoppingCart() {
 
-    const cart = useSelector((state) => state.productModule.cart);
+    const cart = useSelector((state) => state.cartModule.cart);
     const dispatch = useDispatch();
 
     const handleRemoveFromCart = (productId) => {

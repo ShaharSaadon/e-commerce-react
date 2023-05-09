@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../store/actions/product.actions';
+import { addToCart } from '../store/actions/cart.actions';
 
 export function ProductPreview({ product, onRemoveProduct }) {
   const dispatch = useDispatch();
