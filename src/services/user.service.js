@@ -11,16 +11,15 @@ export const userService = {
   login,
   logout,
   signup,
-  getLoggedinUser,
   saveLocalUser,
   getUsers,
   getById,
   remove,
   update,
+  getLoggedinUser,
   getEmptyLoginCred,
   getEmptySignupCred,
 };
-
 window.userService = userService;
 
 async function getUsers(filterBy = { txt: '' }) {
@@ -69,11 +68,8 @@ async function login(userCred) {
 
   const users = await storageService.query('user');
   const user = users.find((user) => user.username === userCred.username);
-
   // const user = await httpService.post('auth/login', userCred)
-
   console.log('user: ', user);
-
   if (user) {
     // socketService.login(user._id)
     return saveLocalUser(user);
@@ -81,8 +77,8 @@ async function login(userCred) {
 }
 
 async function signup(userCred) {
-  if (!userCred.imgUrl)
-    userCred.imgUrl =
+  if (!userCred.imgURL)
+    userCred.imgURL =
       'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png';
   const user = await storageService.post('user', userCred);
 
@@ -104,7 +100,7 @@ function saveLocalUser(user) {
     _id: user._id,
     fullname: user.fullname,
     username: user.username,
-    imgUrl: user.imgUrl,
+    imgURL: user.imgURL,
   };
   sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user));
   return user;
@@ -126,7 +122,7 @@ function getEmptySignupCred() {
     fullname: '',
     username: '',
     password: '',
-    imgUrl: '',
+    imgURL: '',
   };
 }
 
@@ -138,7 +134,7 @@ async function loadUsers() {
       fullname: 'Shahar Saadon',
       username: 'shahar',
       password: 'shahar',
-      imgUrl:
+      imgURL:
         'https://res.cloudinary.com/dbf0uxszt/image/upload/v1679588778/shahar_wnnnux.png',
     },
     {
@@ -146,7 +142,7 @@ async function loadUsers() {
       fullname: 'Ido Peri',
       username: 'ido',
       password: 'ido',
-      imgUrl:
+      imgURL:
         'https://res.cloudinary.com/dbf0uxszt/image/upload/v1679588729/ido_wqplye.png',
     },
     {
@@ -154,7 +150,7 @@ async function loadUsers() {
       fullname: 'Tomer Huberman',
       username: 'tomer',
       password: 'tomer',
-      imgUrl:
+      imgURL:
         'https://res.cloudinary.com/dbf0uxszt/image/upload/v1679588803/tomer_wm04gf.png',
     },
     {
@@ -162,7 +158,7 @@ async function loadUsers() {
       fullname: 'Puki Ka',
       username: 'puki',
       password: 'puki',
-      imgUrl:
+      imgURL:
         'https://res.cloudinary.com/dbf0uxszt/image/upload/v1679588803/tomer_wm04gf.png',
     },
     {
@@ -170,7 +166,7 @@ async function loadUsers() {
       fullname: 'Muki Ka',
       username: 'muki',
       password: 'muki',
-      imgUrl:
+      imgURL:
         'https://res.cloudinary.com/dbf0uxszt/image/upload/v1679588778/shahar_wnnnux.png',
     },
     {
@@ -178,7 +174,7 @@ async function loadUsers() {
       fullname: 'Ido Da',
       username: 'da',
       password: 'da',
-      imgUrl:
+      imgURL:
         'https://res.cloudinary.com/dbf0uxszt/image/upload/v1679588729/ido_wqplye.png',
     },
   ];
@@ -201,42 +197,42 @@ async function loadUsers() {
 //       fullname: 'Shahar Saadon',
 //       username: 'shahar',
 //       password: 'shahar',
-//       imgUrl: 'https://res.cloudinary.com/dbf0uxszt/image/upload/v1679588778/shahar_wnnnux.png',
+//       imgURL: 'https://res.cloudinary.com/dbf0uxszt/image/upload/v1679588778/shahar_wnnnux.png',
 //     },
 //     {
 //       _id: 'u101',
 //       fullname: 'Ido Peri',
 //       username: 'ido',
 //       password: 'ido',
-//       imgUrl: 'https://res.cloudinary.com/dbf0uxszt/image/upload/v1679588729/ido_wqplye.png',
+//       imgURL: 'https://res.cloudinary.com/dbf0uxszt/image/upload/v1679588729/ido_wqplye.png',
 //     },
 //     {
 //       _id: 'u102',
 //       fullname: 'Tomer Huberman',
 //       username: 'tomer',
 //       password: 'tomer',
-//       imgUrl: 'https://res.cloudinary.com/dbf0uxszt/image/upload/v1679588803/tomer_wm04gf.png',
+//       imgURL: 'https://res.cloudinary.com/dbf0uxszt/image/upload/v1679588803/tomer_wm04gf.png',
 //     },
 //     {
 //       _id: 'u103',
 //       fullname: 'Puki Ka',
 //       username: 'puki',
 //       password: 'puki',
-//       imgUrl: 'https://res.cloudinary.com/dbf0uxszt/image/upload/v1679588803/tomer_wm04gf.png',
+//       imgURL: 'https://res.cloudinary.com/dbf0uxszt/image/upload/v1679588803/tomer_wm04gf.png',
 //     },
 //     {
 //       _id: 'u104',
 //       fullname: 'Muki Ka',
 //       username: 'muki',
 //       password: 'muki',
-//       imgUrl: 'https://res.cloudinary.com/dbf0uxszt/image/upload/v1679588778/shahar_wnnnux.png',
+//       imgURL: 'https://res.cloudinary.com/dbf0uxszt/image/upload/v1679588778/shahar_wnnnux.png',
 //     },
 //     {
 //       _id: 'u105',
 //       fullname: 'Ido Da',
 //       username: 'da',
 //       password: 'da',
-//       imgUrl: 'https://res.cloudinary.com/dbf0uxszt/image/upload/v1679588729/ido_wqplye.png',
+//       imgURL: 'https://res.cloudinary.com/dbf0uxszt/image/upload/v1679588729/ido_wqplye.png',
 //     },
 //   ]
 //   await signup(users[0])

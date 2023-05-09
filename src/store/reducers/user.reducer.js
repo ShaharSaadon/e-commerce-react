@@ -5,7 +5,7 @@ export const UPDATE_USER = 'UPDATE_USER';
 export const SET_LOGGEDIN_USER = 'SET_LOGGEDIN_USER';
 
 const INITIAL_STATE = {
-  users: null,
+  users: [],
   loggedinUser: null,
 };
 

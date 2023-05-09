@@ -1,8 +1,10 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-
+import { useSelector } from 'react-redux'
 
 export function AppHeader() {
+
+    const loggedinUser = useSelector((storeState) => storeState.userModule.loggedinUser);
 
     return (
         <header className="app-header p20">
@@ -14,7 +16,14 @@ export function AppHeader() {
                     <NavLink to="/about" className="nav-link"> About </NavLink>
                     <NavLink to="/contact" className="nav-link"> Contact </NavLink>
                     <NavLink to="/shopping-cart" className="nav-link"> Shopping Cart </NavLink>
-                    <NavLink to="/user-page" className="nav-link"> UserPage </NavLink>
+                    {loggedinUser ? (
+                        <NavLink to="/user-profile" className="nav-link">User Profile</NavLink>
+                    ) : (
+                        <>
+                            <NavLink to="/login" className="nav-link">Login</NavLink>
+                            <NavLink to="/signup" className="nav-link">Signup</NavLink>
+                        </>
+                    )}
                 </nav>
             </div>
         </header>

@@ -7,6 +7,11 @@ import { ProductIndex } from './views/ProductIndex.jsx';
 import { ProductDetails } from './views/ProductDetails.jsx';
 import { ProductEdit } from './views/ProductEdit.jsx';
 import { ShoppingCart } from './views/ShoppingCart.jsx';
+import { Signup } from './views/Signup.jsx';
+import { Login } from './views/Login.jsx';
+import { UserProfile } from './views/UserProfile.jsx';
+import { AboutPage } from './views/AboutPage.jsx';
+import { ContactPage } from './views/ContactPage.jsx';
 
 function App() {
   return (
@@ -16,11 +21,13 @@ function App() {
 
         <main className="main-container">
           <Routes>
-            {/* 
-            <Route path="/user" element={<UserDetails />} />
-          <Route path="/counter" element={<Counter />} /> */}
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="/product/edit/:id?" element={<ProductEdit />} />
             <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/user-profile" element={<UserProfile />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/shopping-cart" element={<ShoppingCart />} />
             <Route path="/shop" element={<ProductIndex />} />
             <Route path="/" element={<HomePage />} />

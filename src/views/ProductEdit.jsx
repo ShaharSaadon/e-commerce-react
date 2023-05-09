@@ -11,6 +11,7 @@ export function ProductEdit() {
     const navigate = useNavigate()
 
     useEffect(() => {
+        document.title = 'KingSize | Edit Product';
         loadProduct()
     }, [])
 

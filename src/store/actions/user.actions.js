@@ -1,4 +1,4 @@
-import { userService } from '../../services/user.service.local';
+import { userService } from '../../services/user.service';
 import {
   REMOVE_USER,
   SET_USERS,
@@ -60,7 +60,6 @@ export function login(userCred) {
 }
 
 export function signup(userCred) {
-  console.log('userCredfromActions:', userCred);
   return async (dispatch) => {
     try {
       const user = await userService.signup(userCred);
