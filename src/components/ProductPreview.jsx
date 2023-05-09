@@ -1,7 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../store/actions/product.actions';
 
 export function ProductPreview({ product, onRemoveProduct }) {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(product));
+  };
+
   return (
     <article className="product-preview">
       <img src={product.imgURL} />
@@ -22,6 +30,8 @@ export function ProductPreview({ product, onRemoveProduct }) {
         <Link to={`/product/${product._id}`} className="details">
           Details
         </Link>
+        <button onClick={handleAddToCart}>Add to Cart</button>
+
         <button
           onClick={() => onRemoveProduct(product._id)}
           className="btn-delete"

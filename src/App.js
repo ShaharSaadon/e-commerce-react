@@ -6,6 +6,7 @@ import { HomePage } from './views/HomePage.jsx';
 import { ProductIndex } from './views/ProductIndex.jsx';
 import { ProductDetails } from './views/ProductDetails.jsx';
 import { ProductEdit } from './views/ProductEdit.jsx';
+import { ShoppingCart } from './views/ShoppingCart.jsx';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/counter" element={<Counter />} /> */}
             <Route path="/product/edit/:id?" element={<ProductEdit />} />
             <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/shopping-cart" element={<ShoppingCart />} />
             <Route path="/shop" element={<ProductIndex />} />
             <Route path="/" element={<HomePage />} />
           </Routes>

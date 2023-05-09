@@ -13,6 +13,7 @@ export function AppHeader() {
                     <NavLink to="/shop" className="nav-link"> Shop </NavLink>
                     <NavLink to="/about" className="nav-link"> About </NavLink>
                     <NavLink to="/contact" className="nav-link"> Contact </NavLink>
+                    <NavLink to="/shopping-cart" className="nav-link"> Shopping Cart </NavLink>
                     <NavLink to="/user-page" className="nav-link"> UserPage </NavLink>
                 </nav>
             </div>

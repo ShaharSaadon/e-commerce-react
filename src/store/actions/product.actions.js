@@ -3,6 +3,9 @@ import {
   REMOVE_PRODUCT,
   SET_FILTER_BY,
   SET_PRODUCTS,
+  REMOVE_FROM_CART,
+  UPDATE_CART_ITEM,
+  ADD_TO_CART,
 } from '../reducers/product.reducer';
 
 export function loadProducts() {
@@ -38,5 +41,26 @@ export function removeProduct(productId) {
 export function setFilterBy(filterBy) {
   return (dispatch) => {
     dispatch({ type: SET_FILTER_BY, filterBy });
+  };
+}
+
+export function addToCart(product) {
+  return {
+    type: ADD_TO_CART,
+    product,
+  };
+}
+
+export function removeFromCart(productId) {
+  return {
+    type: REMOVE_FROM_CART,
+    productId,
+  };
+}
+
+export function updateCartItem(product) {
+  return {
+    type: UPDATE_CART_ITEM,
+    product,
   };
 }
