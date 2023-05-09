@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { loadProducts, setFilterBy } from '../store/actions/product.actions'
 import { useDispatch, useSelector } from 'react-redux'
 import { ProductList } from '../components/ProductList'
+import { useHistory } from 'react-router-dom';
 
 export function DynamicProducts({ category }) {
 

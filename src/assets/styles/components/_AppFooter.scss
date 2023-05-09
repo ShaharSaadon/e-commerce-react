@@ -1,4 +1,27 @@
 .app-footer {
-  margin-block-start: 88vh;
-  background-color: gray;
+  background-color: lightcoral;
+  padding: em(12px);
+  height: 200px;
+
+  .footer-container {
+    justify-content: space-around;
+    h2 {
+      margin-block-end: em(8px);
+    }
+    .nav-link {
+      margin-block-end: em(4px);
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .contact {
+      max-width: em(200px);
+      .links-container {
+        margin-block-start: em(12px);
+        display: flex;
+        gap: em(8px);
+      }
+    }
+  }
 }

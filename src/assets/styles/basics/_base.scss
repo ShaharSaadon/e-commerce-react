@@ -81,3 +81,7 @@ input {
 ::-webkit-scrollbar-thumb:vertical:active {
   -webkit-border-radius: 100px;
 }
+
+.main-content {
+  min-height: calc(100vh - 80px - 46px);
+}

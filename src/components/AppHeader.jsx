@@ -32,10 +32,10 @@ export function AppHeader() {
 
 
                     <NavLink to="/shop" className="nav-link"> All </NavLink>
-                    <NavLink to="/about" className="nav-link"> Blankets </NavLink>
+                    <NavLink to="/blankets" className="nav-link"> Blankets </NavLink>
                     <NavLink to="/pillows" className="nav-link"> Pillows </NavLink>
-                    <NavLink to="/electronics" className="nav-link"> Electronics </NavLink>
-                    <NavLink to="/baby" className="nav-link"> Baby </NavLink>
+                    <NavLink to="/linen" className="nav-link"> Linen </NavLink>
+                    <NavLink to="/towels" className="nav-link">Towels </NavLink>
                     <NavLink to="/contact" className="nav-link"> Contact </NavLink>
                 </nav>
                 <div className="logo"><Link exact="true" to="/">KingSize</Link>

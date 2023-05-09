@@ -6,6 +6,7 @@
   .center-nav {
     .nav-link {
       padding: 12px;
+      font-size: em(24px);
       width: 32px;
       display: flexbox;
       position: relative; /* So we can position the pseudo-element inside */

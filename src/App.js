@@ -20,7 +20,7 @@ function App() {
       <section className="main-container">
         <AppHeader />
 
-        <main>
+        <main className="main-content">
           <Routes>
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
@@ -30,12 +30,23 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/shopping-cart" element={<ShoppingCart />} />
-            <Route path="/baby" element={<DynamicProducts category="baby" />} />
-            <Route
-              path="/electronics"
-              element={<DynamicProducts category="electronics" />}
-            />
             <Route path="/shop" element={<ProductIndex />} />
+            <Route
+              path="/linen"
+              element={<DynamicProducts category="linen" />}
+            />
+            <Route
+              path="/pillows"
+              element={<DynamicProducts category="pillows" />}
+            />
+            <Route
+              path="/blankets"
+              element={<DynamicProducts category="blankets" />}
+            />
+            <Route
+              path="/towels"
+              element={<DynamicProducts category="towels" />}
+            />
             <Route path="/" element={<HomePage />} />
           </Routes>
         </main>

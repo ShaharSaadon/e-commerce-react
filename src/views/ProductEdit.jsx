@@ -47,13 +47,13 @@ export function ProductEdit() {
                 <label htmlFor="name">name</label>
                 <input value={name} onChange={handleChange} type="text" name="name" id="name" />
 
-                <label htmlFor="description">Email</label>
+                <label htmlFor="description">Description</label>
                 <input value={description} onChange={handleChange} type="text" name="description" id="description" />
 
-                <label htmlFor="category">Phone</label>
+                <label htmlFor="category">Category</label>
                 <input value={category} onChange={handleChange} type="text" name="category" id="category" />
 
-                <label htmlFor="price">Phone</label>
+                <label htmlFor="price">Price</label>
                 <input value={price} onChange={handleChange} type="number" name="price" id="price" />
 
 
