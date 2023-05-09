@@ -13,13 +13,26 @@ import { UserProfile } from './views/UserProfile.jsx';
 import { AboutPage } from './views/AboutPage.jsx';
 import { ContactPage } from './views/ContactPage.jsx';
 import { DynamicProducts } from './views/DynamicProducts';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <Router>
       <section className="main-container">
         <AppHeader />
-
+        <ToastContainer
+          position="bottom-right"
+          autoClose={2500}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
         <main className="main-content">
           <Routes>
             <Route path="/about" element={<AboutPage />} />

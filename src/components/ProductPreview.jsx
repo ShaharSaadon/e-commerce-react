@@ -2,12 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../store/actions/cart.actions';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 export function ProductPreview({ product, onRemoveProduct }) {
   const dispatch = useDispatch();
+  const notify = () => toast('Product Added Successfully');
 
   const handleAddToCart = () => {
     dispatch(addToCart(product));
+    notify()
   };
 
   return (
