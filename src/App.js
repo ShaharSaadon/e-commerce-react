@@ -21,18 +21,7 @@ function App() {
     <Router>
       <section className="main-container">
         <AppHeader />
-        <ToastContainer
-          position="bottom-right"
-          autoClose={2500}
-          hideProgressBar={false}
-          newestOnTop
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="dark"
-        />
+        <ToastContainer />
         <main className="main-content">
           <Routes>
             <Route path="/about" element={<AboutPage />} />

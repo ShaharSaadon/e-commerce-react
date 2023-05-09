@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, updateCartItem } from '../store/actions/cart.actions';
-
+import { showWarning, showSuccess } from '../services/alert.message'
 export function ShoppingCart() {
 
     const cart = useSelector((state) => state.cartModule.cart);
@@ -9,10 +9,12 @@ export function ShoppingCart() {
 
     const handleRemoveFromCart = (productId) => {
         dispatch(removeFromCart(productId));
+        showWarning('Product Deleted Successfully')
     };
 
     const handleUpdateCartItem = (product, quantity) => {
         dispatch(updateCartItem({ ...product, quantity }));
+        showSuccess(`Product Quantity Updated to ${quantity}`)
 
     };
 
