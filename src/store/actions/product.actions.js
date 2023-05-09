@@ -11,6 +11,7 @@ export function loadProducts() {
       const products = await productService.query(
         getState().productModule.filterBy
       );
+      console.log('products=:', products);
       const action = {
         type: SET_PRODUCTS,
         products,

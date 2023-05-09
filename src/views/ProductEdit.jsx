@@ -44,17 +44,17 @@ export function ProductEdit() {
             <h1>{product._id ? 'Edit' : 'Add'} Product</h1>
             <form onSubmit={onSaveProduct} >
 
-                <label htmlFor="Name">name</label>
-                <input value={name} onChange={handleChange} type="text" name="Name" id="Name" />
+                <label htmlFor="name">name</label>
+                <input value={name} onChange={handleChange} type="text" name="name" id="name" />
 
-                <label htmlFor="Description">Email</label>
-                <input value={description} onChange={handleChange} type="text" name="Description" id="Description" />
+                <label htmlFor="description">Email</label>
+                <input value={description} onChange={handleChange} type="text" name="description" id="description" />
 
-                <label htmlFor="Category">Phone</label>
-                <input value={category} onChange={handleChange} type="text" name="Category" id="Category" />
+                <label htmlFor="category">Phone</label>
+                <input value={category} onChange={handleChange} type="text" name="category" id="category" />
 
-                <label htmlFor="Price">Phone</label>
-                <input value={price} onChange={handleChange} type="number" name="Price" id="Price" />
+                <label htmlFor="price">Phone</label>
+                <input value={price} onChange={handleChange} type="number" name="price" id="price" />
 
 
                 <button>Save</button>

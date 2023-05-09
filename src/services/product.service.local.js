@@ -48,23 +48,33 @@ const gProducts = [
 ];
 
 async function query(filterBy) {
-  let productsToReturn = await storageService.query(STORAGE_KEY);
-  if (!productsToReturn || productsToReturn.length === 0) {
+  let updatedProducts = await storageService.query(STORAGE_KEY);
+  if (!updatedProducts || updatedProducts.length === 0) {
     await postProducts();
-    productsToReturn = await storageService.query(STORAGE_KEY);
+    updatedProducts = await storageService.query(STORAGE_KEY);
   }
-  console.log(filterBy);
-  if (filterBy) {
-    var { category, maxPrice, name } = filterBy;
 
-    productsToReturn = gProducts.filter(
-      (product) =>
-        product.category.toLowerCase().includes(category.toLowerCase()) &&
-        product.name.toLowerCase().includes(name.toLowerCase()) &&
-        product.price <= maxPrice
+  var { category, maxPrice, name } = filterBy;
+
+  if (category) {
+    const regex = new RegExp(category, 'i');
+    updatedProducts = updatedProducts.filter((product) =>
+      regex.test(product.category)
     );
   }
-  return productsToReturn;
+  if (name) {
+    const regex = new RegExp(name, 'i');
+    updatedProducts = updatedProducts.filter((product) =>
+      regex.test(product.name)
+    );
+  }
+  if (maxPrice) {
+    updatedProducts = updatedProducts.filter(
+      (product) => product.price <= maxPrice
+    );
+  }
+
+  return updatedProducts;
 }
 
 async function getById(productId) {
@@ -90,7 +100,7 @@ async function remove(productId) {
   // if (!gProducts.length) gProducts = gDefaultProducts.slice();
   // storageService.store(STORAGE_KEY, gProducts);
   // return Promise.resolve();
-
+  console.log('productId:', productId);
   return await storageService.remove(STORAGE_KEY, productId);
 }
 
@@ -126,48 +136,10 @@ async function postProducts() {
 
 function getEmptyProduct() {
   return {
-    Name: 'Example Product',
-    Description: 'This is an example product with all attributes.',
-    Category: 'Electronics',
-    Subcategory: 'Smartphones',
-    Brand: 'ExampleBrand',
-    Model: 'ExampleModel',
-    SKU: 'EX12345',
-    UPC: '0123456789012',
-    EAN: '0123456789012',
-    Color: 'Black',
-    Size: '6.1 inches',
-    Material: 'Aluminum',
-    Weight: '150 grams',
-    Dimensions: {
-      length: '150 mm',
-      width: '70 mm',
-      height: '8 mm',
-    },
-    Price: 999.99,
-    Currency: 'ILS',
-    Availability: 'In Stock',
-    Warranty: '1 Year Manufacturer Warranty',
-    Rating: 4.5,
-    ReviewCount: 250,
-    ImageURL: 'https://example.com/images/example_product.jpg',
-    ThumbnailURL:
-      'https://example.com/images/thumbnails/example_product_thumbnail.jpg',
-    GalleryImages: [
-      'https://example.com/images/gallery/example_product_1.jpg',
-      'https://example.com/images/gallery/example_product_2.jpg',
-    ],
-    Features: [
-      'High-resolution display',
-      'Long-lasting battery life',
-      'Fast processor',
-    ],
-    Specifications: [
-      'Screen Size: 6.1 inches',
-      'Battery Capacity: 4000mAh',
-      'Processor: Octa-core 2.8GHz',
-    ],
-    PackageContents: ['Example Product', 'Charging cable', 'User manual'],
-    Keywords: ['example product', 'smartphone', 'electronics'],
+    _id: '',
+    name: '',
+    description: '',
+    category: '',
+    price: 0,
   };
 }

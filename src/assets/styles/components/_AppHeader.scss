@@ -1,3 +1,40 @@
 .app-header {
-  background-color: orange;
+  background-color: inherit;
+  border-bottom: 1px solid rgba($color: #000000, $alpha: 0.2);
+  padding: em(24px);
+
+  .center-nav {
+    .nav-link {
+      padding: 12px;
+      width: 32px;
+      display: flexbox;
+      position: relative; /* So we can position the pseudo-element inside */
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%; /* Position the center of the line under the middle of the word */
+        width: 0; /* Start with no width */
+        height: 2px;
+        background-color: #000; /* Set the color of the line */
+        transition: width 0.3s ease-in-out; /* Add an animation to the width property */
+        transform: translateX(
+          -50%
+        ); /* Move the center of the line back to the left */
+      }
+
+      &:hover::before {
+        width: 100%; /* Increase the width of the line to 100% of its container */
+      }
+    }
+
+    .active {
+      font-weight: 700;
+    }
+  }
+}
+
+.icon {
+  width: em(24px);
+  height: (24px);
 }

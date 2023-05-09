@@ -12,14 +12,15 @@ import { Login } from './views/Login.jsx';
 import { UserProfile } from './views/UserProfile.jsx';
 import { AboutPage } from './views/AboutPage.jsx';
 import { ContactPage } from './views/ContactPage.jsx';
+import { DynamicProducts } from './views/DynamicProducts';
 
 function App() {
   return (
     <Router>
-      <section className="App">
+      <section className="main-container">
         <AppHeader />
 
-        <main className="main-container">
+        <main>
           <Routes>
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
@@ -29,6 +30,11 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/shopping-cart" element={<ShoppingCart />} />
+            <Route path="/baby" element={<DynamicProducts category="baby" />} />
+            <Route
+              path="/electronics"
+              element={<DynamicProducts category="electronics" />}
+            />
             <Route path="/shop" element={<ProductIndex />} />
             <Route path="/" element={<HomePage />} />
           </Routes>

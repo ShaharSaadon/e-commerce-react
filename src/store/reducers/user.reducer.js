@@ -1,3 +1,5 @@
+import { userService } from '../../services/user.service';
+
 export const SET_USERS = 'SET_USERS';
 export const ADD_USER = 'ADD_USER';
 export const REMOVE_USER = 'REMOVE_USER';
@@ -6,7 +8,7 @@ export const SET_LOGGEDIN_USER = 'SET_LOGGEDIN_USER';
 
 const INITIAL_STATE = {
   users: [],
-  loggedinUser: null,
+  loggedinUser: userService.getLoggedinUser(),
 };
 
 export function userReducer(state = INITIAL_STATE, action = {}) {

@@ -1,3 +1,4 @@
+import { productService } from '../../services/product.service.local';
 import { storageService } from '../../services/storage.service';
 
 export const SET_PRODUCTS = 'SET_PRODUCTS';
@@ -7,7 +8,7 @@ export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 export const SET_FILTER_BY = 'SET_FILTER_BY';
 
 const INITIAL_STATE = {
-  products: null,
+  products: [],
   filterBy: {
     name: '',
     category: '',
@@ -28,6 +29,7 @@ export function productReducer(state = INITIAL_STATE, action = {}) {
         products: [...state.products, action.product],
       };
     case REMOVE_PRODUCT:
+      console.log('state:', state);
       return {
         ...state,
         products: state.products.filter(
