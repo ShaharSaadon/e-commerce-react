@@ -3,8 +3,12 @@
   color: white;
   padding: em(12px);
   height: 200px;
+  // position: relative;
+  // bottom: 0;
 
   .footer-container {
+    // display: absolute;
+    // bottom: 0;
     justify-content: space-around;
     h2 {
       margin-block-end: em(8px);

@@ -1,12 +1,15 @@
 .product-preview {
   padding: 32px;
+  margin: 24px 0;
   flex-direction: column;
   align-items: center;
-  // border: 1px solid black;
+  text-align: center;
+  height: 600px;
+
   &:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px 20px rgba(0, 0, 0, 0.1);
     scale: 1.05;
-    transition: 0.2s;
+    transition: 0.5s;
   }
   .box {
     flex-direction: column;
@@ -32,12 +35,20 @@
       padding: 12px 24px;
       border: 1px solid black;
       font-weight: 700;
+      &:hover {
+        background-color: black;
+        color: white;
+        transition: 0.3s;
+        img {
+          filter: invert(1);
+          transform: translateX(6px);
+          transition: 0.3s;
+        }
+      }
+
       img {
         margin-inline-start: 12px;
       }
-    }
-    &:hover {
-      border-color: black;
     }
   }
 }

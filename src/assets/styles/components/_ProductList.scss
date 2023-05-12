@@ -1,14 +1,7 @@
 .product-list {
-  display: flex;
-  flex-wrap: wrap;
-  // flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   .product-container {
-    display: flex;
-    flex: 1 1 300px; /* set the minimum width to 250px */
-    max-width: 1fr; /* set the maximum width to 1fr */
-    // max-width: 230px;
-    flex-grow: 1;
-
     .product-preview {
       .description {
         max-width: 40%;
