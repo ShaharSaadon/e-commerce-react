@@ -22,36 +22,32 @@ function App() {
       <section className="main-container">
         <AppHeader />
         <ToastContainer />
-        <main className="main-content">
-          <Routes>
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/product/edit/:id?" element={<ProductEdit />} />
-            <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="/user-profile" element={<UserProfile />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/shopping-cart" element={<ShoppingCart />} />
-            <Route path="/shop" element={<ProductIndex />} />
-            <Route
-              path="/linen"
-              element={<DynamicProducts category="linen" />}
-            />
-            <Route
-              path="/pillows"
-              element={<DynamicProducts category="pillows" />}
-            />
-            <Route
-              path="/blankets"
-              element={<DynamicProducts category="blankets" />}
-            />
-            <Route
-              path="/towels"
-              element={<DynamicProducts category="towels" />}
-            />
-            <Route path="/" element={<HomePage />} />
-          </Routes>
-        </main>
+
+        <Routes>
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/product/edit/:id?" element={<ProductEdit />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/user-profile" element={<UserProfile />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/shopping-cart" element={<ShoppingCart />} />
+          <Route path="/shop" element={<ProductIndex />} />
+          <Route path="/linen" element={<DynamicProducts category="linen" />} />
+          <Route
+            path="/pillows"
+            element={<DynamicProducts category="pillows" />}
+          />
+          <Route
+            path="/blankets"
+            element={<DynamicProducts category="blankets" />}
+          />
+          <Route
+            path="/towels"
+            element={<DynamicProducts category="towels" />}
+          />
+          <Route path="/" element={<HomePage />} />
+        </Routes>
 
         <AppFooter />
       </section>

@@ -35,6 +35,24 @@
   }
 }
 
+.second {
+  padding: 1.5em;
+  .right-nav {
+    gap: 2rem;
+    display: flex;
+  }
+
+  .login {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+  }
+  .left-nav {
+    display: flex;
+    gap: 6px;
+  }
+}
+
 .icon {
   width: em(24px);
   height: (24px);

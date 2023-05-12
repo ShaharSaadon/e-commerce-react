@@ -44,7 +44,7 @@ export function ProductIndex() {
             <div className="tools flex justify-center items-center">
                 <NavLink exact="true" to="/product/edit" className="nav-link">Add Product</NavLink>
 
-                <ProductFilter filterBy={filterBy} onChangeFilter={onChangeFilter} />
+                {/* <ProductFilter filterBy={filterBy} onChangeFilter={onChangeFilter} /> */}
 
                 {/* <Link to="/contact/edit" class="add-contact">Add contact</Link> */}
             </div>

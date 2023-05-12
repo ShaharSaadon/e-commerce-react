@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../store/actions/cart.actions';
 import { showSuccess } from '../services/alert.message'
-
+import { DynamicColors } from './DynamicColors';
+import rightArrow from '../assets/images/svgs/right-arrow.svg'
 export function ProductPreview({ product, onRemoveProduct }) {
   const dispatch = useDispatch();
 
@@ -13,34 +14,34 @@ export function ProductPreview({ product, onRemoveProduct }) {
   };
 
   return (
-    <article className="product-preview">
-      <img src={product.imgURL} />
-      <Link to={`/product/${product._id}`} className="info">
-        <div className="box">
+    <article className="product-preview flex">
+      <Link to={`/product/${product._id}`} className="details">
+
+        <img src={product.imgURL} className='square-ratio' />
+        <div className="box flex">
           <h3>{product.name}</h3>
-          <p>{product.description}</p>
-          <p>{product.category}</p>
-          <p>Price: {product.price}</p>
-          <p>Color: {product.color}</p>
+          {/* <p className='description'>{product.description}</p> */}
+          <p> Lorem ipsum dolor sit amet consectetur.</p>
+          <p className='price'>{product.price} ILS</p>
+          <DynamicColors />
 
         </div>
-      </Link>
-      <div className="actions">
-        <Link to={`/product/edit/${product._id}`} className="edit">
-          Edit
-        </Link>
-        <Link to={`/product/${product._id}`} className="details">
-          Details
-        </Link>
-        <button onClick={handleAddToCart}>Add to Cart</button>
-
-        <button
-          onClick={() => onRemoveProduct(product._id)}
-          className="btn-delete"
-        >
+        <div className="actions">
+          {/* <Link to={`/product/edit/${product._id}`} className="edit">
+            Edit
+          </Link> */}
+          <button onClick={handleAddToCart}>
+            ADD TO CART
+            <img src={rightArrow} alt="" />
+          </button>
+          {/* <button
+            onClick={() => onRemoveProduct(product._id)}
+            className="btn-delete"
+          >
           Delete
-        </button>
-      </div>
-    </article>
+        </button> */}
+        </div>
+      </Link>
+    </article >
   );
 }

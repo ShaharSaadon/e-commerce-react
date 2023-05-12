@@ -1,11 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useForm } from '../customHooks/useForm'
 import { productService } from '../services/product.service.local'
 import { useNavigate, useParams } from 'react-router';
+import { uploadService } from "../services/upload.service";
+import dragImg from '../assets/images/drag.png';
 
 
 export function ProductEdit() {
     const [product, handleChange, setProduct] = useForm(productService.getEmptyProduct())
+    const fileInputRef = useRef(null);
 
     const params = useParams()
     const navigate = useNavigate()
@@ -31,13 +34,19 @@ export function ProductEdit() {
         ev.preventDefault()
         try {
             await productService.save({ ...product })
-            navigate('/shop')
+            navigate(-1)
         } catch (error) {
             console.log('error:', error)
         }
     }
 
-    const { name, description, category, price } = product
+    async function handleFile({ target }) {
+        const imgURL = await uploadService.uploadImg(target.files[0]);
+        setProduct({ ...product, imgURL });
+    }
+
+
+    const { name, description, category, price, imgURL } = product
 
     return (
         <section className='product-edit'>
@@ -56,7 +65,20 @@ export function ProductEdit() {
                 <label htmlFor="price">Price</label>
                 <input value={price} onChange={handleChange} type="number" name="price" id="price" />
 
-
+                <label htmlFor="imgURL">Image Url:</label>
+                <div className="img-uploader">
+                    <img src={imgURL || dragImg} alt="" />
+                    <input
+                        className="input-img"
+                        onChange={handleFile}
+                        ref={fileInputRef}
+                        accept="image/*"
+                        type="file"
+                    />
+                </div>
+                <button type="button" onClick={() => fileInputRef.current.click()}>
+                    Upload an image
+                </button>
                 <button>Save</button>
             </form>
         </section>)

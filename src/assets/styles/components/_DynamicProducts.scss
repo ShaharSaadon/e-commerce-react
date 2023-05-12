@@ -1,0 +1,45 @@
+.main-dynamic-content {
+  display: grid;
+  gap: 12px;
+  grid-template-areas:
+    'teaser teaser teaser'
+    'products  products filter'
+    'products  products filter';
+  .teaser-container {
+    grid-area: teaser;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(46 50 56);
+    height: 280px;
+    width: 100%;
+    color: white;
+    border-radius: 10px;
+
+    h2 {
+      font-size: em(54px);
+      font-family: Montserrat;
+      margin-block-end: 1rem;
+    }
+
+    p {
+      max-width: 40%;
+      text-align: center;
+      font-family: Montserrat;
+      line-height: 1.4;
+    }
+  }
+  .product-list-container {
+    // background-color: rgb(46 50 56);
+    grid-area: products;
+    border-radius: 10px;
+  }
+  .filter-container {
+    // background-color: rgb(46 50 56);
+    grid-area: filter;
+    border-radius: 10px;
+    // border: 1px solid black;
+    // align-self: center;
+  }
+}

@@ -4,42 +4,55 @@ import { useSelector } from 'react-redux'
 import shoppingCart from '../assets/images/svgs/shoppingCart.svg'
 import search from '../assets/images/svgs/search.svg'
 import person from '../assets/images/svgs/person.svg'
+import mail from '../assets/images/svgs/mail.svg'
+import instagram from '../assets/images/svgs/instagram.svg'
+import facebook from '../assets/images/svgs/facebook.svg'
+
 export function AppHeader() {
 
     const loggedinUser = useSelector((storeState) => storeState.userModule.loggedinUser);
 
     return (
-        <header className="app-header">
-            <div className="flex justify-between items-center">
-
+        <header className="main-header">
+            <div className="app-header first">
+                <div className="flex justify-between items-center">
+                    <div className="logo"><Link exact="true" to="/">KingSize</Link>
+                    </div>
+                    <nav className="center-nav">
+                        <NavLink to="/shop" className="nav-link"> All </NavLink>
+                        <NavLink to="/blankets" className="nav-link"> Blankets </NavLink>
+                        <NavLink to="/pillows" className="nav-link"> Pillows </NavLink>
+                        <NavLink to="/linen" className="nav-link"> Linen </NavLink>
+                        <NavLink to="/towels" className="nav-link">Towels </NavLink>
+                        <NavLink to="/contact" className="nav-link"> Contact </NavLink>
+                    </nav>
+                </div>
+            </div>
+            <div className="second flex justify-between">
                 <nav className="left-nav">
-                    <NavLink to="/shopping-cart" className="nav-link">
-                        <img src={shoppingCart} alt="Shopping Cart" className="icon" />
-                    </NavLink>
+                    <img src={instagram} alt="" className='icon' />
+                    <img src={mail} alt="" className='icon' />
+                    <img src={facebook} alt="" className='icon' />
+                </nav>
+                <nav className="right-nav flex">
+
                     {loggedinUser ? (
                         <NavLink to="/user-profile" className="nav-link">
                             <img src={person} alt="user-profile" className="icon" />
                         </NavLink>
                     ) : (
                         <>
-                            <NavLink to="/login" className="nav-link">Login</NavLink>
-                            <NavLink to="/signup" className="nav-link">Signup</NavLink>
+                            <div className="login flex">
+                                <img src={person} alt="user-profile" className="icon" />
+                                <NavLink to="/login" className="nav-link">Log In</NavLink>
+                            </div>
                         </>
                     )}
-                    <img src={search} alt="search" className="icon" />
-                </nav>
-                <nav className="center-nav">
 
-
-                    <NavLink to="/shop" className="nav-link"> All </NavLink>
-                    <NavLink to="/blankets" className="nav-link"> Blankets </NavLink>
-                    <NavLink to="/pillows" className="nav-link"> Pillows </NavLink>
-                    <NavLink to="/linen" className="nav-link"> Linen </NavLink>
-                    <NavLink to="/towels" className="nav-link">Towels </NavLink>
-                    <NavLink to="/contact" className="nav-link"> Contact </NavLink>
+                    <NavLink to="/shopping-cart" className="nav-link">
+                        <img src={shoppingCart} alt="Shopping Cart" className="icon" />
+                    </NavLink>
                 </nav>
-                <div className="logo"><Link exact="true" to="/">KingSize</Link>
-                </div>
             </div>
         </header>
     )

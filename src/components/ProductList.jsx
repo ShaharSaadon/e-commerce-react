@@ -5,8 +5,9 @@ import { memo } from 'react'
 function _ProductList({ products, onRemoveProduct }) {
     return (
         <section className="clean-list product-list flex">
+
             {products.map((product) =>
-                <li key={product._id}>
+                <li key={product._id} className="product-container">
                     <ProductPreview product={product} onRemoveProduct={onRemoveProduct} />
                 </li>
             )}

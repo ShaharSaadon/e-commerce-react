@@ -9,6 +9,8 @@ export const SET_FILTER_BY = 'SET_FILTER_BY';
 
 const INITIAL_STATE = {
   products: [],
+  categories: ['blankets', 'pillows', 'linen', 'towels'],
+  colors: ['red', 'yellow', 'green', 'blue'],
   filterBy: {
     name: '',
     category: '',
