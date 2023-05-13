@@ -214,7 +214,7 @@ const gProducts = [
 async function query(filterBy) {
   let updatedProducts = await storageService.query(STORAGE_KEY);
   if (!updatedProducts || updatedProducts.length === 0) {
-    await postProducts();
+    await _postProducts();
     updatedProducts = await storageService.query(STORAGE_KEY);
   }
   var { category, minMaxPrice, name, colors } = filterBy;
@@ -297,7 +297,7 @@ async function save(product) {
   return savedProduct;
 }
 
-async function postProducts() {
+async function _postProducts() {
   for (let i = 0; i < gProducts.length; i++) {
     await storageService.post(STORAGE_KEY, gProducts[i]);
   }
