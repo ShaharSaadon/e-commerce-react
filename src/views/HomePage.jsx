@@ -1,5 +1,4 @@
 import React from 'react'
-import cover from '../assets/images/cover.webp';
 import bCover from '../assets/images/bedding-cover.jpg';
 import delivery from '../assets/images/delivery.png'
 import shield from '../assets/images/shield.png'

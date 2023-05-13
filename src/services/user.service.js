@@ -28,6 +28,7 @@ async function getUsers(filterBy = { txt: '' }) {
     const regex = new RegExp(filterBy.txt, 'i');
     users = users.filter((user) => regex.test(user.fullname));
   }
+  console.log('users:', users);
   return users;
 
   // return await httpService.get(`user`, filterBy)
@@ -122,6 +123,7 @@ function getEmptySignupCred() {
     fullname: '',
     username: '',
     password: '',
+    orders: '',
     imgURL: '',
   };
 }

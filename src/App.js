@@ -15,6 +15,7 @@ import { ContactPage } from './views/ContactPage.jsx';
 import { DynamicProducts } from './views/DynamicProducts';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AdminPanel from './views/AdminPanel';
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/:category/:subCategory" element={<DynamicProducts />} />
           <Route path="/:category" element={<DynamicProducts />} />
-          <Route path="/:category" element={<DynamicProducts />} />
+          <Route path="/admin-panel" element={<AdminPanel />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/user-profile" element={<UserProfile />} />
