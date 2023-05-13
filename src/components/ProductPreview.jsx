@@ -8,7 +8,8 @@ import rightArrow from '../assets/images/svgs/right-arrow.svg'
 export function ProductPreview({ product, onRemoveProduct }) {
   const dispatch = useDispatch();
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (ev) => {
+    ev.preventDefault()
     dispatch(addToCart(product));
     showSuccess('Product Added successfully')
   };
@@ -23,13 +24,13 @@ export function ProductPreview({ product, onRemoveProduct }) {
           {/* <p className='description'>{product.description}</p> */}
           <p> Lorem ipsum dolor sit amet consectetur.</p>
           <p className='price'>{product.price} ILS</p>
-          <DynamicColors />
+          <DynamicColors colors={[product.colors]} />
 
         </div>
         <div className="actions">
-          {/* <Link to={`/product/edit/${product._id}`} className="edit">
+          <Link to={`/product/edit/${product._id}`} className="edit">
             Edit
-          </Link> */}
+          </Link>
           <button onClick={handleAddToCart}>
             ADD TO CART
             <img src={rightArrow} alt="" />

@@ -46,7 +46,7 @@ export function ProductDetails(props) {
                 <p>Price: {product.price} {product.Currency} </p>
             </section>
             <section>
-                <p>Color: {product.color}</p>
+                <p>Color: {product.colors}</p>
             </section>
 
         </section>)

@@ -1,9 +1,9 @@
 .main-dynamic-content {
   display: grid;
-  gap: 12px;
+  row-gap: 12px;
   grid-template-areas:
     'teaser teaser teaser'
-    'sort sort sort'
+    'sub sub sub'
     'products  products filter'
     'products  products filter';
   .teaser-container {
@@ -31,26 +31,27 @@
       line-height: 1.4;
     }
   }
+  .sub-categories-container {
+    grid-area: sub;
+  }
   .product-list-container {
     // background-color: rgb(46 50 56);
+
     grid-area: products;
     border-radius: 10px;
+    // border: 1px solid black;
+    width: content;
+    .product-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: start;
+    }
   }
   .filter-container {
-    // background-color: rgb(46 50 56);
     grid-area: filter;
     border-radius: 10px;
-    // border: 1px solid black;
     justify-self: end;
-    position: absolute;
-    top: 448px;
-  }
-
-  .sort-container {
-    grid-area: sort;
-    // width: 7;
-    background-color: gray;
-    padding: 20px;
-    margin: 12px;
+    min-width: 379px;
+    // border: 1px black solid;
   }
 }

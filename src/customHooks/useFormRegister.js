@@ -15,7 +15,11 @@ export function useFormRegister(initialFields, cb = () => {}) {
     switch (target.type) {
       case 'number':
       case 'range':
-        value = +value;
+        if (Array.isArray(value)) {
+          value = [+value[0], +value[1]];
+        } else {
+          value = +value;
+        }
         break;
       case 'checkbox':
         value = target.checked;

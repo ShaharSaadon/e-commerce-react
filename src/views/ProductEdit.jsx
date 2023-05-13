@@ -46,7 +46,7 @@ export function ProductEdit() {
     }
 
 
-    const { name, description, category, price, imgURL } = product
+    const { name, description, category, price, imgURL, colors } = product
 
     return (
         <section className='product-edit'>
@@ -64,6 +64,11 @@ export function ProductEdit() {
 
                 <label htmlFor="price">Price</label>
                 <input value={price} onChange={handleChange} type="number" name="price" id="price" />
+
+                <label htmlFor="price">Colors</label>
+                {colors.map((color, index) => (
+                    <div key={index} style={{ backgroundColor: color }} className='color'> </div>
+                ))}
 
                 <label htmlFor="imgURL">Image Url:</label>
                 <div className="img-uploader">

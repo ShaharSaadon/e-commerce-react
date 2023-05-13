@@ -1,5 +1,6 @@
 .home-page-container {
-  height: max-content;
+  min-height: max-content;
+
   .cover-img {
     height: 800px;
     object-fit: cover;

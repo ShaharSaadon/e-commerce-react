@@ -15,7 +15,7 @@ const gProducts = [
     description:
       '100% pure goose down filling. Breathable cotton cover. Hypoallergenic and dust mite resistant. Medium-firm support. Piped edges for durability. Machine washable. 850 fill power.',
     category: 'pillows',
-    color: 'white',
+    colors: ['white'],
     price: 79.99,
     imgURL: 'https://robohash.org/2',
   },
@@ -25,7 +25,7 @@ const gProducts = [
     description:
       '100% pure mulberry silk. Hypoallergenic and gentle on the skin. Silky smooth and lustrous finish. Temperature regulating properties. Includes 1 flat sheet, 1 fitted sheet, and 2 pillowcases. Available in Queen and King sizes.',
     category: 'linen',
-    color: 'silver',
+    colors: ['silver'],
     price: 299.99,
     imgURL: 'https://robohash.org/3',
   },
@@ -35,7 +35,7 @@ const gProducts = [
     description:
       '100% premium cashmere wool. Ultra-soft and warm. Lightweight and breathable. Elegant twill weave pattern. Hand-finished with a fringe trim. Dry clean only.',
     category: 'blankets',
-    color: 'beige',
+    colors: ['beige'],
     price: 399.99,
     imgURL: 'https://robohash.org/4',
   },
@@ -45,7 +45,7 @@ const gProducts = [
     description:
       '70% organic bamboo, 30% cotton blend. Soft, absorbent, and eco-friendly. Odor-resistant and antibacterial properties. Includes 2 bath towels, 2 hand towels, and 2 washcloths. Machine washable. 600 GSM.',
     category: 'towels',
-    color: 'green',
+    colors: ['green'],
     price: 89.99,
     imgURL: 'https://robohash.org/5',
   },
@@ -55,7 +55,7 @@ const gProducts = [
     description:
       'Memory foam with cooling gel layer. Medium-firm support. Ventilated for increased airflow and breathability. Removable, washable cover. Contours to the shape of your head and neck.',
     category: 'pillows',
-    color: 'blue',
+    colors: ['blue'],
     price: 59.99,
     imgURL: 'https://robohash.org/6',
   },
@@ -65,7 +65,7 @@ const gProducts = [
     description:
       '100% pure combed cotton. Soft, stretchy, and breathable. T-shirt-like comfort. Includes 1 flat sheet, 1 fitted sheet, and 2 pillowcases. Available in Twin, Full, Queen, and King sizes. Machine washable.',
     category: 'linen',
-    color: 'gray',
+    colors: ['gray'],
     price: 79.99,
     imgURL: 'https://robohash.org/7',
   },
@@ -75,7 +75,7 @@ const gProducts = [
     description:
       '100% polyester faux fur. Luxuriously soft and warm. Realistic animal fur pattern. Perfect for snuggling or as a decorativeaccent. Machine washable. Size: 50" x 60".',
     category: 'blankets',
-    color: 'brown',
+    colors: ['brown'],
     price: 49.99,
     imgURL: 'https://robohash.org/8',
   },
@@ -84,8 +84,8 @@ const gProducts = [
     name: 'Plush Microfiber Towel Set',
     description:
       '100% ultra-soft microfiber. Quick-drying and highly absorbent. Lint-free and fade-resistant. Includes 2 bath towels, 2 hand towels, and 2 washcloths. Machine washable. 550 GSM.',
-    category: 'towels',
-    color: 'navy',
+    category: ['towels'],
+    colors: 'navy',
     price: 69.99,
     imgURL: 'https://robohash.org/9',
   },
@@ -95,7 +95,7 @@ const gProducts = [
     description:
       'Memory foam with lavender infusion. Calming lavender scent for better sleep. Medium-firm support. Removable, washable cover. Contours to the shape of your head and neck. Size: 24" x 16" x 5".',
     category: 'pillows',
-    color: 'purple',
+    colors: ['purple'],
     price: 64.99,
     imgURL: 'https://robohash.org/10',
   },
@@ -105,7 +105,7 @@ const gProducts = [
     description:
       'Memory foam with lavender infusion. Calming lavender scent for better sleep. Medium-firm support. Removable, washable cover. Contours to the shape of your head and neck. Size: 24" x 16" x 5".',
     category: 'linen',
-    color: 'red',
+    colors: ['red'],
     price: 89.99,
     imgURL: 'https://robohash.org/11',
   },
@@ -115,7 +115,7 @@ const gProducts = [
     description:
       '100% pure combed cotton. Breathable and lightweight. Waffle weave pattern for added texture. Perfect for all seasons. Machine washable. Size: 66" x 90" (Twin), 90" x 90" (Queen), 108" x 90" (King).',
     category: 'blankets',
-    color: 'ivory',
+    colors: ['ivory'],
     price: 59.99,
     imgURL: ' https://robohash.org/12',
   },
@@ -125,7 +125,7 @@ const gProducts = [
     description:
       '100% long-staple cotton. Soft, absorbent, and durable. Elegant diamond jacquard pattern. Includes 2 bath towels, 2 hand towels, and 2 washcloths. Machine washable. 700 GSM.',
     category: 'towels',
-    color: 'taupe',
+    colors: ['taupe'],
     price: 79.99,
     imgURL: 'https://robohash.org/13',
   },
@@ -135,7 +135,7 @@ const gProducts = [
     description:
       'Memory foam with activated charcoal infusion. Odor-neutralizing and moisture-absorbing. Medium-firm support. Removable, washable cover. Contours to the shape of your head and neck. Size: 24" x 16" x 5".',
     category: 'pillows',
-    color: 'black',
+    colors: ['black'],
     price: 64.99,
     imgURL: 'https://robohash.org/14',
   },
@@ -145,7 +145,7 @@ const gProducts = [
     description:
       '100% pure long-staple cotton. Crisp, cool, and breathable. Matte finish with a soft hand feel. Includes 1 flat sheet, 1 fitted sheet, and 2 pillowcases. Available in Twin, Full, Queen, and King sizes. Machine washable.',
     category: 'linen',
-    color: 'sky blue',
+    colors: ['blue'],
     price: 99.99,
     imgURL: 'https://robohash.org/15',
   },
@@ -155,7 +155,7 @@ const gProducts = [
     description:
       '100% polyester chenille knit. Ultra-soft and plush texture. Warm and cozy. Ideal for layering or as a standalone blanket. Machine washable.',
     category: 'blankets',
-    color: 'pink',
+    colors: ['pink'],
     price: 39.99,
     imgURL: 'https://robohash.org/16',
   },
@@ -165,7 +165,7 @@ const gProducts = [
     description:
       '100% genuine Turkish cotton. Luxurious, soft, and absorbent. Long-lasting and quick-drying. Includes 2 bath towels, 2 hand towels, and 2 washcloths. Machine washable. 650 GSM.',
     category: 'towels',
-    color: 'coral',
+    colors: ['coral'],
     price: 109.99,
     imgURL: 'https://robohash.org/17',
   },
@@ -175,7 +175,7 @@ const gProducts = [
     description:
       'Memory foam with copper-infused cover. Antibacterial and antimicrobial properties. Medium-firm support. Removable, washable cover. Contours to the shape of your head and neck. Size: 24" x 16" x 5".',
     category: 'pillows',
-    color: 'copper',
+    colors: ['copper'],
     price: 69.99,
     imgURL: 'https://robohash.org/18',
   },
@@ -185,7 +185,7 @@ const gProducts = [
     description:
       '100% pure long-staple cotton. Smooth, lustrous, and wrinkle-resistant. Silky soft feel with a subtle sheen. Includes 1 flat sheet, 1 fitted sheet, and 2 pillowcases. Available in Twin, Full, Queen, and King sizes. Machine washable.',
     category: 'linen',
-    color: 'gold',
+    colors: ['gold'],
     price: 119.99,
     imgURL: 'https://robohash.org/19',
   },
@@ -195,7 +195,7 @@ const gProducts = [
     description:
       '100% polyester quilted velvet. Soft, warm, and luxurious. Diamond quilted pattern. Ideal for layering or as a standalone blanket. Machine washable.',
     category: 'blankets',
-    color: 'burgundy',
+    colors: ['burgundy'],
     price: 69.99,
     imgURL: 'https://robohash.org/20',
   },
@@ -205,7 +205,7 @@ const gProducts = [
     description:
       '100% pure cotton. Soft, absorbent, and durable. Classic beach stripe design. Includes 2 bath towels, 2 hand towels, and 2 washcloths. Machine washable. 500 GSM.',
     category: 'towels',
-    color: 'blue and white',
+    colors: ['blue', 'white'],
     price: 59.99,
     imgURL: 'https://robohash.org/21',
   },
@@ -217,8 +217,7 @@ async function query(filterBy) {
     await postProducts();
     updatedProducts = await storageService.query(STORAGE_KEY);
   }
-
-  var { category, maxPrice, name } = filterBy;
+  var { category, minMaxPrice, name, colors } = filterBy;
 
   if (category) {
     const regex = new RegExp(category, 'i');
@@ -232,10 +231,17 @@ async function query(filterBy) {
       regex.test(product.name)
     );
   }
-  if (maxPrice) {
+  if (minMaxPrice) {
+    console.log('minMaxPrice:', minMaxPrice);
     updatedProducts = updatedProducts.filter(
-      (product) => product.price <= maxPrice
+      (product) =>
+        product.price >= minMaxPrice[0] && product.price <= minMaxPrice[1]
     );
+  }
+  if (colors) {
+    // updatedProducts = updatedProducts.filter((product) =>
+    //   colors.some((color) => product.colors.includes(color))
+    // );
   }
 
   return updatedProducts;

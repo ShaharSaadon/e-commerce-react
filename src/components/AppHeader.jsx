@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import shoppingCart from '../assets/images/svgs/shoppingCart.svg'
-import search from '../assets/images/svgs/search.svg'
 import person from '../assets/images/svgs/person.svg'
 import mail from '../assets/images/svgs/mail.svg'
 import instagram from '../assets/images/svgs/instagram.svg'
 import facebook from '../assets/images/svgs/facebook.svg'
+import { setCurrCategory } from '../store/actions/product.actions'
 
 export function AppHeader() {
 
     const loggedinUser = useSelector((storeState) => storeState.userModule.loggedinUser);
+
 
     return (
         <header className="main-header">
@@ -21,10 +22,10 @@ export function AppHeader() {
                     <nav className="center-nav">
                         <NavLink to="/shop" className="nav-link"> All </NavLink>
                         <NavLink to="/blankets" className="nav-link"> Blankets </NavLink>
-                        <NavLink to="/pillows" className="nav-link"> Pillows </NavLink>
-                        <NavLink to="/linen" className="nav-link"> Linen </NavLink>
+                        <NavLink to="/pillows" className="nav-link" > Pillows </NavLink>
+                        <NavLink to="/linen" className="nav-link" > Linen </NavLink>
                         <NavLink to="/towels" className="nav-link">Towels </NavLink>
-                        <NavLink to="/contact" className="nav-link"> Contact </NavLink>
+                        <NavLink to="/contact" className="nav-link" > Contact </NavLink>
                     </nav>
                 </div>
             </div>

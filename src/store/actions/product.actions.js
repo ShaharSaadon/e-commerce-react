@@ -3,6 +3,7 @@ import {
   REMOVE_PRODUCT,
   SET_FILTER_BY,
   SET_PRODUCTS,
+  SET_CURR_CATEGORY,
 } from '../reducers/product.reducer';
 
 export function loadProducts() {
@@ -11,7 +12,6 @@ export function loadProducts() {
       const products = await productService.query(
         getState().productModule.filterBy
       );
-      console.log('products=:', products);
       const action = {
         type: SET_PRODUCTS,
         products,
@@ -39,5 +39,11 @@ export function removeProduct(productId) {
 export function setFilterBy(filterBy) {
   return (dispatch) => {
     dispatch({ type: SET_FILTER_BY, filterBy });
+  };
+}
+
+export function setCurrCategory(category) {
+  return (dispatch) => {
+    dispatch({ type: SET_CURR_CATEGORY, category });
   };
 }

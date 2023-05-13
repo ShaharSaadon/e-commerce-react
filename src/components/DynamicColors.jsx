@@ -1,16 +1,20 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 
-export function DynamicColors() {
-  const colors = useSelector((storeState) => storeState.productModule.colors)
+export function DynamicColors(props) {
+
+  const { colors, selectedColor, onClickColor } = props;
 
   return (
-    <section>
+    <section >
       <div className="color-palette">
         {colors.map((value, index) => (
-          <div key={index} style={{ backgroundColor: value }} className='color'> </div>
-        ))}
+          <div
+            key={index}
+            style={{ backgroundColor: value, border: value === selectedColor ? '2px solid black' : 'none' }}
+            className="color"
+            onClick={() => onClickColor(value)}
+          ></div>))}
       </div>
-    </section>
+    </section >
   )
 }

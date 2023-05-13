@@ -6,15 +6,21 @@ export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 export const SET_FILTER_BY = 'SET_FILTER_BY';
+export const SET_CURR_CATEGORY = 'SET_CURR_CATEGORY';
 
 const INITIAL_STATE = {
   products: [],
-  categories: ['blankets', 'pillows', 'linen', 'towels'],
-  colors: ['red', 'yellow', 'green', 'blue'],
+  categories: {
+    blankets: ['regular-blankets', 'special-blankets', 'big-size-blankets'],
+    linen: ['regular-linen', 'special-linen', 'big-size-linen'],
+    pillows: ['regular-pillows', 'special-pillows', 'big-size-pillows'],
+    towels: ['regular-towels', 'special-towels', 'big-size-towels'],
+  },
   filterBy: {
     name: '',
     category: '',
-    maxPrice: Infinity,
+    minMax: [0, Infinity],
+    colors: [''],
   },
 };
 
@@ -49,6 +55,11 @@ export function productReducer(state = INITIAL_STATE, action = {}) {
       return {
         ...state,
         filterBy: { ...action.filterBy },
+      };
+    case SET_CURR_CATEGORY:
+      return {
+        ...state,
+        currCategory: action.category,
       };
 
     default:

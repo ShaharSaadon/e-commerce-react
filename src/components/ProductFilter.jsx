@@ -1,24 +1,26 @@
-import React, { useState } from 'react'
 import { useFormRegister } from '../customHooks/useFormRegister';
 import search from '../assets/images/svgs/search.svg'
-import { useSelector } from 'react-redux';
 import Slider from '@mui/material/Slider';
 import { DynamicColors } from './DynamicColors';
 
 
 export function ProductFilter(props) {
-    const [register] = useFormRegister({ ...props.filterBy }, props.onChangeFilter)
-    const categories = useSelector((storeState) => storeState.productModule.categories)
+    const { minMax = [0, Infinity] } = props.filterBy || {};
+    const [register] = useFormRegister({ ...props.filterBy, minMax }, props.onChangeFilter);
+    const { getColors, categories } = props;
+    function handleSliderChange(event, newValue) {
+        register('minMax')?.onChange({ // update global state
+            target: {
+                name: 'minMax',
+                value: newValue,
+                type: 'range'
+            }
+        });
+    }
 
-    const [value, setValue] = useState([20, 37]);
-
-    function handleChange(event) {
-        console.log('event:', event.target.value)
-        setValue(event.target.value);
-    };
-
-    function valuetext(value) {
-        return `${value}°C`;
+    function handleClickColor(colors) {
+        props.onChangeFilter({ ...props.filterBy, colors });
+        console.log('colors:', colors)
     }
 
     return (
@@ -32,28 +34,34 @@ export function ProductFilter(props) {
             </section>
             <section className='categories'>
                 <h2>CATEGORIES</h2>
-                {categories.map((value, index) => (
-                    <p key={index}>{value}</p>
-                ))}
+                {categories.map((category, i) => {
+                    return (
+                        <div key={i}>
+                            <h4>{category}</h4>
+                        </div>
+                    );
+                })}
             </section>
             <section className='price'>
                 <h2>PRICE</h2>
                 <Slider
                     getAriaLabel={() => 'Temperature range'}
-                    value={value}
-                    onChange={handleChange}
+                    value={minMax}
+                    min={minMax[0]}
+                    max={minMax[1]}
+                    onChange={handleSliderChange}
                     valueLabelDisplay="auto"
-                    getAriaValueText={valuetext}
                 />
                 <div className="range">
                     <div className="input-container">
-                        <span >Price:{value[0]}₪-{value[1]}₪</span>
+                        <span >Price:{minMax[0]}₪-{minMax[1]}₪</span>
 
                     </div>
                 </div>
             </section>
             <h2>COLOR</h2>
-            <DynamicColors />
+            <DynamicColors colors={getColors()} onClickColor={handleClickColor} />
+
 
         </form >)
 }
