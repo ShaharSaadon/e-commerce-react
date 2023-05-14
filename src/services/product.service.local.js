@@ -11,57 +11,62 @@ const STORAGE_KEY = 'products';
 const gProducts = [
   {
     _id: '1002',
-    name: 'Feathered Dreams Pillow',
+    name: 'Hand Towel',
     description:
       '100% pure goose down filling. Breathable cotton cover. Hypoallergenic and dust mite resistant. Medium-firm support. Piped edges for durability. Machine washable. 850 fill power.',
-    category: 'pillows',
+    category: 'towels',
+    subCategory: 'hand-towel',
     colors: ['white'],
     price: 79.99,
     imgURL: 'https://robohash.org/2',
   },
   {
     _id: '1003',
-    name: 'Satin Elegance Sheet Set',
+    name: 'Body Towel',
     description:
       '100% pure mulberry silk. Hypoallergenic and gentle on the skin. Silky smooth and lustrous finish. Temperature regulating properties. Includes 1 flat sheet, 1 fitted sheet, and 2 pillowcases. Available in Queen and King sizes.',
-    category: 'linen',
+    category: 'towels',
+    subCategory: 'body-towel',
     colors: ['silver'],
     price: 299.99,
     imgURL: 'https://robohash.org/3',
   },
   {
     _id: '1004',
-    name: 'Luxe Cashmere Blanket',
+    name: 'Face Towel',
     description:
       '100% premium cashmere wool. Ultra-soft and warm. Lightweight and breathable. Elegant twill weave pattern. Hand-finished with a fringe trim. Dry clean only.',
-    category: 'blankets',
+    category: 'towels',
+    subCategory: 'face-towel',
     colors: ['beige'],
     price: 399.99,
     imgURL: 'https://robohash.org/4',
   },
   {
     _id: '1005',
-    name: 'Organic Bamboo Towel Set',
+    name: '100% Cotton linen',
     description:
       '70% organic bamboo, 30% cotton blend. Soft, absorbent, and eco-friendly. Odor-resistant and antibacterial properties. Includes 2 bath towels, 2 hand towels, and 2 washcloths. Machine washable. 600 GSM.',
-    category: 'towels',
+    category: 'linen',
+    subCategory: 'cotton-linen',
     colors: ['green'],
     price: 89.99,
     imgURL: 'https://robohash.org/5',
   },
   {
     _id: '1006',
-    name: 'Cool Gel Memory Foam Pillow',
+    name: 'baby linen',
     description:
       'Memory foam with cooling gel layer. Medium-firm support. Ventilated for increased airflow and breathability. Removable, washable cover. Contours to the shape of your head and neck.',
     category: 'pillows',
+    subCategory: 'baby-linen',
     colors: ['blue'],
     price: 59.99,
     imgURL: 'https://robohash.org/6',
   },
   {
     _id: '1007',
-    name: 'Jersey Knit Sheet Set',
+    name: 'Couple Linen',
     description:
       '100% pure combed cotton. Soft, stretchy, and breathable. T-shirt-like comfort. Includes 1 flat sheet, 1 fitted sheet, and 2 pillowcases. Available in Twin, Full, Queen, and King sizes. Machine washable.',
     category: 'linen',
@@ -84,8 +89,8 @@ const gProducts = [
     name: 'Plush Microfiber Towel Set',
     description:
       '100% ultra-soft microfiber. Quick-drying and highly absorbent. Lint-free and fade-resistant. Includes 2 bath towels, 2 hand towels, and 2 washcloths. Machine washable. 550 GSM.',
-    category: ['towels'],
-    colors: 'navy',
+    category: 'towels',
+    colors: ['navy'],
     price: 69.99,
     imgURL: 'https://robohash.org/9',
   },

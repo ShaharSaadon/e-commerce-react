@@ -14,17 +14,17 @@ export function ProductPreview({ product, onRemoveProduct }) {
     showSuccess('Product Added successfully')
   };
 
+  console.log('products.colors:', product.colors)
   return (
     <article className="product-preview flex">
       <Link to={`/product/${product._id}`} className="details">
-
         <img src={product.imgURL} className='square-ratio' />
         <div className="box flex">
           <h3>{product.name}</h3>
           {/* <p className='description'>{product.description}</p> */}
           <p> Lorem ipsum dolor sit amet consectetur.</p>
           <p className='price'>{product.price} ILS</p>
-          <DynamicColors colors={[product.colors]} />
+          <DynamicColors colors={[...product.colors]} />
 
         </div>
         <div className="actions">

@@ -1,14 +1,20 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useForm } from '../customHooks/useForm'
 import { productService } from '../services/product.service.local'
 import { useNavigate, useParams } from 'react-router';
 import { uploadService } from "../services/upload.service";
 import dragImg from '../assets/images/drag.png';
+import { DynamicColors } from '../components/DynamicColors';
+import { useSelector } from 'react-redux';
 
 
 export function ProductEdit() {
     const [product, handleChange, setProduct] = useForm(productService.getEmptyProduct())
     const fileInputRef = useRef(null);
+    const allColors = useSelector((storeState) => storeState.productModule.colors)
+    const { name, description, category, price, imgURL } = product
+    const [selectedColors, setSelectedColors] = useState([])
+
 
     const params = useParams()
     const navigate = useNavigate()
@@ -17,6 +23,11 @@ export function ProductEdit() {
         document.title = 'KingSize | Edit Product';
         loadProduct()
     }, [])
+
+    useEffect(() => {
+        setSelectedColors(product.colors)
+    }, [product])
+
 
     async function loadProduct() {
         const productId = params.id
@@ -45,8 +56,17 @@ export function ProductEdit() {
         setProduct({ ...product, imgURL });
     }
 
+    async function handleColor(ev) {
+        const color = ev.target.style.backgroundColor;
+        if (product.colors.includes(color)) {
+            // The color is already selected, so we remove it
+            setProduct({ ...product, colors: product.colors.filter(c => c !== color) });
+        } else {
+            // The color is not selected, so we add it
+            setProduct({ ...product, colors: [...product.colors, color] });
+        }
+    }
 
-    const { name, description, category, price, imgURL, colors } = product
 
     return (
         <section className='product-edit'>
@@ -66,9 +86,8 @@ export function ProductEdit() {
                 <input value={price} onChange={handleChange} type="number" name="price" id="price" />
 
                 <label htmlFor="price">Colors</label>
-                {colors.map((color, index) => (
-                    <div key={index} style={{ backgroundColor: color }} className='color'> </div>
-                ))}
+                <DynamicColors colors={allColors} selectedColors={selectedColors} handleClick={handleColor} />
+
 
                 <label htmlFor="imgURL">Image Url:</label>
                 <div className="img-uploader">

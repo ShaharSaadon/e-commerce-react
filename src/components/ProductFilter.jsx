@@ -2,6 +2,7 @@ import { useFormRegister } from '../customHooks/useFormRegister';
 import search from '../assets/images/svgs/search.svg'
 import Slider from '@mui/material/Slider';
 import { DynamicColors } from './DynamicColors';
+import { useEffect, useState } from 'react';
 
 
 export function ProductFilter(props) {
@@ -18,9 +19,21 @@ export function ProductFilter(props) {
         });
     }
 
-    function handleClickColor(colors) {
-        props.onChangeFilter({ ...props.filterBy, colors });
-        console.log('colors:', colors)
+    function handleClickColor(ev) {
+        const color = ev.target.style.backgroundColor;
+        const newColors = [...props.filterBy.colors];
+
+        if (newColors.includes(color)) {
+            // If color is already in the array, remove it
+            const index = newColors.indexOf(color);
+            newColors.splice(index, 1);
+        } else {
+            // If color is not in the array, add it
+            newColors.push(color);
+        }
+
+        props.onChangeFilter({ ...props.filterBy, colors: newColors });
+        console.log('color:', color);
     }
 
     return (
@@ -60,7 +73,7 @@ export function ProductFilter(props) {
                 </div>
             </section>
             <h2>COLOR</h2>
-            <DynamicColors colors={getColors()} onClickColor={handleClickColor} />
+            <DynamicColors colors={getColors()} selectedColors={props.filterBy.colors} handleClick={handleClickColor} />
 
 
         </form >)

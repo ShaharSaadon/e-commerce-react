@@ -14,8 +14,9 @@ const INITIAL_STATE = {
     blankets: ['regular-blankets', 'special-blankets', 'big-size-blankets'],
     linen: ['regular-linen', 'special-linen', 'big-size-linen'],
     pillows: ['regular-pillows', 'special-pillows', 'big-size-pillows'],
-    towels: ['regular-towels', 'special-towels', 'big-size-towels'],
+    towels: ['body-towels', 'hand-towels', 'face-towels'],
   },
+  colors: ['white', 'black', 'red', 'lightgray', 'navy'],
   filterBy: {
     name: '',
     category: '',

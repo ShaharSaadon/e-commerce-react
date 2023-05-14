@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import { productService } from '../services/product.service.local'
-
+import { DynamicColors } from '../components/DynamicColors'
 export function ProductDetails(props) {
     const [product, setProduct] = useState(null)
     const params = useParams()
@@ -28,26 +28,24 @@ export function ProductDetails(props) {
     }
 
     if (!product) return <div>Loading...</div>;
-    console.log('product:', product)
+    const { name, description, category, price, imgURL, colors } = product
     return (
         <section className='product-details'>
+            <img src={imgURL} />
+            <section>
+                <h1>{name}</h1>
+                <p>{price} ₪</p>
+                <p>{description}</p>
+                <p>Colors:</p>
+                <DynamicColors colors={colors || []}
+                />
+                <p>Quantity</p>
+                <input type="text" />
+                <button>Add to Cart</button>
+            </section>
+
             <button onClick={onBack} className="btn-back">Back</button>
-            <img src={product.imgURL} />
-            <section>
-                <h1>name: {product.name}</h1>
-            </section>
-            <section>
-                <p>Description: {product.description}</p>
-            </section>
-            <section>
-                <p>Category: {product.category}</p>
-            </section>
-            <section>
-                <p>Price: {product.price} {product.Currency} </p>
-            </section>
-            <section>
-                <p>Color: {product.colors}</p>
-            </section>
+
 
         </section>)
 }
