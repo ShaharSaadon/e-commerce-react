@@ -1,0 +1,44 @@
+.sub-list {
+  display: flex;
+  justify-content: center;
+  gap: 10vh;
+  align-items: center;
+  place-items: center;
+
+  .sub-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    transition: height 1.2s ease-in;
+    height: max-content;
+
+    .sub-title {
+      font-weight: 600;
+      font-size: 1.5em;
+    }
+
+    .sub-img {
+      transition: transform 0.8s, opacity 0.8s;
+      padding: 24px;
+      width: 250px;
+      margin-block-start: 12px;
+      border-radius: 50%;
+      border: 2px rgba($color: pink, $alpha: 0.9) dashed;
+      transform: scale(1);
+      opacity: 1;
+
+      &:hover {
+        scale: 1.1;
+        transition: 0.3s;
+      }
+    }
+
+    .open {
+      transform: scale(0);
+      opacity: 0;
+      height: 0;
+      padding: 0;
+    }
+  }
+}

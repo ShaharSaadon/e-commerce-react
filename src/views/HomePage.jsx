@@ -58,6 +58,7 @@ export function HomePage() {
                     <h6>Good Support</h6>
                     <p>Nullam sed ultricies erat, nec euismod metus.</p>
                 </div>
+
             </div>
         </section>
     )

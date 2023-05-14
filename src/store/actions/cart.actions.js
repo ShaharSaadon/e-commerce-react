@@ -4,10 +4,11 @@ import {
   ADD_TO_CART,
 } from '../reducers/cart.reducer';
 
-export function addToCart(product) {
+export function addToCart(product, quantity = 1) {
   return {
     type: ADD_TO_CART,
     product,
+    quantity,
   };
 }
 

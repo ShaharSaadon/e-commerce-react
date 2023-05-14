@@ -25,7 +25,7 @@
   @include for-wide-layout {
     grid-template-columns:
       minmax(20px, 1fr)
-      minmax(auto, 95vw)
+      minmax(auto, 70vw)
       minmax(20px, 1fr);
   }
 }

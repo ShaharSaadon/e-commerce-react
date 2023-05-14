@@ -37,7 +37,7 @@ export function ProductFilter(props) {
     }
 
     return (
-        <form className='product-filter' >
+        <form className='product-filter full' >
             <section className='search-box'>
                 {/* <label htmlFor="name">Name</label> */}
                 <input {...register('name',)} placeholder='Search Products...' className='search' />
@@ -45,7 +45,7 @@ export function ProductFilter(props) {
                     <img src={search} alt="" />
                 </button>
             </section>
-            <section className='categories'>
+            <section className='categories filter'>
                 <h2>CATEGORIES</h2>
                 {categories.map((category, i) => {
                     return (
@@ -55,7 +55,7 @@ export function ProductFilter(props) {
                     );
                 })}
             </section>
-            <section className='price'>
+            <section className='price filter'>
                 <h2>PRICE</h2>
                 <Slider
                     getAriaLabel={() => 'Temperature range'}
@@ -72,9 +72,10 @@ export function ProductFilter(props) {
                     </div>
                 </div>
             </section>
-            <h2>COLOR</h2>
-            <DynamicColors colors={getColors()} selectedColors={props.filterBy.colors} handleClick={handleClickColor} />
-
+            <section className="colors filter">
+                <h2>COLOR</h2>
+                <DynamicColors colors={getColors()} selectedColors={props.filterBy.colors} handleClick={handleClickColor} />
+            </section>
 
         </form >)
 }

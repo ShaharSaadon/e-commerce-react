@@ -7,6 +7,10 @@
   height: 600px;
   // border: 1px black solid;
 
+  img {
+    margin-inline-start: 12px;
+    width: 300px;
+  }
   &:hover {
     box-shadow: 0 10px 20px 20px rgba(0, 0, 0, 0.1);
     scale: 1.05;
@@ -36,6 +40,9 @@
       padding: 12px 24px;
       border: 1px solid black;
       font-weight: 700;
+      img {
+        width: 24px;
+      }
       &:hover {
         background-color: black;
         color: white;
@@ -45,10 +52,6 @@
           transform: translateX(6px);
           transition: 0.3s;
         }
-      }
-
-      img {
-        margin-inline-start: 12px;
       }
     }
   }

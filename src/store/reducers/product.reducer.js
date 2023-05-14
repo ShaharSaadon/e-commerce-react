@@ -11,10 +11,58 @@ export const SET_CURR_CATEGORY = 'SET_CURR_CATEGORY';
 const INITIAL_STATE = {
   products: [],
   categories: {
-    blankets: ['regular-blankets', 'special-blankets', 'big-size-blankets'],
-    linen: ['regular-linen', 'special-linen', 'big-size-linen'],
-    pillows: ['regular-pillows', 'special-pillows', 'big-size-pillows'],
-    towels: ['body-towels', 'hand-towels', 'face-towels'],
+    blankets: [
+      {
+        name: 'baby-blankets',
+        imageUrl: '../assets/images/single-blankets.jpg',
+      },
+      {
+        name: 'couple-blankets',
+        imageUrl: '../assets/images/couple-blankets.jpg',
+      },
+      {
+        name: 'winter-blankets',
+        imageUrl: '../assets/images/winter-blankets.jpg',
+      },
+    ],
+    linen: [
+      {
+        name: 'solo-linen',
+        imageUrl: '../assets/images/regularLinen.jpg',
+      },
+      {
+        name: 'cotton-linen',
+        imageUrl: '../assets/images/specialLinen.jpg',
+      },
+      {
+        name: 'bambuk-linen',
+        imageUrl: '../assets/images/bigSizeLinen.jpg',
+      },
+    ],
+    pillows: [
+      {
+        name: 'visko-pillows',
+        imageUrl: '../assets/images/regularPillows.jpg',
+      },
+      {
+        name: 'feather-pillows',
+        imageUrl: '../assets/images/specialPillows.jpg',
+      },
+    ],
+    towels: [
+      {
+        name: 'body-towels',
+        imageUrl: '../assets/images/body-towels.jpg',
+      },
+      {
+        name: 'hand-towels',
+        imageUrl: '../assets/images/hand-towels.jpg',
+      },
+      {
+        name: 'face-towels',
+        imageUrl: '../assets/images/face-towels.jpg',
+      },
+    ],
   },
   colors: ['white', 'black', 'red', 'lightgray', 'navy'],
   filterBy: {

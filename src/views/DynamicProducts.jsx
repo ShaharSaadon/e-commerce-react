@@ -4,14 +4,39 @@ import { useDispatch, useSelector } from 'react-redux'
 import { ProductList } from '../components/ProductList'
 import { ProductFilter } from '../components/ProductFilter'
 import { Link, useParams } from 'react-router-dom'
+import { SubCategories } from '../components/SubCategories'
+import pillows from '../assets/images/pillows.png'
+import towels from '../assets/images/towells.png'
+import linen from '../assets/images/linen.png'
+import blankets from '../assets/images/blankets.png'
+
+const imageMap = {
+    'pillows': pillows,
+    'towels': towels,
+    'linen': linen,
+    'blankets': blankets,
+};
+
+
 export function DynamicProducts() {
 
     const filterBy = useSelector((storeState) => storeState.productModule.filterBy)
     const products = useSelector((storeState) => storeState.productModule.products)
     const categories = useSelector((storeState) => storeState.productModule.categories)
     const { category, subCategory } = useParams()
+
+
+    const initialSubCategories = categories[category].map((subCategory) => {
+        return {
+            name: subCategory.name,
+            imageUrl: subCategory.imageUrl,
+        };
+    });
+
+
+    const [subCategories, setSubCategories] = useState(initialSubCategories.map((subCategory) => subCategory.name));
+
     const dispatch = useDispatch()
-    const [subCategories, setSubCategories] = useState(categories[category])
 
     useEffect(() => {
         const minMaxPrices = getMinMaxPrices();
@@ -87,32 +112,25 @@ export function DynamicProducts() {
     }
 
     return (
-        <section className='main-dynamic-content'>
-            <div className="teaser-container">
+        <section className='main-dynamic-content full'>
+            <div className="teaser-container full">
                 <h2>{category}  {subCategory ? `| ${subCategory}` : ``}</h2>
                 <p>I'm a paragraph. Click here to add your own text and edit me. It’s easy.
                     Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you</p>
+                <img src={imageMap[category]} alt="" className='product-img-1' />
+                <img src={imageMap[category]} alt="" className='product-img-2' />
             </div>
 
-            {!subCategory ? <div className="sub-categories-container">
-                <ul className='clean-list flex'>
-                    <h2>
-                        Subcategories
-                    </h2>
-                    {subCategories.map((name, index) => (
-                        <React.Fragment key={index}>
-                            <Link to={`/${category}/${name}`}>
-                                <li>{name}</li>
-                            </Link>
-                        </React.Fragment>
-                    ))}
-                </ul>
-            </div> : ''}
+            {!subCategory ? (
+                <SubCategories categories={subCategories} category={category} />
+            ) : (
+                ''
+            )}
 
             <div className="product-list-container">
                 <ProductList products={products} onRemoveProduct={onRemoveProduct} />
             </div>
-            <div className="filter-container">
+            <div className="filter-container main-container">
                 <ProductFilter
                     filterBy={filterBy}
                     onChangeFilter={onChangeFilter}
