@@ -2,7 +2,7 @@ import { ProductPreview } from "../components/ProductPreview";
 import { memo } from 'react'
 
 
-function _ProductList({ products, onRemoveProduct }) {
+function _ProductList({ products, onRemoveProduct, toggleCart }) {
     return (
         <section className="clean-list product-list">
 

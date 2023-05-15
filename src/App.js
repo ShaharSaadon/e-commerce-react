@@ -16,10 +16,12 @@ import { DynamicProducts } from './views/DynamicProducts';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AdminPanel from './views/AdminPanel';
+import { useEffect, useState } from 'react';
 
 function App() {
   return (
     <Router>
+      {/* <ShoppingCart /> */}
       <section className="main-container">
         <AppHeader />
         <ToastContainer />
@@ -29,15 +31,16 @@ function App() {
           <Route path="/:category/:subCategory" element={<DynamicProducts />} />
           <Route path="/:category" element={<DynamicProducts />} />
           <Route path="/admin-panel" element={<AdminPanel />} />
-          <Route path="/contact" element={<ContactPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/user-profile" element={<UserProfile />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/shopping-cart" element={<ShoppingCart />} />
           <Route path="/shop" element={<ProductIndex />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/" element={<HomePage />} />
         </Routes>
+
         <AppFooter />
       </section>
     </Router>

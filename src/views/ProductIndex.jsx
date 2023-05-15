@@ -45,7 +45,7 @@ export function ProductIndex() {
                 <NavLink exact="true" to="/product/edit" className="nav-link">Add Product</NavLink>
                 {/* <ProductFilter filterBy={filterBy} onChangeFilter={onChangeFilter} /> */}
 
-                {/* <Link to="/contact/edit" class="add-contact">Add contact</Link> */}
+                {/* <Link to="/contact/edit" className="add-contact">Add contact</Link> */}
             </div>
             <ProductList products={products} onRemoveProduct={onRemoveProduct} />
         </section>)

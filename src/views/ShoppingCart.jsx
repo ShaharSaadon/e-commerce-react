@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, updateCartItem } from '../store/actions/cart.actions';
 import { showWarning, showSuccess } from '../services/alert.message'
+import { Link } from 'react-router-dom';
 export function ShoppingCart() {
 
     const cart = useSelector((state) => state.cartModule.cart);
@@ -23,48 +24,54 @@ export function ShoppingCart() {
     };
 
     return (
-        <div>
-            <h2>Cart</h2>
-            {cart.length === 0 ? (
-                <p>Your cart is empty.</p>
-            ) : (
-                <ul>
-                    {cart.map((item) => (
-                        <li key={item._id}>
-                            <div>
-                                <img src={item.imgURL} alt={item.name} width="100" />
-                                <h3>{item.name}</h3>
-                                <p>Price: {item.price}</p>
-                                <p>Quantity: {item.quantity}</p>
-                                <button onClick={() => handleRemoveFromCart(item._id)}>
-                                    Remove from Cart
-                                </button>
-                                <button
-                                    onClick={() =>
-                                        handleUpdateCartItem(item, item.quantity - 1)
-                                    }
-                                    disabled={item.quantity <= 1}
-                                >
-                                    -
-                                </button>
-                                <button
-                                    onClick={() =>
-                                        handleUpdateCartItem(item, item.quantity + 1)
-                                    }
-                                >
-                                    +
-                                </button>
-                            </div>
-                        </li>
-                    ))}
-                </ul>
-            )}
-            {cart.length > 0 && (
-                <div>
-                    <h3>Total: {calculateTotal()}</h3>
-                    <button>Proceed to Checkout</button>
-                </div>
-            )}
+        <div className="shopping-background">
+            <section className='shopping-cart'>
+                <h2 className='title'>Cart</h2>
+                {cart.length === 0 ? (
+                    <p>Your cart is empty.</p>
+                ) : (
+                    <ul className='clean-list items-list'>
+                        {cart.map((item) => (
+                            <li key={item._id}>
+                                <div className='cart-item-preview'>
+                                    <img src={item.imgURL} alt={item.name} width="100" />
+                                    <div className="box">
+                                        <Link to={`/product/${item._id}`} className="nav-link">{item.name}</Link>
+                                        <p>{item.price}₪</p>
+                                        <div className="quantity flex">
+                                            <button className='nice-button' onClick={() => handleUpdateCartItem(item, item.quantity - 1)} disabled={item.quantity <= 1}>
+                                                -
+                                            </button>
+                                            <p>{item.quantity}</p>
+
+                                            <button className='nice-button'
+                                                onClick={() =>
+                                                    handleUpdateCartItem(item, item.quantity + 1)
+                                                }
+                                            >
+                                                +
+                                            </button>
+                                        </div>
+                                        <button className='nice-button' onClick={() => handleRemoveFromCart(item._id)}>
+                                            Remove from Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                )}
+                {cart.length > 0 && (
+                    <div className='cart-actions flex'>
+                        <div className='total'>
+                            <h3>Total</h3>
+                            {calculateTotal()}₪
+                        </div>
+                        <button className='nice-button'>Proceed to Checkout</button>
+                        <button className='nice-button'>View Cart</button>
+                    </div>
+                )}
+            </section>
         </div>
     );
 };

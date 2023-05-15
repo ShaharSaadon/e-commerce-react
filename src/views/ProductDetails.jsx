@@ -41,7 +41,7 @@ export function ProductDetails(props) {
 
 
     function onBack() {
-        navigate('/shop')
+        navigate(-1)
     }
 
     if (!product) return <div>Loading...</div>;
@@ -57,9 +57,6 @@ export function ProductDetails(props) {
                         <Link to={`/${category}/${subCategory}`} className="nav-link">{subCategory}</Link>
                         :
                         ''} | {name} </h2>
-
-
-
 
                 <h1 className='product-name'>{name}</h1>
                 <p><span className='price'>{price}</span>&Free Shipping</p>

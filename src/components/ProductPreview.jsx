@@ -5,7 +5,7 @@ import { addToCart } from '../store/actions/cart.actions';
 import { showSuccess } from '../services/alert.message'
 import { DynamicColors } from './DynamicColors';
 import rightArrow from '../assets/images/svgs/right-arrow.svg'
-export function ProductPreview({ product, onRemoveProduct }) {
+export function ProductPreview({ product, onRemoveProduct, }) {
   const dispatch = useDispatch();
 
   const handleAddToCart = (ev) => {
@@ -13,15 +13,12 @@ export function ProductPreview({ product, onRemoveProduct }) {
     dispatch(addToCart(product));
     showSuccess('Product Added successfully')
   };
-
-  console.log('products.colors:', product.colors)
   return (
     <article className="product-preview flex">
       <Link to={`/product/${product._id}`} className="details">
         <img src={product.imgURL} className='square-ratio' />
         <div className="box flex">
           <h3>{product.name}</h3>
-          {/* <p className='description'>{product.description}</p> */}
           <p> Lorem ipsum dolor sit amet consectetur.</p>
           <p className='price'>{product.price} ILS</p>
           <DynamicColors colors={[...product.colors]} />

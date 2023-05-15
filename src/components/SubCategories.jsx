@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import bodyTowels from '../assets/images/body-towels.jpg';
 import handTowels from '../assets/images/hand-towels.jpg';
@@ -34,6 +34,15 @@ export function _SubCategories({ categories, category }) {
     function handleClick() {
         setIsBarOpen(!isBarOpen)
     }
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsBarOpen(prevState => !prevState);
+        }, 1500);
+
+        return () => clearTimeout(timer);
+    }, [category])
+
     return (
         <div className="sub-categories-container">
             <ul className="clean-list flex sub-list">

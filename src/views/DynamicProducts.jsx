@@ -19,7 +19,6 @@ const imageMap = {
 
 
 export function DynamicProducts() {
-
     const filterBy = useSelector((storeState) => storeState.productModule.filterBy)
     const products = useSelector((storeState) => storeState.productModule.products)
     const categories = useSelector((storeState) => storeState.productModule.categories)
@@ -38,6 +37,7 @@ export function DynamicProducts() {
         dispatch(setFilterBy({ category, name: '', minMax: minMaxPrices, colors: getColors() }))
         setSubCategories(categories[category])
         dispatch(loadProducts())
+
         // dispatch(setCurrCategory(category))
     }, [category])
 
