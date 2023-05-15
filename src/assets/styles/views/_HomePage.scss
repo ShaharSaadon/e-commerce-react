@@ -2,7 +2,6 @@
   min-height: max-content;
 
   .cover-img {
-    height: 800px;
     object-fit: cover;
     width: 100%;
   }
@@ -14,19 +13,18 @@
     justify-content: center;
     align-items: center;
     .box {
-      position: absolute;
-      // background-color: $clr1;
-      background-color: rgba($color: $clr1, $alpha: 0.7);
-      border: 2px white solid;
-      color: white;
-      height: 300px;
+      font-family: Montserrat;
       display: flex;
-      flex-direction: column;
+      position: absolute;
       align-items: center;
       justify-content: center;
-      font-family: Montserrat;
+      flex-direction: column;
+      background-color: rgba($color: $clr1, $alpha: 0.7);
+      border: 2px $clr2 solid;
+      color: $clr2;
+      padding: em(100px);
+      height: em(300px);
       max-width: 50vw;
-      padding: 100px;
       h2 {
         font-family: Montserrat;
       }
@@ -56,6 +54,5 @@
       //   position: absolute;
       // }
     }
-    height: 6px;
   }
 }

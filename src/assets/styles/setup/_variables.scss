@@ -1,13 +1,50 @@
 // Colors
+$clr0: #fff;
 $clr1: rgb(46 50 56);
 $clr2: #f3f3f3;
-$clr3: #5c3fc5;
-$clr4: #696969;
-$clr5: #e6e9ec;
+$clr3: #1f1e1e;
+$clr4: rgb(227, 131, 131);
+$clr5: rgba(232, 51, 10, 0.808);
+$clr6: rgba(218, 239, 36, 0.8);
+$clr7: rgba(155, 121, 76, 0.808);
 
-$navHeight: 65px;
+// BASE COLORS
+$dynamic-products-header: rgb(46 50 56);
+$filter-background: radial-gradient(mistyrose, pink);
+
+$clr-app-border: rgba(
+  $color: #000000,
+  $alpha: 0.2,
+);
+$clr-filter-border: rgba(86, 82, 82, 0.2);
 
 // Breakpoints
 $mobile-breakpoint: 460px;
 $narrow-breakpoint: 720px;
 $normal-breakpoint: 960px;
+
+// Spacing
+
+$min-space: 4px;
+$small-space: 8px;
+$medium-space: 12px;
+$large-space: 16px;
+$xLarge-space: 20px;
+$xxLarge-space: 24px;
+
+// Sizing
+
+$med-size: 1.5rem;
+$large-size: 2rem;
+
+$large-icon: 40px;
+
+// Height
+
+$footer-height: 200px;
+$dynamic-products-header-height: 240px;
+
+// Width
+
+$color-palette-width: 150px;
+$product-teaser-img: 280px;

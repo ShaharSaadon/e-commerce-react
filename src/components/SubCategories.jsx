@@ -11,6 +11,7 @@ import cottonLinen from '../assets/images/cotton-linen.jpg';
 import bambukLinen from '../assets/images/bambuk-linen.jpg';
 import featherPillows from '../assets/images/feather-pillows.png';
 import viskoPillows from '../assets/images/visko-pillows.png';
+import { memo } from 'react'
 
 const imageMap = {
     'body-towels': bodyTowels,
@@ -26,14 +27,13 @@ const imageMap = {
     'visko-pillows': viskoPillows,
 };
 
-export function SubCategories({ categories, category }) {
+export function _SubCategories({ categories, category }) {
 
     const [isBarOpen, setIsBarOpen] = useState(true)
 
     function handleClick() {
         setIsBarOpen(!isBarOpen)
     }
-    console.log('categories,categorys:', categories[category])
     return (
         <div className="sub-categories-container">
             <ul className="clean-list flex sub-list">
@@ -48,7 +48,9 @@ export function SubCategories({ categories, category }) {
                     </React.Fragment>
                 ))}
             </ul>
-            <button onClick={handleClick}>{isBarOpen ? 'Close' : 'Open'}</button>
+            <button className='nice-button' onClick={handleClick}>{isBarOpen ? 'Close' : 'Open'}</button>
         </div >
     )
 }
+
+export const SubCategories = memo(_SubCategories)

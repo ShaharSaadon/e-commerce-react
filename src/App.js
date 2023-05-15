@@ -13,7 +13,7 @@ import { UserProfile } from './views/UserProfile.jsx';
 import { AboutPage } from './views/AboutPage.jsx';
 import { ContactPage } from './views/ContactPage.jsx';
 import { DynamicProducts } from './views/DynamicProducts';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AdminPanel from './views/AdminPanel';
 
@@ -23,7 +23,6 @@ function App() {
       <section className="main-container">
         <AppHeader />
         <ToastContainer />
-
         <Routes>
           <Route path="/product/edit/:id?" element={<ProductEdit />} />
           <Route path="/product/:id" element={<ProductDetails />} />
@@ -39,7 +38,6 @@ function App() {
           <Route path="/shop" element={<ProductIndex />} />
           <Route path="/" element={<HomePage />} />
         </Routes>
-
         <AppFooter />
       </section>
     </Router>

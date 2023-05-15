@@ -1,30 +1,24 @@
 .product-filter {
-  border-top: 1px solid rgba(86, 82, 82, 0.2);
-  border-bottom: 1px solid rgba(86, 82, 82, 0.2);
-  background: radial-gradient(mistyrose, pink);
-  border-radius: 10px;
-  padding: 12px;
   display: flex;
   justify-content: center;
   align-items: first baseline;
-  // align-items: flex-start;
-  // place-items: center;
-
+  border-top: 1px solid $clr-filter-border;
+  border-bottom: 1px solid $clr-filter-border;
+  background: $filter-background;
+  border-radius: em($medium-space);
+  padding: em($medium-space);
   gap: 5vw;
-
   .filter {
-    // flex-grow: 1;
-    h2 {
+    .filter-subject {
       font-family: Mukta;
       margin: 32px 0 16px 0;
       font-size: 0.85rem;
       border-bottom: solid 1px rgba(151, 146, 146, 0.4);
       padding: 8px 0;
       letter-spacing: 3px;
-    }
-    p {
-      line-height: 1.8;
-      font-size: 0.85rem;
+
+      .category {
+      }
     }
   }
   .price {
@@ -32,7 +26,7 @@
       text-align: center;
       span {
         font-weight: 700;
-        font-size: 0.85rem;
+        font-size: em($medium-space);
       }
     }
   }
@@ -43,19 +37,17 @@
       width: 100%;
       display: block;
       margin: 0 auto;
-      color: rgba(0, 0, 0, 0.8);
-      padding: 20px 22px;
-      // background-color:
+      color: $clr-filter-border;
+      padding: $xLarge-space $large-space;
     }
     button {
       background-color: inherit;
       border: none;
       position: absolute;
-      top: 12px;
-      right: 12px;
-      fill: black;
-      width: 38px;
-      height: 38px;
+      top: em($large-space);
+      right: em($medium-space);
+      width: em($large-icon);
+      height: em($large-icon);
     }
   }
 }

@@ -5,6 +5,7 @@ import { DynamicColors } from '../components/DynamicColors'
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../store/actions/cart.actions';
 import { showSuccess } from '../services/alert.message';
+import { Link, NavLink } from 'react-router-dom';
 
 export function ProductDetails(props) {
     const [product, setProduct] = useState(null)
@@ -24,9 +25,7 @@ export function ProductDetails(props) {
 
     async function loadProduct() {
         try {
-            console.log('params.id:', params.id)
             const product = await productService.getById(params.id);
-            console.log('product:', product)
             setProduct(product);
         } catch (error) {
             console.log('error:', error);
@@ -53,7 +52,15 @@ export function ProductDetails(props) {
         <section className='product-details'>
             <img src={imgURL} className='square-ratio' />
             <section className='product-info'>
-                <h2>Home | {category} | {subCategory ? subCategory : ''} | {name} </h2>
+                <h2>Home | <Link to={`/${category}`} className="nav-link">{category}</Link> |
+                    {subCategory ?
+                        <Link to={`/${category}/${subCategory}`} className="nav-link">{subCategory}</Link>
+                        :
+                        ''} | {name} </h2>
+
+
+
+
                 <h1 className='product-name'>{name}</h1>
                 <p><span className='price'>{price}</span>&Free Shipping</p>
                 <p className='description'>{description}</p>

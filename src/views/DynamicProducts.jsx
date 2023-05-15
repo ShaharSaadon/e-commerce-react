@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState, useMemo } from 'react'
 import { loadProducts, removeProduct, setCurrCategory, setFilterBy } from '../store/actions/product.actions'
 import { useDispatch, useSelector } from 'react-redux'
 import { ProductList } from '../components/ProductList'
 import { ProductFilter } from '../components/ProductFilter'
-import { Link, useParams } from 'react-router-dom'
+import { Link, NavLink, useParams } from 'react-router-dom'
 import { SubCategories } from '../components/SubCategories'
 import pillows from '../assets/images/pillows.png'
 import towels from '../assets/images/towells.png'
@@ -24,26 +24,21 @@ export function DynamicProducts() {
     const products = useSelector((storeState) => storeState.productModule.products)
     const categories = useSelector((storeState) => storeState.productModule.categories)
     const { category, subCategory } = useParams()
-
-
+    const dispatch = useDispatch()
     const initialSubCategories = categories[category].map((subCategory) => {
         return {
             name: subCategory.name,
             imageUrl: subCategory.imageUrl,
         };
     });
-
-
     const [subCategories, setSubCategories] = useState(initialSubCategories.map((subCategory) => subCategory.name));
-
-    const dispatch = useDispatch()
 
     useEffect(() => {
         const minMaxPrices = getMinMaxPrices();
         dispatch(setFilterBy({ category, name: '', minMax: minMaxPrices, colors: getColors() }))
-        dispatch(setCurrCategory(category))
         setSubCategories(categories[category])
         dispatch(loadProducts())
+        // dispatch(setCurrCategory(category))
     }, [category])
 
     useEffect(() => {
@@ -105,17 +100,24 @@ export function DynamicProducts() {
         }
     }, []);
 
-    function onChangeFilter(filterBy) {
-        console.log('filterBy:', filterBy)
-        dispatch(setFilterBy(filterBy))
-        dispatch(loadProducts())
-    }
+    const onChangeFilter = useCallback(async (filterBy) => {
+        try {
+            dispatch(setFilterBy(filterBy))
+            dispatch(loadProducts())
+        } catch (error) {
+            console.log('error:', error)
+        }
+    }, []);
+
 
     return (
         <section className='main-dynamic-content full'>
             <div className="teaser-container full">
-                <h2>{category}  {subCategory ? `| ${subCategory}` : ``}</h2>
-                <p>I'm a paragraph. Click here to add your own text and edit me. It’s easy.
+                <h2 className='category-title'>
+                    <Link to={`/${category}`} className="nav-link">{category}</Link>
+
+                    {subCategory ? `| ${subCategory}` : ``}</h2>
+                <p className='category-description'>I'm a paragraph. Click here to add your own text and edit me. It’s easy.
                     Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you</p>
                 <img src={imageMap[category]} alt="" className='product-img-1' />
                 <img src={imageMap[category]} alt="" className='product-img-2' />

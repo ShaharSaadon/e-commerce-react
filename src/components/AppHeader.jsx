@@ -1,25 +1,36 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import shoppingCart from '../assets/images/svgs/shoppingCart.svg'
 import person from '../assets/images/svgs/person.svg'
 import mail from '../assets/images/svgs/mail.svg'
 import instagram from '../assets/images/svgs/instagram.svg'
 import facebook from '../assets/images/svgs/facebook.svg'
-import { setCurrCategory } from '../store/actions/product.actions'
 
 export function AppHeader() {
-
     const loggedinUser = useSelector((storeState) => storeState.userModule.loggedinUser);
+    const cart = useSelector((storeState) => storeState.cartModule.cart)
+    const [quantity, setQuantity] = useState(0)
 
+    useEffect(() => {
+        setQuantity(getQuantity())
+    }, [cart])
 
+    function getQuantity() {
+        let quantity = 0
+        cart.forEach(cartItem => {
+            quantity += cartItem.quantity
+        });
+        console.log('quantity:', quantity)
+        return quantity
+    }
     return (
         <header className="main-header">
             <div className="app-header first">
                 <div className="flex justify-between items-center">
                     <div className="logo"><Link exact="true" to="/">KingSize</Link>
                     </div>
-                    <nav className="center-nav">
+                    <nav className="upper-nav">
                         <NavLink to="/shop" className="nav-link"> All </NavLink>
                         <NavLink to="/blankets" className="nav-link"> Blankets </NavLink>
                         <NavLink to="/pillows" className="nav-link" > Pillows </NavLink>
@@ -30,11 +41,17 @@ export function AppHeader() {
                     </nav>
                 </div>
             </div>
-            <div className="second flex justify-between">
+            <div className="lower-nav flex justify-between">
                 <nav className="left-nav">
-                    <img src={instagram} alt="" className='icon' />
-                    <img src={mail} alt="" className='icon' />
-                    <img src={facebook} alt="" className='icon' />
+                    <a href="https://www.instagram.com/kingsizeboutique/" target="_blank">
+                        <img src={instagram} alt="" className='icon' />
+                    </a>
+                    <a href="https://www.instagram.com/kingsizeboutique/" target="_blank">
+                        <img src={mail} alt="" className='icon' />
+                    </a>
+                    <a href="https://www.instagram.com/kingsizeboutique/" target="_blank">
+                        <img src={facebook} alt="" className='icon' />
+                    </a>
                 </nav>
                 <nav className="right-nav flex">
 
@@ -53,6 +70,7 @@ export function AppHeader() {
 
                     <NavLink to="/shopping-cart" className="nav-link">
                         <img src={shoppingCart} alt="Shopping Cart" className="icon" />
+                        {quantity}
                     </NavLink>
                 </nav>
             </div>

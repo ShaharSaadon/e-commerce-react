@@ -1,31 +1,27 @@
 .app-footer {
+  padding: em($medium-space);
+  height: em($footer-height);
   background-color: $clr1;
-  color: white;
-  padding: em(12px);
-  height: 200px;
-  // position: relative;
-  // bottom: 0;
+  color: $clr0;
 
   .footer-container {
-    // display: absolute;
-    // bottom: 0;
     justify-content: space-around;
-    h2 {
-      margin-block-end: em(8px);
+    .group-title {
+      margin-block-end: em($small-space);
     }
     .nav-link {
-      margin-block-end: em(4px);
+      margin-block-end: em($min-space);
       &:hover {
         text-decoration: underline;
       }
     }
 
     .contact {
-      max-width: em(200px);
+      max-width: em($footer-height);
       .links-container {
-        margin-block-start: em(12px);
         display: flex;
-        gap: em(8px);
+        margin-block-start: em($medium-space);
+        gap: em($small-space);
       }
     }
   }

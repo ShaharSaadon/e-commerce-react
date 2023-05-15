@@ -46,7 +46,6 @@ export function cartReducer(state = INITIAL_STATE, action = {}) {
       updatedCart = state.cart.map((item) =>
         item._id === action.product._id ? action.product : item
       );
-
       storageService.saveCart(updatedCart);
 
       return {

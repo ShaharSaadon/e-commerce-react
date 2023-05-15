@@ -2,7 +2,6 @@ import { useFormRegister } from '../customHooks/useFormRegister';
 import search from '../assets/images/svgs/search.svg'
 import Slider from '@mui/material/Slider';
 import { DynamicColors } from './DynamicColors';
-import { useEffect, useState } from 'react';
 
 
 export function ProductFilter(props) {
@@ -46,17 +45,17 @@ export function ProductFilter(props) {
                 </button>
             </section>
             <section className='categories filter'>
-                <h2>CATEGORIES</h2>
+                <h2 className='filter-subject'>CATEGORIES</h2>
                 {categories.map((category, i) => {
                     return (
-                        <div key={i}>
-                            <h4>{category}</h4>
+                        <div key={i} className='category'>
+                            {category}
                         </div>
                     );
                 })}
             </section>
             <section className='price filter'>
-                <h2>PRICE</h2>
+                <h2 className='filter-subject'>PRICE</h2>
                 <Slider
                     getAriaLabel={() => 'Temperature range'}
                     value={minMax}
@@ -73,7 +72,7 @@ export function ProductFilter(props) {
                 </div>
             </section>
             <section className="colors filter">
-                <h2>COLOR</h2>
+                <h2 className='filter-subject'>COLOR</h2>
                 <DynamicColors colors={getColors()} selectedColors={props.filterBy.colors} handleClick={handleClickColor} />
             </section>
 

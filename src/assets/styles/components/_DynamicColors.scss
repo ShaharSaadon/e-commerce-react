@@ -1,34 +1,24 @@
 .color-palette {
-  padding: 8px;
   display: flex;
   justify-content: space-between;
-  margin-block-start: 12px;
+  flex-wrap: wrap;
+  max-width: em($color-palette-width);
+  margin-block-start: em($medium-space);
 
   .color {
-    height: 24px;
-    width: 24px;
+    height: em($xxLarge-space);
+    width: em($xxLarge-space);
     border-radius: 50%;
-    border: 3px solid whitesmoke;
-    margin-inline-end: 8px;
+    border: 3px solid $clr3;
+    margin-inline-end: em($min-space);
+    margin-block-end: em($min-space);
     position: relative;
     &:hover {
       cursor: pointer;
     }
 
     &.selected {
-      &::before {
-        content: '';
-        position: absolute;
-        bottom: -35%;
-        left: 50%; /* Position the center of the line under the middle of the word */
-        width: 100%; /* Start with no width */
-        height: 2px;
-        background-color: #000; /* Set the color of the line */
-        transition: width 0.3s ease-in-out; /* Add an animation to the width property */
-        transform: translateX(
-          -50%
-        ); /* Move the center of the line back to the left */
-      }
+      box-shadow: 5px 4px 5px $clr4, 0 0 1em $clr5, 0 0 0.2em $clr6;
     }
   }
 }
