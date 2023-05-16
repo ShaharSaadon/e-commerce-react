@@ -27,7 +27,6 @@ export function DynamicProducts() {
     const initialSubCategories = categories[category].map((subCategory) => {
         return {
             name: subCategory.name,
-            imageUrl: subCategory.imageUrl,
         };
     });
     const [subCategories, setSubCategories] = useState(initialSubCategories.map((subCategory) => subCategory.name));
@@ -44,7 +43,7 @@ export function DynamicProducts() {
     useEffect(() => {
         const colors = getColors()
         const minMaxPrices = getMinMaxPrices();
-        dispatch(setFilterBy({ category, name: '', minMax: minMaxPrices, colors, }))
+        if (products.length > 0) dispatch(setFilterBy({ category, name: '', minMax: minMaxPrices, colors, }))
     }, [products])
 
     function getColors() {
@@ -107,7 +106,7 @@ export function DynamicProducts() {
         } catch (error) {
             console.log('error:', error)
         }
-    }, []);
+    }, [dispatch]);
 
 
     return (
@@ -116,7 +115,7 @@ export function DynamicProducts() {
                 <h2 className='category-title'>
                     <Link to={`/${category}`} className="nav-link">{category}</Link>
 
-                    {subCategory ? `| ${subCategory}` : ``}</h2>
+                    {subCategory ? ` | ${subCategory}` : ``}</h2>
                 <p className='category-description'>I'm a paragraph. Click here to add your own text and edit me. It’s easy.
                     Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you</p>
                 <img src={imageMap[category]} alt="" className='product-img-1' />

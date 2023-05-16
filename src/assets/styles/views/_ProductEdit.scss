@@ -1,20 +1,29 @@
-.img-uploader {
-  // background-color: red;
-  position: relative;
-  width: rem(300px);
-  height: rem(200px);
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.product-edit {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
+  .img-uploader {
+    position: relative;
+    width: rem(300px);
+    height: rem(200px);
 
-  .input-img {
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    position: absolute;
-    left: 0;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .input-img {
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      position: absolute;
+      left: 0;
+    }
   }
 }

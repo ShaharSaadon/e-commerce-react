@@ -1,7 +1,5 @@
 import React from 'react'
-
-import { UserTable } from '../components/UserTable'
-import { OrdersTable } from '../components/OrdersTable.jsx'
+import { NavLink, Outlet } from 'react-router-dom'
 
 
 export default function AdminPanel() {
@@ -9,9 +7,11 @@ export default function AdminPanel() {
 
     return (
         <div>
-
-            <UserTable />
-            <OrdersTable />
+            <nav>
+                <NavLink to="/admin-panel/orders">Orders</NavLink>
+                <NavLink to="/admin-panel/users">Users</NavLink>
+            </nav>
+            <Outlet />
         </div>
 
 

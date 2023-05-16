@@ -17,11 +17,12 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AdminPanel from './views/AdminPanel';
 import { ShoppingCartPage } from './views/ShoppingCartPage.jsx';
-
+import { UserTable } from './components/UserTable';
+import { OrdersTable } from './components/OrdersTable';
 function App() {
   return (
     <Router>
-      <ShoppingCartCmp />
+      {/* <ShoppingCartCmp /> */}
       <section className="main-container">
         <AppHeader />
         <ToastContainer />
@@ -31,6 +32,8 @@ function App() {
           <Route path="/:category/:subCategory" element={<DynamicProducts />} />
           <Route path="/:category" element={<DynamicProducts />} />
           <Route path="/admin-panel" element={<AdminPanel />} />
+          <Route path="/admin-panel/orders" element={<UserTable />} />
+          <Route path="/admin-panel/users" element={<OrdersTable />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/user-profile" element={<UserProfile />} />
           <Route path="/signup" element={<Signup />} />

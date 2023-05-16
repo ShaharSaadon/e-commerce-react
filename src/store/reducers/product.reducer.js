@@ -65,6 +65,7 @@ const INITIAL_STATE = {
     ],
   },
   colors: ['white', 'black', 'red', 'lightgray', 'navy'],
+  sizes: ['100/100', '200/200', '300/300'],
   filterBy: {
     name: '',
     category: '',

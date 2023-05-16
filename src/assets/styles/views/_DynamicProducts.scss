@@ -24,7 +24,7 @@
       font-size: em(46px);
       z-index: 5;
       text-shadow: 1px 1px 2px $clr3, 0 0 1em $clr7, 0 0 0.2em $clr5;
-      color: $clr3;
+      color: $clr2;
       margin-block-end: em($small-space);
     }
 
@@ -55,7 +55,8 @@
     position: relative;
     button {
       position: absolute;
-      top: 0;
+      top: 35px;
+      right: 48.5%;
       padding: 12px;
     }
   }

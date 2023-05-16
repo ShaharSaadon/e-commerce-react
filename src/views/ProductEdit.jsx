@@ -12,8 +12,10 @@ export function ProductEdit() {
     const [product, handleChange, setProduct] = useForm(productService.getEmptyProduct())
     const fileInputRef = useRef(null);
     const allColors = useSelector((storeState) => storeState.productModule.colors)
-    const { name, description, category, price, imgURL } = product
+    const allSizes = useSelector((storeState) => storeState.productModule.sizes)
+    const { name, description, category, price, imgURL, sizes } = product
     const [selectedColors, setSelectedColors] = useState([])
+    const [selectedSizes, setSelectedSizes] = useState([sizes]);
 
 
     const params = useParams()
@@ -67,11 +69,23 @@ export function ProductEdit() {
         }
     }
 
+    function handleSizeChange(ev) {
+        const size = ev.target.value;
+        if (selectedSizes.includes(size)) {
+            // The size is already selected, so we remove it
+            setSelectedSizes(selectedSizes.filter(s => s !== size));
+        } else {
+            // The size is not selected, so we add it
+            setSelectedSizes([...selectedSizes, size]);
+        }
+    }
+
 
     return (
         <section className='product-edit'>
             <h1>{product._id ? 'Edit' : 'Add'} Product</h1>
             <form onSubmit={onSaveProduct} >
+
 
                 <label htmlFor="name">name</label>
                 <input value={name} onChange={handleChange} type="text" name="name" id="name" />
@@ -88,6 +102,14 @@ export function ProductEdit() {
                 <label htmlFor="price">Colors</label>
                 <DynamicColors colors={allColors} selectedColors={selectedColors} handleClick={handleColor} />
 
+                <label htmlFor="sizes">Sizes</label>
+                <select id="sizes" multiple value={selectedSizes} onChange={handleSizeChange}>
+                    {allSizes.map((size) => (
+                        <option key={size} value={size}>
+                            {size}
+                        </option>
+                    ))}
+                </select>
 
                 <label htmlFor="imgURL">Image Url:</label>
                 <div className="img-uploader">

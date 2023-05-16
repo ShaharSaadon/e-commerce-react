@@ -45,7 +45,7 @@ export function ProductDetails(props) {
     }
 
     if (!product) return <div>Loading...</div>;
-    const { name, description, category, price, imgURL, colors, subCategory } = product
+    const { name, description, category, price, imgURL, colors, subCategory, sizes } = product
     console.log('product:', product)
     console.log('subCategory:', subCategory)
     return (
@@ -61,6 +61,13 @@ export function ProductDetails(props) {
                 <h1 className='product-name'>{name}</h1>
                 <p><span className='price'>{price}</span>&Free Shipping</p>
                 <p className='description'>{description}</p>
+                <select className="description">
+                    {sizes.map((size, index) => (
+                        <option key={index} value={size}>
+                            {size}
+                        </option>
+                    ))}
+                </select>
                 <p>Colors:</p>
                 <DynamicColors colors={colors || []}
                 />

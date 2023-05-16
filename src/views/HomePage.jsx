@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import bCover from '../assets/images/bedding-cover.jpg';
 import delivery from '../assets/images/delivery.png'
 import shield from '../assets/images/shield.png'
@@ -10,13 +10,13 @@ import centerImg from '../assets/images/center-img.png'
 import towelsImg from '../assets/images/towels.png'
 import linenImg from '../assets/images/linen-img.png'
 import blanketImg from '../assets/images/blanket-img.png'
-import { SliderGallery } from '../components/SliderGallery'
-import { RecommendsProducts } from '../components/RecommendsProducts.jsx'
 import { useDispatch, useSelector } from 'react-redux';
 import { loadProducts } from '../store/actions/product.actions';
 import { ProductPreview } from '../components/ProductPreview';
+import { useSpring, animated } from 'react-spring';
 
 export function HomePage() {
+
     const products = useSelector((storeState) => storeState.productModule.products.slice(0, 3))
     const dispatch = useDispatch()
     console.log('products:', products)
@@ -27,6 +27,20 @@ export function HomePage() {
     }, [])
 
 
+    const [springs, api] = useSpring(() => ({
+        from: { x: 0 }, to: { x: 100 },
+    }))
+
+    const handleClick = () => {
+        api.start({
+            from: {
+                x: 0,
+            },
+            to: {
+                x: 100,
+            },
+        })
+    }
     return (
         <section className='home-page-container full main-container'>
             <div className="images-container full">
@@ -39,6 +53,7 @@ export function HomePage() {
                     <p>Shop now</p>
                 </div>
             </div>
+
             <div className="designed-nav full flex">
                 <div className="box">
                     <img src={delivery} alt="" />
@@ -104,30 +119,32 @@ export function HomePage() {
                 </div>
                 <div className="right-space">
                 </div>
-                <div className="title">
+                <div className="title" >
                     <h1> WHAT'S NEW</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis deleniti quos, veritatis sunt error obcaecati nobis accusamus perspiciatis velit accusantium.</p>
+
+                    <animated.p style={springs}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis deleniti quos, veritatis sunt error obcaecati nobis accusamus perspiciatis velit accusantium.</animated.p>
                 </div>
+
                 <div className="teaser-1 teaser">
-                    <img src={collectionImg} alt="" className='' />
+                    <animated.img src={collectionImg} alt="" className='' style={springs} />
                     <h2>COLLECTIONS</h2>
                     <p>Collections ipsum dolor sit amet consectetur adipisicing elit. Omnis deleniti quos, veritatis sunt error obcaecati nobis accusamus perspiciatis velit accusantium.</p>
                 </div>
                 <div className="center-img">
-                    <img src={centerImg} alt="CENTER" />
+                    <img src={centerImg} alt="CENTER" style={springs} />
                 </div>
                 <div className="teaser-2 teaser">
-                    <img src={towelsImg} alt="" />
+                    <animated.img src={towelsImg} alt="" style={springs} />
                     <h2>TOWELS</h2>
                     <p>Linen ipsum dolor sit amet consectetur adipisicing elit. Omnis deleniti quos, veritatis sunt error obcaecati nobis accusamus perspiciatis velit accusantium.</p>
                 </div>
                 <div className="teaser-3 teaser">
-                    <img src={linenImg} alt="" />
+                    <animated.img src={linenImg} alt="" style={springs} />
                     <h2>LINEN</h2>
                     <p>Linen ipsum dolor sit amet consectetur adipisicing elit. Omnis deleniti quos, veritatis sunt error obcaecati nobis accusamus perspiciatis velit accusantium.</p>
                 </div>
                 <div className="teaser-4 teaser">
-                    <img src={blanketImg} alt="" />
+                    <animated.img src={blanketImg} alt="" style={springs} />
                     <h2>Blankets</h2>
                     <p>Blankets ipsum dolor sit amet consectetur adipisicing elit. Omnis deleniti quos, veritatis sunt error obcaecati nobis accusamus perspiciatis velit accusantium.</p>
                 </div>

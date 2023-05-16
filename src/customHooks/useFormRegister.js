@@ -1,12 +1,104 @@
-import { useState } from 'react';
-import { useEffectUpdate } from './useEffectUpdate';
+// import { useState } from 'react';
+// import { useEffectUpdate } from './useEffectUpdate';
+
+// export function useFormRegister(initialFields, cb = () => {}) {
+//   const [fields, setFields] = useState(initialFields);
+
+//   useEffectUpdate(() => {
+//     cb(fields);
+//   }, [fields]);
+
+//   function handleChange({ target }) {
+//     const field = target.name;
+//     let value = target.value;
+
+//     switch (target.type) {
+//       case 'number':
+//       case 'range':
+//         if (Array.isArray(value)) {
+//           value = [+value[0], +value[1]];
+//         } else {
+//           value = +value;
+//         }
+//         break;
+//       case 'checkbox':
+//         value = target.checked;
+//         break;
+//       default:
+//         break;
+//     }
+
+//     setFields((prevFields) => ({ ...prevFields, [field]: value }));
+//   }
+//   // <input onChange={handleChange} value={filterBy.model} type="text" name="model" id="model" />
+
+//   function register(field, type = 'text') {
+//     return {
+//       onChange: handleChange,
+//       type,
+//       name: field,
+//       id: field,
+//       value: fields[field],
+//     };
+//   }
+
+//   return [register];
+// }
+
+// import { useState } from 'react';
+// import { useEffect } from 'react';
+
+// export function useFormRegister(initialFields, cb = () => {}) {
+//   const [fields, setFields] = useState(initialFields);
+
+//   useEffect(() => {
+//     cb(fields);
+//   }, [fields, cb]);
+
+//   function handleChange({ target }) {
+//     const field = target.name;
+//     let value = target.value;
+
+//     switch (target.type) {
+//       case 'number':
+//       case 'range':
+//         if (Array.isArray(value)) {
+//           value = [+value[0], +value[1]];
+//         } else {
+//           value = +value;
+//         }
+//         break;
+//       case 'checkbox':
+//         value = target.checked;
+//         break;
+//       default:
+//         break;
+//     }
+
+//     setFields((prevFields) => ({ ...prevFields, [field]: value }));
+//   }
+
+//   function register(field, type = 'text') {
+//     return {
+//       onChange: handleChange,
+//       type,
+//       name: field,
+//       id: field,
+//       value: fields[field],
+//     };
+//   }
+
+//   return [register];
+// }
+
+import { useEffect, useState } from 'react';
 
 export function useFormRegister(initialFields, cb = () => {}) {
   const [fields, setFields] = useState(initialFields);
 
-  useEffectUpdate(() => {
+  useEffect(() => {
     cb(fields);
-  }, [fields]);
+  }, [fields, cb]);
 
   function handleChange({ target }) {
     const field = target.name;
@@ -30,7 +122,6 @@ export function useFormRegister(initialFields, cb = () => {}) {
 
     setFields((prevFields) => ({ ...prevFields, [field]: value }));
   }
-  // <input onChange={handleChange} value={filterBy.model} type="text" name="model" id="model" />
 
   function register(field, type = 'text') {
     return {

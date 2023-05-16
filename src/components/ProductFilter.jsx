@@ -2,21 +2,27 @@ import { useFormRegister } from '../customHooks/useFormRegister';
 import search from '../assets/images/svgs/search.svg'
 import Slider from '@mui/material/Slider';
 import { DynamicColors } from './DynamicColors';
+import { useState } from 'react';
 
 
 export function ProductFilter(props) {
     const { minMax = [0, Infinity] } = props.filterBy || {};
     const [register] = useFormRegister({ ...props.filterBy, minMax }, props.onChangeFilter);
     const { getColors, categories } = props;
+    const [sliderValue, setSliderValue] = useState(minMax)
+
+
     function handleSliderChange(event, newValue) {
-        register('minMax')?.onChange({ // update global state
+        setSliderValue(newValue);
+        register('minMax')?.onChange({
             target: {
                 name: 'minMax',
                 value: newValue,
-                type: 'range'
-            }
+                type: 'range',
+            },
         });
     }
+
 
     function handleClickColor(ev) {
         const color = ev.target.style.backgroundColor;
@@ -35,10 +41,10 @@ export function ProductFilter(props) {
         console.log('color:', color);
     }
 
+    console.log('filterBy:', props.filterBy)
     return (
         <form className='product-filter full' >
             <section className='search-box'>
-                {/* <label htmlFor="name">Name</label> */}
                 <input {...register('name',)} placeholder='Search Products...' className='search' />
                 <button type="search" value="search">
                     <img src={search} alt="" />
@@ -57,8 +63,7 @@ export function ProductFilter(props) {
             <section className='price filter'>
                 <h2 className='filter-subject'>PRICE</h2>
                 <Slider
-                    getAriaLabel={() => 'Temperature range'}
-                    value={minMax}
+                    value={sliderValue}
                     min={minMax[0]}
                     max={minMax[1]}
                     onChange={handleSliderChange}
