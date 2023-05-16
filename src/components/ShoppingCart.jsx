@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, updateCartItem } from '../store/actions/cart.actions';
 import { showWarning, showSuccess } from '../services/alert.message'
 import { Link } from 'react-router-dom';
-export function ShoppingCart() {
+export function ShoppingCartCmp() {
 
     const cart = useSelector((state) => state.cartModule.cart);
     const dispatch = useDispatch();
@@ -68,7 +68,12 @@ export function ShoppingCart() {
                             {calculateTotal()}₪
                         </div>
                         <button className='nice-button'>Proceed to Checkout</button>
-                        <button className='nice-button'>View Cart</button>
+                        <button className='nice-button'>
+                            <Link to="/shopping-cart" />
+                            View full Cart
+                            <Link />
+                        </button>
+
                     </div>
                 )}
             </section>

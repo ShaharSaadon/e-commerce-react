@@ -6,7 +6,7 @@ import { HomePage } from './views/HomePage.jsx';
 import { ProductIndex } from './views/ProductIndex.jsx';
 import { ProductDetails } from './views/ProductDetails.jsx';
 import { ProductEdit } from './views/ProductEdit.jsx';
-import { ShoppingCart } from './views/ShoppingCart.jsx';
+import { ShoppingCartCmp } from './components/ShoppingCart.jsx';
 import { Signup } from './views/Signup.jsx';
 import { Login } from './views/Login.jsx';
 import { UserProfile } from './views/UserProfile.jsx';
@@ -16,16 +16,16 @@ import { DynamicProducts } from './views/DynamicProducts';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AdminPanel from './views/AdminPanel';
-import { useEffect, useState } from 'react';
+import { ShoppingCartPage } from './views/ShoppingCartPage.jsx';
 
 function App() {
   return (
     <Router>
-      {/* <ShoppingCart /> */}
+      <ShoppingCartCmp />
       <section className="main-container">
         <AppHeader />
         <ToastContainer />
-        <Routes>
+        <Routes className="main-app">
           <Route path="/product/edit/:id?" element={<ProductEdit />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/:category/:subCategory" element={<DynamicProducts />} />
@@ -35,7 +35,7 @@ function App() {
           <Route path="/user-profile" element={<UserProfile />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/shopping-cart" element={<ShoppingCart />} />
+          <Route path="/shopping-cart" element={<ShoppingCartPage />} />
           <Route path="/shop" element={<ProductIndex />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/" element={<HomePage />} />

@@ -36,6 +36,7 @@ export function _SubCategories({ categories, category }) {
     }
 
     useEffect(() => {
+        setIsBarOpen(true)
         const timer = setTimeout(() => {
             setIsBarOpen(prevState => !prevState);
         }, 1500);
