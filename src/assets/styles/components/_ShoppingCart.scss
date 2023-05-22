@@ -11,14 +11,20 @@
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 10;
+  z-index: 100;
   background-color: $clr2;
   height: 100vw;
   border-left: $clr2 2px solid;
 
+  .btn-close {
+    border-radius: 50%;
+    position: absolute;
+    left: -10px;
+  }
   .title {
     border-bottom: 1px black solid;
     padding: em($large-space) em($small-space);
+    // margin-block-start: 12px;
   }
   .items-list {
     overflow-y: scroll;
@@ -50,6 +56,13 @@
     }
   }
 
+  span {
+    font-weight: 700;
+  }
+
+  p {
+    color: gray;
+  }
   .cart-actions {
     flex-direction: column;
 

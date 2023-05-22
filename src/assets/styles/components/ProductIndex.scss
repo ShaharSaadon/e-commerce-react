@@ -1,0 +1,20 @@
+.products-index-container {
+  display: flex;
+  flex-direction: column;
+  .prudct-container {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+
+    .product-list {
+      display: flex;
+      flex-direction: column;
+      max-width: 300px;
+    }
+    .product-preview {
+      max-width: 300px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

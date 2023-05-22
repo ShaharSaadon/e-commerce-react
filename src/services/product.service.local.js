@@ -14,7 +14,7 @@ const gProducts = [
     name: 'Hand Towel',
     description:
       '100% pure goose down filling. Breathable cotton cover. Hypoallergenic and dust mite resistant. Medium-firm support. Piped edges for durability. Machine washable. 850 fill power.',
-    category: 'towels',
+    category: 'מצעים',
     subCategory: 'hand-towel',
     sizes: ['100/140', '120/200', '30/30', '60/60'],
     colors: ['white'],
@@ -26,7 +26,7 @@ const gProducts = [
     name: 'Body Towel',
     description:
       '100% pure mulberry silk. Hypoallergenic and gentle on the skin. Silky smooth and lustrous finish. Temperature regulating properties. Includes 1 flat sheet, 1 fitted sheet, and 2 pillowcases. Available in Queen and King sizes.',
-    category: 'towels',
+    category: 'מארזים',
     subCategory: 'body-towel',
     sizes: ['100/140', '120/200', '30/30', '60/60'],
     colors: ['silver'],
@@ -38,7 +38,7 @@ const gProducts = [
     name: 'Face Towel',
     description:
       '100% premium cashmere wool. Ultra-soft and warm. Lightweight and breathable. Elegant twill weave pattern. Hand-finished with a fringe trim. Dry clean only.',
-    category: 'towels',
+    category: 'מוצרים-משלימים-למיטה',
     subCategory: 'face-towel',
     sizes: ['100/140', '120/200', '70/130'],
     colors: ['beige'],
@@ -50,10 +50,10 @@ const gProducts = [
     name: '100% Cotton linen',
     description:
       '70% organic bamboo, 30% cotton blend. Soft, absorbent, and eco-friendly. Odor-resistant and antibacterial properties. Includes 2 bath towels, 2 hand towels, and 2 washcloths. Machine washable. 600 GSM.',
-    category: 'linen',
+    category: 'מארזים',
     subCategory: 'cotton-linen',
     sizes: ['100/140', '120/200', '30/30', '60/60'],
-    colors: ['green'],
+    colors: ['מוצרים-משלימים-למיטה-משלימים-למיטה-משלימים-למיטה'],
     price: 89.99,
     imgURL: 'https://robohash.org/5',
   },
@@ -62,7 +62,7 @@ const gProducts = [
     name: 'baby linen',
     description:
       'Memory foam with cooling gel layer. Medium-firm support. Ventilated for increased airflow and breathability. Removable, washable cover. Contours to the shape of your head and neck.',
-    category: 'pillows',
+    category: 'מגבות',
     subCategory: 'baby-linen',
     sizes: ['100/140', '120/200', '30/30', '60/60'],
     colors: ['blue'],
@@ -74,7 +74,7 @@ const gProducts = [
     name: 'Couple Linen',
     description:
       '100% pure combed cotton. Soft, stretchy, and breathable. T-shirt-like comfort. Includes 1 flat sheet, 1 fitted sheet, and 2 pillowcases. Available in Twin, Full, Queen, and King sizes. Machine washable.',
-    category: 'linen',
+    category: 'מארזים',
     colors: ['gray'],
     sizes: ['100/140', '120/200', '30/30', '60/60'],
     price: 79.99,
@@ -85,7 +85,7 @@ const gProducts = [
     name: 'Faux Fur Throw Blanket',
     description:
       '100% polyester faux fur. Luxuriously soft and warm. Realistic animal fur pattern. Perfect for snuggling or as a decorativeaccent. Machine washable. Size: 50" x 60".',
-    category: 'blankets',
+    category: 'מצעים',
     sizes: ['100/140', '120/200', '30/30', '60/60'],
     colors: ['brown'],
     price: 49.99,
@@ -96,7 +96,7 @@ const gProducts = [
     name: 'Plush Microfiber Towel Set',
     description:
       '100% ultra-soft microfiber. Quick-drying and highly absorbent. Lint-free and fade-resistant. Includes 2 bath towels, 2 hand towels, and 2 washcloths. Machine washable. 550 GSM.',
-    category: 'towels',
+    category: 'מגבות',
     colors: ['navy'],
     sizes: ['100/140', '120/200', '30/30', '60/60'],
     price: 69.99,
@@ -107,7 +107,7 @@ const gProducts = [
     name: 'Lavender Infused Pillow',
     description:
       'Memory foam with lavender infusion. Calming lavender scent for better sleep. Medium-firm support. Removable, washable cover. Contours to the shape of your head and neck. Size: 24" x 16" x 5".',
-    category: 'pillows',
+    category: 'מגבות',
     colors: ['purple'],
     sizes: ['100/140', '120/200', '30/30', '60/60'],
     price: 64.99,
@@ -118,7 +118,7 @@ const gProducts = [
     name: 'Flannel Sheet Set',
     description:
       'Memory foam with lavender infusion. Calming lavender scent for better sleep. Medium-firm support. Removable, washable cover. Contours to the shape of your head and neck. Size: 24" x 16" x 5".',
-    category: 'linen',
+    category: 'מצעים',
     colors: ['red'],
     sizes: ['100/140', '120/200', '30/30', '60/60'],
 
@@ -130,7 +130,7 @@ const gProducts = [
     name: 'Waffle Weave Cotton Blanket',
     description:
       '100% pure combed cotton. Breathable and lightweight. Waffle weave pattern for added texture. Perfect for all seasons. Machine washable. Size: 66" x 90" (Twin), 90" x 90" (Queen), 108" x 90" (King).',
-    category: 'blankets',
+    category: 'מצעים',
     sizes: ['100/140', '120/200', '30/30', '60/60'],
 
     colors: ['ivory'],
@@ -142,7 +142,7 @@ const gProducts = [
     name: 'Diamond Jacquard Towel Set',
     description:
       '100% long-staple cotton. Soft, absorbent, and durable. Elegant diamond jacquard pattern. Includes 2 bath towels, 2 hand towels, and 2 washcloths. Machine washable. 700 GSM.',
-    category: 'towels',
+    category: 'מגבות',
     colors: ['taupe'],
     sizes: ['100/140', '120/200', '30/30', '60/60'],
 
@@ -154,7 +154,7 @@ const gProducts = [
     name: 'Charcoal Infused Pillow',
     description:
       'Memory foam with activated charcoal infusion. Odor-neutralizing and moisture-absorbing. Medium-firm support. Removable, washable cover. Contours to the shape of your head and neck. Size: 24" x 16" x 5".',
-    category: 'pillows',
+    category: 'מגבות',
     colors: ['black'],
     sizes: ['100/140', '120/200', '30/30', '60/60'],
 
@@ -166,7 +166,7 @@ const gProducts = [
     name: 'Percale Sheet Set',
     description:
       '100% pure long-staple cotton. Crisp, cool, and breathable. Matte finish with a soft hand feel. Includes 1 flat sheet, 1 fitted sheet, and 2 pillowcases. Available in Twin, Full, Queen, and King sizes. Machine washable.',
-    category: 'linen',
+    category: 'מצעים',
     sizes: ['100/140', '120/200', '30/30', '60/60'],
 
     colors: ['blue'],
@@ -178,7 +178,7 @@ const gProducts = [
     name: 'Chenille Knit Blanket',
     description:
       '100% polyester chenille knit. Ultra-soft and plush texture. Warm and cozy. Ideal for layering or as a standalone blanket. Machine washable.',
-    category: 'blankets',
+    category: 'מצעים',
     sizes: ['100/140', '120/200', '30/30', '60/60'],
     colors: ['pink'],
     price: 39.99,
@@ -189,7 +189,7 @@ const gProducts = [
     name: 'Turkish Cotton Towel Set',
     description:
       '100% genuine Turkish cotton. Luxurious, soft, and absorbent. Long-lasting and quick-drying. Includes 2 bath towels, 2 hand towels, and 2 washcloths. Machine washable. 650 GSM.',
-    category: 'towels',
+    category: 'מארזים',
     sizes: ['100/140', '120/200', '30/30', '60/60'],
     colors: ['coral'],
     price: 109.99,
@@ -200,7 +200,7 @@ const gProducts = [
     name: 'Copper Infused Pillow',
     description:
       'Memory foam with copper-infused cover. Antibacterial and antimicrobial properties. Medium-firm support. Removable, washable cover. Contours to the shape of your head and neck. Size: 24" x 16" x 5".',
-    category: 'pillows',
+    category: 'מגבות',
     colors: ['copper'],
     sizes: ['100/140', '120/200', '30/30', '60/60'],
     price: 69.99,
@@ -211,7 +211,7 @@ const gProducts = [
     name: 'Sateen Sheet Set',
     description:
       '100% pure long-staple cotton. Smooth, lustrous, and wrinkle-resistant. Silky soft feel with a subtle sheen. Includes 1 flat sheet, 1 fitted sheet, and 2 pillowcases. Available in Twin, Full, Queen, and King sizes. Machine washable.',
-    category: 'linen',
+    category: 'מארזים',
     colors: ['gold'],
     sizes: ['100/140', '120/200', '30/30', '60/60'],
     price: 119.99,
@@ -222,7 +222,7 @@ const gProducts = [
     name: 'Quilted Velvet Blanket',
     description:
       '100% polyester quilted velvet. Soft, warm, and luxurious. Diamond quilted pattern. Ideal for layering or as a standalone blanket. Machine washable.',
-    category: 'blankets',
+    category: 'מצעים',
     sizes: ['100/140', '120/200', '30/30', '60/60'],
     colors: ['burgundy'],
     price: 69.99,
@@ -233,7 +233,7 @@ const gProducts = [
     name: 'Beach Stripe Towel Set',
     description:
       '100% pure cotton. Soft, absorbent, and durable. Classic beach stripe design. Includes 2 bath towels, 2 hand towels, and 2 washcloths. Machine washable. 500 GSM.',
-    category: 'towels',
+    category: 'מצעים',
     colors: ['blue', 'white'],
     sizes: ['100/140', '120/200', '30/30', '60/60'],
     price: 59.99,
@@ -241,37 +241,18 @@ const gProducts = [
   },
 ];
 
-async function query(filterBy) {
+async function query(category) {
   let updatedProducts = await storageService.query(STORAGE_KEY);
   if (!updatedProducts || updatedProducts.length === 0) {
     await _postProducts();
     updatedProducts = await storageService.query(STORAGE_KEY);
   }
-  var { category, minMaxPrice, name, colors } = filterBy;
-
+  console.log('category:', category);
   if (category) {
     const regex = new RegExp(category, 'i');
     updatedProducts = updatedProducts.filter((product) =>
       regex.test(product.category)
     );
-  }
-  if (name) {
-    const regex = new RegExp(name, 'i');
-    updatedProducts = updatedProducts.filter((product) =>
-      regex.test(product.name)
-    );
-  }
-  if (minMaxPrice) {
-    console.log('minMaxPrice:', minMaxPrice);
-    updatedProducts = updatedProducts.filter(
-      (product) =>
-        product.price >= minMaxPrice[0] && product.price <= minMaxPrice[1]
-    );
-  }
-  if (colors) {
-    // updatedProducts = updatedProducts.filter((product) =>
-    //   colors.some((color) => product.colors.includes(color))
-    // );
   }
 
   return updatedProducts;

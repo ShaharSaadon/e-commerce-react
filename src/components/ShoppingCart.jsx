@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, updateCartItem } from '../store/actions/cart.actions';
 import { showWarning, showSuccess } from '../services/alert.message'
-import { Link } from 'react-router-dom';
-export function ShoppingCartCmp() {
+import { Link, useNavigate } from 'react-router-dom';
+export function ShoppingCartCmp({ setIsCartVisible }) {
 
     const cart = useSelector((state) => state.cartModule.cart);
     const dispatch = useDispatch();
-
+    const [isVisible, setisVisible] = useState(false)
     const handleRemoveFromCart = (productId) => {
         dispatch(removeFromCart(productId));
         showWarning('Product Deleted Successfully')
     };
 
+    const navigate = useNavigate()
     const handleUpdateCartItem = (product, quantity) => {
         dispatch(updateCartItem({ ...product, quantity }));
         showSuccess(`Product Quantity Updated to ${quantity}`)
@@ -20,12 +21,21 @@ export function ShoppingCartCmp() {
     };
 
     const calculateTotal = () => {
-        return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+        return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
     };
 
+    function handleToggle() {
+        setIsCartVisible((prevState) => !prevState)
+    }
+
+    function handleViewCart() {
+        navigate('/shopping-cart')
+        handleToggle()
+    }
     return (
         <div className="shopping-background">
             <section className='shopping-cart'>
+                <button className='btn-close' onClick={handleToggle}>X</button>
                 <h2 className='title'>Cart</h2>
                 {cart.length === 0 ? (
                     <p>Your cart is empty.</p>
@@ -38,6 +48,9 @@ export function ShoppingCartCmp() {
                                     <div className="box">
                                         <Link to={`/product/${item._id}`} className="nav-link">{item.name}</Link>
                                         <p>{item.price}₪</p>
+                                        <p> <span> צבע: </span>{item.colors}</p>
+                                        <p> <span>גודל:</span>  {item.sizes}</p>
+                                        {/* <pre>{JSON.stringify(item, null, 2)}</pre> */}
                                         <div className="quantity flex">
                                             <button className='nice-button' onClick={() => handleUpdateCartItem(item, item.quantity - 1)} disabled={item.quantity <= 1}>
                                                 -
@@ -68,11 +81,14 @@ export function ShoppingCartCmp() {
                             {calculateTotal()}₪
                         </div>
                         <button className='nice-button'>Proceed to Checkout</button>
-                        <button className='nice-button'>
-                            <Link to="/shopping-cart" />
+
+                        <button className='nice-button' onClick={handleViewCart}>
                             View full Cart
-                            <Link />
                         </button>
+
+                        {/* <Link to={`/product/edit/${product._id}`} className="edit">
+                            Edit
+                        </Link> */}
 
                     </div>
                 )}

@@ -1,13 +1,13 @@
 .app-footer {
-  padding: em($medium-space);
-  height: em($footer-height);
-  background-color: $clr1;
+  // height: em($footer-height);
   color: $clr0;
-
   .footer-container {
+    padding: em(52px) 200px;
     justify-content: space-around;
+    background-color: $clr1;
     .group-title {
-      margin-block-end: em($small-space);
+      margin-block-end: em(52px);
+      font-size: 1.2em;
     }
     .nav-link {
       margin-block-end: em($min-space);
@@ -15,14 +15,30 @@
         text-decoration: underline;
       }
     }
-
     .contact {
       max-width: em($footer-height);
+      p {
+        margin-block-end: em($medium-space);
+      }
       .links-container {
         display: flex;
         margin-block-start: em($medium-space);
         gap: em($small-space);
       }
+    }
+  }
+
+  .lower-footer {
+    border-top: 1px rgba($color: #000000, $alpha: 0.5) solid;
+    padding: 24px;
+    display: flex;
+    justify-content: space-around;
+    background-color: pink;
+    color: $clr3;
+
+    .links-container {
+      display: flex;
+      gap: em(8px);
     }
   }
 }

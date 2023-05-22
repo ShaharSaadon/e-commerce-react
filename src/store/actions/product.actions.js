@@ -6,12 +6,11 @@ import {
   SET_CURR_CATEGORY,
 } from '../reducers/product.reducer';
 
-export function loadProducts() {
+export function loadProducts(category) {
+  console.log('category:', category);
   return async (dispatch, getState) => {
     try {
-      const products = await productService.query(
-        getState().productModule.filterBy
-      );
+      const products = await productService.query(category);
       const action = {
         type: SET_PRODUCTS,
         products,

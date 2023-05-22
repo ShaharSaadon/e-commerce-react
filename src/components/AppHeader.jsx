@@ -11,6 +11,23 @@ export function AppHeader() {
     const loggedinUser = useSelector((storeState) => storeState.userModule.loggedinUser);
     const cart = useSelector((storeState) => storeState.cartModule.cart)
     const [quantity, setQuantity] = useState(0)
+    const [isSticky, setIsSticky] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setIsSticky(true);
+            } else {
+                setIsSticky(false);
+            }
+        };
+
+        window.onscroll = handleScroll;
+
+        return () => {
+            window.onscroll = null;
+        };
+    }, []);
 
     useEffect(() => {
         setQuantity(getQuantity())
@@ -25,35 +42,24 @@ export function AppHeader() {
         return quantity
     }
     return (
-        <header className="main-header">
-            <div className="app-header first">
-                <div className="flex justify-between items-center">
-                    <div className="logo"><Link exact="true" to="/">KingSize</Link>
-                    </div>
-                    <nav className="upper-nav">
-                        <NavLink to="/shop" className="nav-link"> All </NavLink>
-                        <NavLink to="/blankets" className="nav-link"> Blankets </NavLink>
-                        <NavLink to="/pillows" className="nav-link" > Pillows </NavLink>
-                        <NavLink to="/linen" className="nav-link" > Linen </NavLink>
-                        <NavLink to="/towels" className="nav-link">Towels </NavLink>
-                        <NavLink to="/contact" className="nav-link" > Contact </NavLink>
-                        <NavLink to="/admin-panel" className="nav-link" > Admin </NavLink>
-                    </nav>
-                </div>
+        <header className="app-header full main container">
+            <div className="upper-header">
+                <p>לרגל פתיחת החנות, עד סוף חודש מאי- המשלוחים עלינו! קוד קופון <span>KING2023</span></p>
             </div>
-            <div className="lower-nav flex justify-between">
-                <nav className="left-nav">
-                    <a href="https://www.instagram.com/kingsizeboutique/" target="_blank">
-                        <img src={instagram} alt="" className='icon' />
-                    </a>
-                    <a href="https://www.instagram.com/kingsizeboutique/" target="_blank">
-                        <img src={mail} alt="" className='icon' />
-                    </a>
-                    <a href="https://www.instagram.com/kingsizeboutique/" target="_blank">
-                        <img src={facebook} alt="" className='icon' />
-                    </a>
+            <div className={`app-header full main container ${isSticky ? 'main-header flex sticky' : 'main-header flex'}`}>
+                <div className="logo"><Link exact="true" to="/">KingSize</Link></div>
+                <nav className="center">
+                    <NavLink to="/" className="nav-link">בית </NavLink>
+                    <NavLink to="/about" className="nav-link">קצת עלינו </NavLink>
+                    <NavLink to="/מצעים" className="nav-link"> מצעים </NavLink>
+                    <NavLink to="/מגבות" className="nav-link" > מגבות </NavLink>
+                    <NavLink to="/מארזים" className="nav-link" > המארזים שלנו </NavLink>
+                    <NavLink to="/מוצרים-משלימים-למיטה" className="nav-link" > מוצרים משלימים למיטה </NavLink>
+                    <NavLink to="/blog" className="nav-link" > בלוג</NavLink>
+                    <NavLink to="/contact" className="nav-link" >צור קשר</NavLink>
+                    <NavLink to="/admin-panel" className="nav-link" > מנהל </NavLink>
                 </nav>
-                <nav className="right-nav flex">
+                <nav className="right">
 
                     {loggedinUser ? (
                         <NavLink to="/user-profile" className="nav-link">
@@ -63,7 +69,7 @@ export function AppHeader() {
                         <>
                             <div className="login flex">
                                 <img src={person} alt="user-profile" className="icon" />
-                                <NavLink to="/login" className="nav-link">Log In</NavLink>
+                                <NavLink to="/login" className="nav-link">התחברות</NavLink>
                             </div>
                         </>
                     )}

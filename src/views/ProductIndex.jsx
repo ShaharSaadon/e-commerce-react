@@ -40,8 +40,8 @@ export function ProductIndex() {
 
     if (!products) return <div>Loading...</div>
     return (
-        <section className='products-container'>
-            <div className="tools flex justify-center items-center">
+        <section className='products-index-container'>
+            <div className="tools flex justify-center items-center product-index">
                 <NavLink exact="true" to="/product/edit" className="nav-link">Add Product</NavLink>
                 {/* <ProductFilter filterBy={filterBy} onChangeFilter={onChangeFilter} /> */}
 

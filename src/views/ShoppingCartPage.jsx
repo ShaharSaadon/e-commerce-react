@@ -53,8 +53,8 @@ export function ShoppingCartPage() {
                                     <div className="box flex">
                                         <Link to={`/product/${item._id}`} className="nav-link">{item.name}</Link>
                                         <div className="attributes">
-                                            <p>Color: {item.colors.join(',')}</p>
-                                            <p>Size: 30X30 CM </p>
+                                            <p>Color: {item.colors}</p>
+                                            <p>Size: {item.sizes} </p>
                                         </div>
                                         {/* SHOULD CHANGE THE COLOR TO CHOSEN ONE */}
                                         {/* <p>{JSON.stringify(item.size)}</p> */}

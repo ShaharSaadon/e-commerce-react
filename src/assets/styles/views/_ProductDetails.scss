@@ -1,42 +1,73 @@
 .product-details {
   display: grid;
   color: gray;
-  grid-template-columns: 50% 50%;
+  grid-template-rows: 1fr 6fr;
   grid-auto-flow: column;
   font-weight: 400;
   // border: 1px black solid;
-  font-family: Roboto;
-  .product-info {
-    display: flex;
-    flex-direction: column;
-    align-content: start;
-    .product-name {
-      font-size: 2rem;
-      color: black;
-      font-family: Cinzel;
-      margin: 24px 0;
-    }
-    .description {
-      line-height: 1.7;
-    }
 
-    p {
-      margin: 6px 0;
-      .price {
-        font-weight: 700;
-        font-size: 1.4rem;
+  .header {
+    padding: 12px 0;
+    grid-column: 1/-1;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  span {
+    font-weight: 700;
+    margin: 6px;
+  }
+  .content {
+    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 24px;
+    .product-info {
+      display: flex;
+      flex-direction: column;
+      align-content: start;
+      .product-name {
+        font-size: 2rem;
+        color: black;
+        margin-block-end: 12px;
+      }
+      .description {
+        line-height: 1.7;
+      }
+
+      .sizes {
+        width: 150px;
+        height: 44px;
+        border-radius: 12px;
+        padding: 8px 16px;
+      }
+
+      p {
+        margin: 6px 0;
+        .price {
+          font-weight: 700;
+          font-size: 1.4rem;
+        }
+      }
+      .quantity {
+        width: 32px;
       }
     }
-    .quantity {
-      width: 32px;
+    .img-container {
+      width: 500px;
+      height: 500px;
+      background-size: cover;
+      background-position: center;
+      img {
+        object-fit: cover;
+        // width: 300px;
+        // height: 300px;
+        width: 100%;
+        border: 1px black solid;
+      }
     }
   }
-
-  img {
-    width: 100%;
-    // border: 1px black solid;
-  }
-
   .act {
     width: 40px;
   }

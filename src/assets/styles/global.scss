@@ -15,10 +15,10 @@
 
 // COMPONENTS
 
+@import 'components/AppHeader.scss';
 @import 'components/ShoppingCart.scss';
 @import 'views/HomePage.scss';
 @import 'components/nice-button.scss';
-@import 'components/AppHeader.scss';
 @import 'components/AppFooter.scss';
 @import 'components/ProductList';
 @import 'components/ProductFilter.scss';
@@ -26,7 +26,13 @@
 @import 'components/SubCategories.scss';
 @import 'components/Login.scss';
 @import 'components/Signup.scss';
+@import 'components/ProductIndex.scss';
+@import 'components/ImagesContainer.scss';
+@import 'views/AboutPage';
 @import 'views/DynamicProducts';
 @import 'views/ProductEdit.scss';
 @import 'views/ProductDetails.scss';
 @import 'views/ProductPreview.scss';
+@import 'views/Blog.scss';
+@import 'views/BlogArticle.scss';
+@import 'views/Contact.scss';

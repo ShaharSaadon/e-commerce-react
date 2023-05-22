@@ -1,60 +1,77 @@
-.app-header {
-  padding: em($xxLarge-space);
-  background-color: inherit;
-  border-bottom: 1px solid $clr-app-border;
-  color: $clr3;
-
-  .upper-nav {
-    .nav-link {
-      position: relative; /*make the pseudo-element inside available  */
-      padding: $medium-space;
-      font-size: em($large-space);
-      font-weight: 600;
-      &::before {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        width: 0;
-        height: 2.5px;
-        background-color: $clr3;
-        transition: width 0.3s ease-in-out;
-        transform: translateX(-50%);
-      }
-
-      &:hover::before {
-        width: 100%; /* Increase the width of the line to 100% of its container */
-      }
-    }
-
-    .active {
-      font-weight: 700;
-    }
-  }
-}
-
-.lower-nav {
-  padding: $med-size;
-  .right-nav {
+header {
+  // height: 120px;
+  overflow: visible;
+  .upper-header {
+    background-color: $clr3;
+    color: $clr2;
     display: flex;
-    gap: $large-size;
-    .login {
+    justify-content: center;
+    width: 100%;
+    padding: 8px 0;
+  }
+
+  .main-header {
+    position: sticky;
+    justify-content: space-between;
+    top: 0;
+    z-index: 8;
+    // background-color: green;
+    padding: em($large-space) em(150px);
+    border-bottom: 1px solid $clr-app-border;
+    color: $clr3;
+
+    &.sticky {
+      position: fixed;
+      top: 0;
+      background-color: $clr2;
+      width: 100%;
+    }
+    .center {
+      .nav-link {
+        position: relative; /*make the pseudo-element inside available  */
+        padding: $medium-space;
+        font-size: em($large-space);
+        font-weight: 600;
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 0;
+          height: 2.5px;
+          background-color: $clr3;
+          transition: width 0.3s ease-in-out;
+          transform: translateX(-50%);
+        }
+
+        &:hover::before {
+          width: 100%; /* Increase the width of the line to 100% of its container */
+        }
+      }
+
+      .active {
+        font-weight: 700;
+      }
+      grid-column: 2;
+    }
+
+    .right {
       display: flex;
-      align-items: center;
-      gap: $small-space;
+      gap: $large-size;
+      .login {
+        display: flex;
+        align-items: center;
+        gap: $small-space;
+      }
     }
-  }
-  .left-nav {
-    display: flex;
-    gap: $small-space;
-  }
-}
 
-.icon {
-  z-index: 2;
-  width: em($xxLarge-space);
-  height: em($xxLarge-space);
-  &:hover {
-    cursor: pointer;
+    .icon {
+      z-index: 2;
+      width: em($xxLarge-space);
+      height: em($xxLarge-space);
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 }

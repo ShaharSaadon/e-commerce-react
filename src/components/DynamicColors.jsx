@@ -3,6 +3,7 @@ import React from 'react'
 export function DynamicColors(props) {
 
   const { colors, selectedColors, handleClick } = props;
+  console.log('selectedColors:', selectedColors)
   return (
     <section >
       <div className="color-palette">

@@ -5,7 +5,13 @@
   form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
+    width: 400px;
+
+    input {
+      width: 100%;
+      margin-block-end: 24px;
+    }
   }
   .img-uploader {
     position: relative;

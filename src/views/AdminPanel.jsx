@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 
 
 export default function AdminPanel() {
 
+    useEffect(() => {
+        document.title = `KingSize | Admin`;
+    }, [])
 
     return (
         <div>

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import bodyTowels from '../assets/images/body-towels.jpg';
 import handTowels from '../assets/images/hand-towels.jpg';
 import faceTowels from '../assets/images/face-towels.jpg';
-import babyBlankets from '../assets/images/baby-blankets.jpg';
-import coupleBlankets from '../assets/images/couple-blankets.jpg';
-import winterBlankets from '../assets/images/winter-blankets.jpg';
+import babyBlankets from '../assets/images/baby-מצעים.jpg';
+import coupleBlankets from '../assets/images/couple-מצעים.jpg';
+import winterBlankets from '../assets/images/winter-מצעים.jpg';
 import soloLinen from '../assets/images/solo-linen.jpeg';
 import cottonLinen from '../assets/images/cotton-linen.jpg';
 import bambukLinen from '../assets/images/bambuk-linen.jpg';
@@ -17,9 +17,9 @@ const imageMap = {
     'body-towels': bodyTowels,
     'hand-towels': handTowels,
     'face-towels': faceTowels,
-    'baby-blankets': babyBlankets,
-    'couple-blankets': coupleBlankets,
-    'winter-blankets': winterBlankets,
+    'baby-מצעים': babyBlankets,
+    'couple-מצעים': coupleBlankets,
+    'winter-מצעים': winterBlankets,
     'solo-linen': soloLinen,
     'cotton-linen': cottonLinen,
     'bambuk-linen': bambukLinen,
