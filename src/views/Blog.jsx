@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react'
 import bambuk from '../assets/images/Blog/bambuk-linen.jpg'
+import { useSelector } from 'react-redux';
 export function Blog() {
 
+    const articles = useSelector((storeState) => storeState.articleModule)
+    console.log('articles:', articles)
     useEffect(() => {
         document.title = `KingSize | בלוג`;
     }, [])
@@ -28,7 +31,7 @@ export function Blog() {
                         <img src={bambuk} alt="" />                </div>
                     <h1>איך לעצב חדר שינה נקי ולבן שירגיש כמו בבית מלון?</h1>
                     <p>צבע לבן, פרחים יבשים ומרקמים רכים - חג שבועות הוא ההשראה המושלמת לעיצוב חדר שינה נקי ושליו שמרגיש כמו מלון יוקרתי. שאבנו השראה מהחג ובנינו עבורכם את המדריך המלא לעיצוב חדר השינה ברוח חג שבועות! החל מיצירת פלטת צבעים מרגיעה,...</p>
-                    <button className='continue'>להמשך קריאה</button>
+                    <button className='continue' >להמשך קריאה</button>
 
                 </div>
                 <div className="article3 article">

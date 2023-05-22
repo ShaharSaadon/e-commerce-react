@@ -9,6 +9,7 @@ import { productReducer } from './reducers/product.reducer';
 import { userReducer } from './reducers/user.reducer';
 import { cartReducer } from './reducers/cart.reducer';
 import { orderReducer } from './reducers/order.reducer';
+import { articleReducer } from './reducers/article.reducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   productModule: productReducer,
   userModule: userReducer,
   cartModule: cartReducer,
+  articleModule: articleReducer,
   orderModule: orderReducer,
 });
 
