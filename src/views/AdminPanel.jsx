@@ -13,6 +13,7 @@ export default function AdminPanel() {
             <nav>
                 <NavLink to="/admin-panel/orders">Orders</NavLink>
                 <NavLink to="/admin-panel/users">Users</NavLink>
+                <NavLink to="/product/edit">הוסף מוצר</NavLink>
             </nav>
             <Outlet />
         </div>

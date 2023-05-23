@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from 'react-router';
 import { useEffect, useState } from 'react';
-import { productService } from '../services/product.service.local'
+import { productService } from '../services/product.service'
 import { DynamicColors } from '../components/DynamicColors'
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../store/actions/cart.actions';

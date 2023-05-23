@@ -28,9 +28,9 @@ export function ProductPreview({ product, onRemoveProduct, setIsCartVisible }) {
 
         </div>
         <div className="actions">
-          {/* <Link to={`/product/edit/${product._id}`} className="edit">
+          <Link to={`/product/edit/${product._id}`} className="edit">
             Edit
-          </Link> */}
+          </Link>
           <button onClick={handleAddToCart}>
             ADD TO CART
             <img src={rightArrow} alt="" />

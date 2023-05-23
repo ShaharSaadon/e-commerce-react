@@ -79,17 +79,43 @@
     }
   }
 }
-
 .shopping-cart-page {
   .header {
     border-bottom: 1px solid $clr-app-border;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .logo {
+      margin: 12px auto;
+    }
+    .process-bar {
+      margin: 24px auto;
+      display: flex;
+    }
+    .cart-summery {
+      .box {
+        gap: 24px;
+        display: flex;
+        flex-direction: row;
+        margin: 12px 0;
+      }
+    }
+  }
+  .cart-actions {
+    display: flex;
+    justify-content: space-between;
+    .promo-code {
+      display: flex;
+      flex-direction: column;
+      height: 42px;
+    }
   }
   .cart-item-preview {
     display: flex;
     justify-content: start;
     align-items: flex-start;
     justify-content: space-between;
-    padding: em($large-space);
+    padding: em($large-space) 0;
     margin: 0 12px;
     button {
       padding: em(6px);

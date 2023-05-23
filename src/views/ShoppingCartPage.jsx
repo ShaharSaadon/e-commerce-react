@@ -37,8 +37,28 @@ export function ShoppingCartPage() {
     return (
         <section className='shopping-cart-page'>
             <div className="header">
-                <h2 className='title'>Cart Summery</h2><p>{quantity} Products</p>
-                <p>Confirm the products and quantities of your order</p>
+                <h1 className='logo'>LOGO</h1>
+                <div className="process-bar">
+                    <div className="summery">
+                        <p><span>1</span> סיכום</p>
+                    </div>
+                    <div className="summery">
+                        <p><span>2</span> פרטי משלוח</p>
+                    </div>
+                    <div className="summery">
+                        <p><span>3</span> אופן המשלוח</p>
+                    </div>
+                    <div className="summery">
+                        <p><span>4</span>הדפסת הזמנה</p>
+                    </div>
+                </div>
+                <div className="cart-summery">
+                    <div className="box">
+                        <h2 className='title'>סיכום קנייה</h2>
+                        <div>{quantity} מוצרים</div>
+                    </div>
+                    <p>אנא וודא כי המוצרים מתאים לבקשתך, בדגש על גודל וצבע</p>
+                </div>
             </div>
 
             {cart.length === 0 ? (
@@ -59,12 +79,12 @@ export function ShoppingCartPage() {
                                         {/* SHOULD CHANGE THE COLOR TO CHOSEN ONE */}
                                         {/* <p>{JSON.stringify(item.size)}</p> */}
                                         <div className="quantity flex">
-                                            <button className='nice-button' onClick={() => handleUpdateCartItem(item, item.quantity - 1)} disabled={item.quantity <= 1}>
+                                            <button onClick={() => handleUpdateCartItem(item, item.quantity - 1)} disabled={item.quantity <= 1}>
                                                 -
                                             </button>
                                             <p>{item.quantity}</p>
 
-                                            <button className='nice-button'
+                                            <button
                                                 onClick={() =>
                                                     handleUpdateCartItem(item, item.quantity + 1)
                                                 }
@@ -76,8 +96,8 @@ export function ShoppingCartPage() {
                                                 Remove from Cart
                                             </button> */}
                                             <div className="actions">
-                                                <p onClick={() => handleRemoveFromCart(item._id)}>Remove</p><p>|</p>
-                                                <p> It's a Gift?  </p> <p>|</p> <p> Save in favorites</p>
+                                                <p onClick={() => handleRemoveFromCart(item._id)}>מחק</p><p>|</p>
+                                                <p> מתנה? </p> <p>|</p> <p> שמור במועדפים</p>
                                             </div>
                                         </div>
 
@@ -90,12 +110,22 @@ export function ShoppingCartPage() {
                 </ul>
             )}
             {cart.length > 0 && (
-                <div className='cart-actions flex'>
+                <div className='cart-actions'>
                     <div className='total'>
-                        <h3>Total</h3>
-                        {calculateTotal()}₪
+                        <h3>סה"כ לתשלום</h3>
+                        {calculateTotal().toFixed(2)}₪
+                        <button className='nice-button'>Proceed to Checkout</button>
                     </div>
-                    <button className='nice-button'>Proceed to Checkout</button>
+
+
+                    <div className="promo-code">
+                        <h2>קוד קופון</h2>
+                        <div className="code">
+                            <button>הזן קוד</button>
+                            <input type="text" placeholder="הקוד שלך" name="" id="" />
+                        </div>
+
+                    </div>
                 </div>
             )}
         </section>

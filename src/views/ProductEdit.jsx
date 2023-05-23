@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useForm } from '../customHooks/useForm'
-import { productService } from '../services/product.service.local'
+import { productService } from '../services/product.service'
 import { useNavigate, useParams } from 'react-router';
 import { uploadService } from "../services/upload.service";
 import dragImg from '../assets/images/drag.png';

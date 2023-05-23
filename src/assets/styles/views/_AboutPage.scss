@@ -33,7 +33,7 @@
 
   .content {
     .title {
-      color: olive;
+      color: pink;
     }
     .logo {
       margin: 24px;
@@ -44,28 +44,30 @@
       line-height: 1.4;
     }
 
+    .text-2 {
+      position: absolute;
+      background-color: white;
+      padding: 52px;
+      border: 1px black solid;
+      width: 300px;
+      left: 68%;
+      bottom: -6%;
+      border: none;
+      z-index: 15;
+      line-height: 1.6;
+    }
     .images-container {
-      // grid-template-columns: 1fr 1fr;
-      // position: relative;
-      // width: max-content;
       display: flex;
-      // flex-basis: 1;
       gap: 24px;
+      max-width: max-content;
+
       .box {
-        // flex-basis: 1;
         position: relative;
-        width: 400px;
+        max-width: max-content;
+        // width: 400px;
         img {
           width: 100%;
-        }
-        .text-2 {
-          position: absolute;
-          background-color: white;
-          padding: 52px;
-          width: 100%;
-          left: 50%;
-          top: 10%;
-          z-index: 15;
+          object-fit: cover;
         }
       }
     }

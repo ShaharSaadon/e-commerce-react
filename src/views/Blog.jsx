@@ -1,14 +1,24 @@
 import React, { useEffect } from 'react'
 import bambuk from '../assets/images/Blog/bambuk-linen.jpg'
 import { useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+
 export function Blog() {
 
-    const articles = useSelector((storeState) => storeState.articleModule)
+    const articles = useSelector((storeState) => storeState.articleModule.articles)
     console.log('articles:', articles)
     useEffect(() => {
         document.title = `KingSize | בלוג`;
     }, [])
 
+    const navigate = useNavigate()
+
+
+
+    function handleClick(id) {
+        console.log('id:', id)
+        navigate()
+    }
     return (
         <section className='blog-container'>
             <div className="blog-header flex flex-column">
@@ -17,7 +27,7 @@ export function Blog() {
 
             </div>
             <div className="content">
-                <div className="article1">
+                {/* <div className="article1">
                     <div className="text">
                         <h1>כמה שעות אתם ישנים בלילה ומה זה אומר עליכם?</h1>
                         <p>הגיע הזמן לענות על שאלת השאלות- כמה שעות צריך לישון בלילה? האם 6 שעות שינה בלילה זה מספיק? האם כל האנשים זקוקים לאותו מספר של שעות שינה? האם מבוגרים וילדים צריכים לישון אותו מספר שעות? אנחנו כבר יודעים ששנת הלילה...</p>
@@ -49,7 +59,18 @@ export function Blog() {
                         <p>צבע לבן, פרחים יבשים ומרקמים רכים - חג שבועות הוא ההשראה המושלמת לעיצוב חדר שינה נקי ושליו שמרגיש כמו מלון יוקרתי. שאבנו השראה מהחג ובנינו עבורכם את המדריך המלא לעיצוב חדר השינה ברוח חג שבועות! החל מיצירת פלטת צבעים מרגיעה,...</p>
                         <button className='continue'>להמשך קריאה</button>
                     </div>
-                </div>
+                </div> */}
+                {articles.map(({ id, title, content, image }) => (
+                    <div key={id} className={`${id} article`}>
+                        <img src={bambuk} alt="" />
+                        <div className="text">
+                            <h1>{title}</h1>
+                            <p>{content}</p>
+                            <Link className='continue' to={`/blog/${id}`}>להמשך קריאה </Link>
+                        </div>
+
+                    </div>
+                ))}
             </div>
         </section>
     )

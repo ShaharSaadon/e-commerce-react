@@ -27,12 +27,14 @@ export function AboutPage() {
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero molestias sint sapiente nemo recusandae quod explicabo placeat a unde exercitationem dolorum doloribus, voluptatum dicta consectetur blanditiis impedit officiis similique necessitatibus cumque. Dolorum et, temporibus vero saepe at earum debitis
                     nam in pariatur .</p>
 
+                <div className="text-2">
+                    Quam exercitationem voluptatibus placeat obcaecati ab dolorem.
+                </div>
+
                 <div className="images-container">
                     <div className="box">
                         <img src={about} alt="" />
-                        <div className="text-2">
-                            text2 ipsum dolor sit amet, consectetur adipisicing elit. Quam exercitationem voluptatibus placeat obcaecati ab dolorem.
-                        </div>
+
                     </div>
                     <div className="box">
                         <img src={collection} alt="" />

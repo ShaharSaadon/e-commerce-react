@@ -1,4 +1,4 @@
-import { productService } from '../../services/product.service.local';
+import { productService } from '../../services/product.service';
 import {
   REMOVE_PRODUCT,
   SET_FILTER_BY,
@@ -8,9 +8,12 @@ import {
 
 export function loadProducts(category) {
   console.log('category:', category);
+  const filterBy = {
+    category,
+  };
   return async (dispatch, getState) => {
     try {
-      const products = await productService.query(category);
+      const products = await productService.query(filterBy);
       const action = {
         type: SET_PRODUCTS,
         products,
