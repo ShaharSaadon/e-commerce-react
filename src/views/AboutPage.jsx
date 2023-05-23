@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import about from '../assets/images/about.jpg'
 import aboutC from '../assets/images/about-cover.avif'
 import aboutC2 from '../assets/images/about-cover.jpg'
+import logo from '../assets/images/HomePage/0.png'
 import collection from '../assets/images/collection-img.png'
 export function AboutPage() {
 
@@ -22,7 +23,9 @@ export function AboutPage() {
             <div className="content">
                 <h1 className='title'>KingSize, טקסטיל בוטיק במחירים הוגנים</h1>
 
-                <h2 className='logo'>LOGO</h2>
+                <h2 className='logo'>
+                    <img src={logo} alt="" />
+                </h2>
 
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero molestias sint sapiente nemo recusandae quod explicabo placeat a unde exercitationem dolorum doloribus, voluptatum dicta consectetur blanditiis impedit officiis similique necessitatibus cumque. Dolorum et, temporibus vero saepe at earum debitis
                     nam in pariatur .</p>

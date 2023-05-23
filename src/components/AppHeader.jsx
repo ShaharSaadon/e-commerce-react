@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import shoppingCart from '../assets/images/svgs/shoppingCart.svg'
 import person from '../assets/images/svgs/person.svg'
+import logo from '../assets/images/HomePage/0.png'
 import mail from '../assets/images/svgs/mail.svg'
 import instagram from '../assets/images/svgs/instagram.svg'
 import facebook from '../assets/images/svgs/facebook.svg'
@@ -12,6 +13,8 @@ export function AppHeader() {
     const cart = useSelector((storeState) => storeState.cartModule.cart)
     const [quantity, setQuantity] = useState(0)
     const [isSticky, setIsSticky] = useState(false);
+    const [isHeaderVisible, setIsHeaderVisible] = useState(false);
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -47,7 +50,12 @@ export function AppHeader() {
                 <p>לרגל פתיחת החנות, עד סוף חודש מאי- המשלוחים עלינו! קוד קופון <span>KING2023</span></p>
             </div>
             <div className={`app-header full main container ${isSticky ? 'main-header flex sticky' : 'main-header flex'}`}>
-                <div className="logo"><Link exact="true" to="/">KingSize</Link></div>
+
+                <span onClick={() => setIsHeaderVisible(!isHeaderVisible)} className='hamburger'>hamburger</span>
+
+                <div className="logo"><Link exact="true" to="/">
+                    <img src={logo} alt="" />
+                </Link></div>
                 <nav className="center">
                     <NavLink to="/" className="nav-link">בית </NavLink>
                     <NavLink to="/about" className="nav-link">קצת עלינו </NavLink>
@@ -55,21 +63,24 @@ export function AppHeader() {
                     <NavLink to="/מגבות" className="nav-link" > מגבות </NavLink>
                     <NavLink to="/מארזים" className="nav-link" > המארזים שלנו </NavLink>
                     <NavLink to="/מוצרים-משלימים-למיטה" className="nav-link" > מוצרים משלימים למיטה </NavLink>
-                    <NavLink to="/blog" className="nav-link" > בלוג</NavLink>
+                    {/* <NavLink to="/blog" className="nav-link" > בלוג</NavLink> */}
                     <NavLink to="/contact" className="nav-link" >צור קשר</NavLink>
-                    <NavLink to="/admin-panel" className="nav-link" > מנהל </NavLink>
+                    {/* <NavLink to="/admin-panel" className="nav-link" > מנהל </NavLink> */}
                 </nav>
                 <nav className="right">
 
                     {loggedinUser ? (
-                        <NavLink to="/user-profile" className="nav-link">
+                        <NavLink to="/user-profile" className="nav-link flex">
                             <img src={person} alt="user-profile" className="icon" />
+                            {/* לחשבון שלי */}
                         </NavLink>
                     ) : (
                         <>
                             <div className="login flex">
                                 <img src={person} alt="user-profile" className="icon" />
-                                <NavLink to="/login" className="nav-link">התחברות</NavLink>
+                                <NavLink to="/login" className="nav-link">
+                                    {/* התחברות */}
+                                </NavLink>
                             </div>
                         </>
                     )}
@@ -79,6 +90,7 @@ export function AppHeader() {
                         {quantity}
                     </NavLink>
                 </nav>
+
             </div>
         </header>
     )

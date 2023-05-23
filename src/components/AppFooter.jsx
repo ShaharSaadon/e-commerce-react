@@ -2,11 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import mail from '../assets/images/svgs/mail.svg'
 import instagram from '../assets/images/svgs/instagram.svg'
+import logo from '../assets/images/HomePage/0.png'
 
 export function AppFooter() {
     return (
         <footer className="app-footer full main-container">
-            <div className="footer-container flex full">
+            <div className="footer-container flex full">e
                 <nav className="king-size flex flex-column">
                     <h2 className='group-title'>King Size</h2>
                     <Link to="/blog" className="nav-link"> בלוג </Link>
@@ -31,7 +32,7 @@ export function AppFooter() {
 
                 </nav>
                 <div className="logo">
-                    LOGO
+                    <img src={logo} alt="" />
                 </div>
             </div>
             <div className="lower-footer full">

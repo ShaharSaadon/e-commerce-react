@@ -1,4 +1,4 @@
-import { storageService } from './async-storage.service';
+import { storageService } from './storage.service';
 import { httpService } from './http.service';
 
 // import { store } from '../store/store'
@@ -23,20 +23,19 @@ export const userService = {
 window.userService = userService;
 
 async function getUsers(filterBy = { txt: '' }) {
-  let users = await storageService.query('user');
-  if (filterBy.txt) {
-    const regex = new RegExp(filterBy.txt, 'i');
-    users = users.filter((user) => regex.test(user.fullname));
-  }
-  console.log('users:', users);
-  return users;
-
-  // return await httpService.get(`user`, filterBy)
+  // let users = await storageService.query('user');
+  // if (filterBy.txt) {
+  //   const regex = new RegExp(filterBy.txt, 'i');
+  //   users = users.filter((user) => regex.test(user.fullname));
+  // }
+  // console.log('users:', users);
+  // return users;
+  return await httpService.get(`user`, filterBy);
 }
 
 async function getById(userId) {
-  const user = await storageService.get('user', userId);
-  // const user = await httpService.get(`user/${userId}`)
+  // const user = await storageService.get('user', userId);
+  const user = await httpService.get(`user/${userId}`);
 
   // socketService.emit(SOCKET_EMIT_USER_WATCH, userId)
   // socketService.off(SOCKET_EVENT_USER_UPDATED, onUserUpdate)
@@ -46,17 +45,17 @@ async function getById(userId) {
 }
 
 function remove(userId) {
-  return storageService.remove('user', userId);
-  // return httpService.delete(`user/${userId}`)
+  // return storageService.remove('user', userId);
+  return httpService.delete(`user/${userId}`);
 }
 
 async function update(userCred) {
-  const user = await storageService.get('user', user._id);
+  // const user = await storageService.get('user', user._id);
   // let user = getById(_id)
-  user = { ...user, userCred };
-  await storageService.put('user', user);
+  // user = { ...user, userCred };
+  // await storageService.put('user', user);
 
-  // user = await httpService.put(`user/${user._id}`, user)
+  const user = await httpService.put(`user/${userCred._id}`, userCred);
 
   // Handle case in which admin updates other user's details
   if (getLoggedinUser()._id === user._id) saveLocalUser(user);
@@ -66,7 +65,6 @@ async function update(userCred) {
 
 async function login(userCred) {
   const user = await httpService.post('auth/login', userCred);
-  console.log('user: ', user);
   if (user) {
     // socketService.login(user._id)
     return saveLocalUser(user);
@@ -74,11 +72,6 @@ async function login(userCred) {
 }
 
 async function signup(userCred) {
-  if (!userCred.imgURL)
-    userCred.imgURL =
-      'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png';
-  // const user = await storageService.post('user', userCred);
-
   const user = await httpService.post('auth/signup', userCred);
 
   // socketService.login(user._id)
@@ -86,7 +79,7 @@ async function signup(userCred) {
 }
 
 async function logout() {
-  // sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER);
+  sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER);
   // socketService.logout()
   return await httpService.post('auth/logout');
 }
@@ -96,14 +89,27 @@ function saveLocalUser(user) {
     _id: user._id,
     fullname: user.fullname,
     username: user.username,
-    imgURL: user.imgURL,
   };
   sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user));
+  saveCookieUser(user);
+
   return user;
 }
 
+function saveCookieUser(user) {
+  user = {
+    _id: user._id,
+    fullname: user.fullname,
+    username: user.username,
+  };
+
+  storageService.store(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user));
+
+  return user;
+}
 function getLoggedinUser() {
-  return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER));
+  // return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER));
+  return storageService.load('loggedinUser');
 }
 
 function getEmptyLoginCred() {
@@ -119,7 +125,6 @@ function getEmptySignupCred() {
     username: '',
     password: '',
     orders: '',
-    imgURL: '',
   };
 }
 

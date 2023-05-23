@@ -28,22 +28,17 @@ export function HomePage() {
         document.title = 'KingSize | דף הבית';
         dispatch(loadProducts())
     }, [])
-
     const springs = useSpring({
         from: { y: 0 },
         to: { y: 50 },
         config: { duration: 1500 }, // Set the duration to 1500 milliseconds (1.5 seconds)
     })
-
     const fade = useSpring({
         from: { opacity: 0, },
         to: { opacity: 1, },
         config: { duration: 2500, reset: true }, // Set the duration to 1500 milliseconds (1.5 seconds)
 
     })
-
-
-
     return (
         <section className='home-page-container full main-container'>
             <div className="images-container full">
@@ -99,43 +94,6 @@ export function HomePage() {
                     </h6>
                 </div>
             </div>
-
-            {/* <div className="features">
-                <div className="feature">
-                    <img src={delivery} alt="" />
-                    <h6>Free Shipping</h6>
-                    <p>Nullam sed ultricies erat, nec euismod metus.</p>
-                </div>
-                <div className="feature">
-                    <img src={shield} alt="" />
-                    <h6>5 Years Guarantee</h6>
-                    <p>Nullam sed ultricies erat, nec euismod metus.</p>
-                </div>
-                <div className="feature">
-                    <img src={delivery} alt="" />
-                    <h6>Discount System</h6>
-                    <p>Nullam sed ultricies erat, nec euismod metus.</p>
-                </div>
-                <div className="feature">
-                    <img src={payment} alt="" />
-                    <h6>Online Payments
-                    </h6>
-                    <p>Nullam sed ultricies erat, nec euismod metus.</p>
-                </div>
-                <div className="feature">
-                    <img src={quality} alt="" />
-                    <h6>Certified Products
-                    </h6>
-                    <p>Nullam sed ultricies erat, nec euismod metus.</p>
-                </div>
-                <div className="feature">
-                    <img src={costumerService} alt="" />
-                    <h6>Good Support</h6>
-                    <p>Nullam sed ultricies erat, nec euismod metus.</p>
-                </div>
-
-            </div> */}
-
             <div className="teaser-container full">
                 <div className="left-space">
                 </div>
@@ -187,3 +145,39 @@ export function HomePage() {
         </section>
     )
 }
+
+{/* <div className="features">
+    <div className="feature">
+        <img src={delivery} alt="" />
+        <h6>Free Shipping</h6>
+        <p>Nullam sed ultricies erat, nec euismod metus.</p>
+    </div>
+    <div className="feature">
+        <img src={shield} alt="" />
+        <h6>5 Years Guarantee</h6>
+        <p>Nullam sed ultricies erat, nec euismod metus.</p>
+    </div>
+    <div className="feature">
+        <img src={delivery} alt="" />
+        <h6>Discount System</h6>
+        <p>Nullam sed ultricies erat, nec euismod metus.</p>
+    </div>
+    <div className="feature">
+        <img src={payment} alt="" />
+        <h6>Online Payments
+        </h6>
+        <p>Nullam sed ultricies erat, nec euismod metus.</p>
+    </div>
+    <div className="feature">
+        <img src={quality} alt="" />
+        <h6>Certified Products
+        </h6>
+        <p>Nullam sed ultricies erat, nec euismod metus.</p>
+    </div>
+    <div className="feature">
+        <img src={costumerService} alt="" />
+        <h6>Good Support</h6>
+        <p>Nullam sed ultricies erat, nec euismod metus.</p>
+    </div>
+
+</div> */}

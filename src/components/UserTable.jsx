@@ -8,6 +8,7 @@ export function UserTable() {
     const users = useSelector((storeState) => storeState.userModule.users)
     const dispatch = useDispatch()
     useEffect(() => {
+        console.log('loading...')
         dispatch(loadUsers())
     }, [])
 

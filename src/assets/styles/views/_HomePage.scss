@@ -147,7 +147,6 @@
       grid-area: teaser-4;
     }
   }
-
   .designed-nav {
     .box {
       font-size: 1.5rem;
@@ -180,7 +179,6 @@
       }
     }
   }
-
   .features {
     display: grid;
     grid-template-columns: 33% 33% 33%;
@@ -196,7 +194,6 @@
       align-items: center;
     }
   }
-
   .recommends-container {
     margin-block-start: 40px;
     justify-content: space-evenly;
@@ -213,5 +210,14 @@
     h2 {
       font-size: em(60px);
     }
+  }
+  background-color: green;
+
+  @include mq(narrow-breakpoint) {
+    background-color: red;
+  }
+
+  @include mq(normal-breakpoint) {
+    background-color: yellow;
   }
 }

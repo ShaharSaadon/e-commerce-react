@@ -1,6 +1,7 @@
 header {
   // height: 120px;
   overflow: visible;
+
   .upper-header {
     background-color: $clr3;
     color: $clr2;
@@ -13,12 +14,20 @@ header {
   .main-header {
     position: sticky;
     justify-content: space-between;
+    align-items: center;
     top: 0;
     z-index: 8;
     // background-color: green;
-    padding: em($large-space) em(150px);
+    padding: 0 em(150px);
     border-bottom: 1px solid $clr-app-border;
     color: $clr3;
+
+    .hamburger {
+    }
+    .logo {
+      margin: 0;
+      width: 140px;
+    }
 
     &.sticky {
       position: fixed;
@@ -27,6 +36,7 @@ header {
       width: 100%;
     }
     .center {
+      display: inline;
       .nav-link {
         position: relative; /*make the pseudo-element inside available  */
         padding: $medium-space;
@@ -54,7 +64,6 @@ header {
       }
       grid-column: 2;
     }
-
     .right {
       display: flex;
       gap: $large-size;
@@ -71,6 +80,39 @@ header {
       height: em($xxLarge-space);
       &:hover {
         cursor: pointer;
+      }
+    }
+  }
+
+  background-color: green;
+
+  // bigger than 720px
+  @include mq(narrow-breakpoint) {
+    justify-content: space-between;
+    background-color: red;
+    font-size: 0.85em;
+
+    .main-header {
+      padding: 0 64px;
+      .center {
+        // background-color: #fff;
+        display: none;
+        // font-size: 22em;
+      }
+    }
+  }
+
+  // bigger than 960px
+  @include mq(normal-breakpoint) {
+    background-color: yellow;
+    font-size: 1em;
+
+    .main-header {
+      .hamburger {
+        display: none;
+      }
+      .center {
+        display: inline;
       }
     }
   }

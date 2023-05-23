@@ -48,8 +48,8 @@ function App() {
             element={<DynamicProducts setIsCartVisible={setIsCartVisible} />}
           />
           <Route path="/admin-panel" element={<AdminPanel />} />
-          <Route path="/admin-panel/orders" element={<UserTable />} />
-          <Route path="/admin-panel/users" element={<OrdersTable />} />
+          <Route path="/admin-panel/orders" element={<OrdersTable />} />
+          <Route path="/admin-panel/users" element={<UserTable />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/user-profile" element={<UserProfile />} />
           <Route path="/signup" element={<Signup />} />
