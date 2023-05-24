@@ -14,7 +14,6 @@
     border-radius: em($medium-space);
     margin-block-end: 24px;
   }
-
   .continue {
     margin-block: 32px;
     padding: 12px;
@@ -25,26 +24,20 @@
     max-width: 130px;
     // margin: 32px auto;
   }
-
   .content {
     display: grid;
     gap: 24px;
-    grid-template-columns: 30% 30% 30%;
-    grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: 1fr;
     .article {
-      text-align: center;
       height: 400;
-
+      padding: 12px;
       .text {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        text-align: center;
       }
-
       h1 {
-        padding: 0 10px;
-        margin-block-end: em(24px);
+        margin: em(24px) 0 em(12px) 0;
         line-height: 1.5;
       }
       p {
@@ -52,24 +45,13 @@
       }
     }
 
-    .article1 {
-      // border: 1px black solid;
-      grid-column: 1/-1;
-      display: flex;
-
-      flex-direction: row-reverse;
-      .text {
+    // bigger than 960px
+    @include mq(narrow-breakpoint) {
+      grid-template-columns: 30% 30% 30%;
+      .article1 {
+        grid-column: 1/-1;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: start;
-        padding: 0 0 0 40px;
-        h1 {
-          margin-block-end: 24px;
-        }
-        p {
-          line-height: 1.6;
-        }
+        flex-direction: row-reverse;
       }
     }
   }

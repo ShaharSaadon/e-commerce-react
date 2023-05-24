@@ -53,14 +53,13 @@
       }
     }
     .img-container {
-      width: 500px;
-      height: 500px;
+      width: 100%;
+      max-width: 500px;
+      max-height: 500px;
       background-size: cover;
       background-position: center;
       img {
         object-fit: cover;
-        // width: 300px;
-        // height: 300px;
         width: 100%;
         border: 1px black solid;
       }
@@ -97,6 +96,8 @@
   @include mq(narrow-breakpoint) {
     .content {
       grid-template-columns: 1fr 1fr;
+      justify-items: end;
+      width: 100%;
     }
   }
 }

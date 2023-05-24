@@ -64,14 +64,18 @@ export function AppHeader() {
                 <div className="logo"><Link exact="true" to="/">
                     <img src={logo} alt="" />
                 </Link></div>
-                <nav className="center">
+                <nav className={`center ${isHeaderOpen ? 'open' : ''}`} onClick={() => setIsHeaderOpen(false)}>
+                    <div className="close nav-link"
+                    >
+                        X סגור
+                    </div>
                     <NavLink to="/" className="nav-link">בית </NavLink>
                     <NavLink to="/about" className="nav-link">קצת עלינו </NavLink>
                     <NavLink to="/מצעים" className="nav-link"> מצעים </NavLink>
                     <NavLink to="/מגבות" className="nav-link" > מגבות </NavLink>
                     <NavLink to="/מארזים" className="nav-link" > המארזים שלנו </NavLink>
                     <NavLink to="/מוצרים-משלימים-למיטה" className="nav-link" > מוצרים משלימים למיטה </NavLink>
-                    {/* <NavLink to="/blog" className="nav-link" > בלוג</NavLink> */}
+                    <NavLink to="/blog" className="nav-link" > בלוג</NavLink>
                     <NavLink to="/contact" className="nav-link" >צור קשר</NavLink>
                     {/* <NavLink to="/admin-panel" className="nav-link" > מנהל </NavLink> */}
                 </nav>

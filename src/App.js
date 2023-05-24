@@ -20,6 +20,7 @@ import { UserTable } from './components/UserTable';
 import { OrdersTable } from './components/OrdersTable';
 import { BlogArticle } from './views/BlogArticle.jsx';
 import { useEffect, useState } from 'react';
+
 import { Blog } from './views/Blog.jsx';
 function App() {
   const [isCartVisible, setIsCartVisible] = useState(false);

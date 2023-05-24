@@ -49,7 +49,7 @@ export function DynamicProducts({ setIsCartVisible = { setIsCartVisible } }) {
             <div className="teaser-container full"
                 style={{ backgroundImage: `url(${imageMap[category]})` }}>
                 <h2 className='category-title'>
-                    <Link to={`/${category}`} className="nav-link">{category}</Link>
+                    <Link to={`/${category}`} className="nav-link">{category.replace(/-/g, ' ')}</Link>
                 </h2>
                 <p className='category-description'>I'm a paragraph. Click here to add your own text and edit me. It’s easy.
                     Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you</p>
