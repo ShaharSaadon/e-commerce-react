@@ -33,12 +33,6 @@ export function HomePage() {
         to: { y: 50 },
         config: { duration: 1500 }, // Set the duration to 1500 milliseconds (1.5 seconds)
     })
-    const fade = useSpring({
-        from: { opacity: 0, },
-        to: { opacity: 1, },
-        config: { duration: 2500, reset: true }, // Set the duration to 1500 milliseconds (1.5 seconds)
-
-    })
     return (
         <section className='home-page-container full main-container'>
             <div className="images-container full">
@@ -69,9 +63,13 @@ export function HomePage() {
                     </div>
                 </div>
             </div>
-            {/* <div className="designed-nav full flex">
+            <div className="designed-nav full flex">
                 <div className="box">
-                    <img src={delivery} alt="" />
+                <img src={delivery} alt="" />
+                    <h6>100% Cotton</h6>
+                </div>
+                <div className="box">
+                <img src={delivery} alt="" />
                     <h6>100% Cotton</h6>
                 </div>
                 <div className="box">
@@ -83,21 +81,17 @@ export function HomePage() {
                     <h6>Fast Delivery</h6>
                 </div>
                 <div className="box">
-                    <img src={payment} alt="" />
-                    <h6>
-                        High Quality Fair Prices                    </h6>
+                <img src={payment} alt="" />
+                <h6>
+                High Quality Fair Prices                    </h6>
                 </div>
                 <div className="box">
                     <img src={quality} alt="" />
                     <h6>Safe Order
                     </h6>
                 </div>
-            </div> */}
+            </div>
             <div className="teaser-container full">
-                <div className="left-space">
-                </div>
-                <div className="right-space">
-                </div>
                 <div className="title" >
                     <h1> מה חדש?</h1>
 
@@ -133,41 +127,41 @@ export function HomePage() {
                 <h2>ההמלצות שלנו</h2>
                 <p>אנחנו בטוחים שתאהבו את זה</p>
                 <div className="recommends clean-list">
-                    {products.map((product) =>
-                        <li key={product._id} className="product-container">
-                            <ProductPreview product={product} />
-                        </li>
+                {products.map((product) =>
+                    <li key={product._id} className="product-container">
+                    <ProductPreview product={product} />
+                    </li>
                     )}
-                </div>
-            </div> */}
+                    </div>
+                </div> */}
 
         </section>
     )
 }
 
 {/* <div className="features">
-    <div className="feature">
-        <img src={delivery} alt="" />
-        <h6>Free Shipping</h6>
-        <p>Nullam sed ultricies erat, nec euismod metus.</p>
-    </div>
-    <div className="feature">
-        <img src={shield} alt="" />
-        <h6>5 Years Guarantee</h6>
-        <p>Nullam sed ultricies erat, nec euismod metus.</p>
-    </div>
-    <div className="feature">
-        <img src={delivery} alt="" />
-        <h6>Discount System</h6>
-        <p>Nullam sed ultricies erat, nec euismod metus.</p>
-    </div>
-    <div className="feature">
-        <img src={payment} alt="" />
-        <h6>Online Payments
+<div className="feature">
+<img src={delivery} alt="" />
+<h6>Free Shipping</h6>
+<p>Nullam sed ultricies erat, nec euismod metus.</p>
+</div>
+<div className="feature">
+<img src={shield} alt="" />
+<h6>5 Years Guarantee</h6>
+<p>Nullam sed ultricies erat, nec euismod metus.</p>
+</div>
+<div className="feature">
+<img src={delivery} alt="" />
+<h6>Discount System</h6>
+<p>Nullam sed ultricies erat, nec euismod metus.</p>
+</div>
+<div className="feature">
+<img src={payment} alt="" />
+<h6>Online Payments
         </h6>
         <p>Nullam sed ultricies erat, nec euismod metus.</p>
-    </div>
-    <div className="feature">
+        </div>
+        <div className="feature">
         <img src={quality} alt="" />
         <h6>Certified Products
         </h6>
@@ -180,3 +174,11 @@ export function HomePage() {
     </div>
 
 </div> */}
+
+
+        // const fade = useSpring({
+        //     from: { opacity: 0, },
+        //     to: { opacity: 1, },
+        //     config: { duration: 2500, reset: true }, // Set the duration to 1500 milliseconds (1.5 seconds)
+        
+        // })
