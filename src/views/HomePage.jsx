@@ -69,8 +69,7 @@ export function HomePage() {
                     </div>
                 </div>
             </div>
-
-            <div className="designed-nav full flex">
+            {/* <div className="designed-nav full flex">
                 <div className="box">
                     <img src={delivery} alt="" />
                     <h6>100% Cotton</h6>
@@ -93,7 +92,7 @@ export function HomePage() {
                     <h6>Safe Order
                     </h6>
                 </div>
-            </div>
+            </div> */}
             <div className="teaser-container full">
                 <div className="left-space">
                 </div>
@@ -130,7 +129,7 @@ export function HomePage() {
                     <p>מוצרים המשלימים את המיטה שלכם הם הפתרון המושלם ליצירת חווית שינה מושלמת. בחרו מתוך מגוון המוצרים שלנו, המתאימים בצורה מושלמת לסגנון ולטעמים האישיים שלכם. סדינים איכותיים ונעימים, כריות מתכווננות לתמיכה מותאמת אישית, ושמיכות רכות ומפנקות. אלה הם רק חלק מהמוצרים המשגעים שנמצאים בקולקציה שלנו</p>
                 </div>
             </div>
-            <div className="recommends-container">
+            {/* <div className="recommends-container">
                 <h2>ההמלצות שלנו</h2>
                 <p>אנחנו בטוחים שתאהבו את זה</p>
                 <div className="recommends clean-list">
@@ -140,7 +139,7 @@ export function HomePage() {
                         </li>
                     )}
                 </div>
-            </div>
+            </div> */}
 
         </section>
     )

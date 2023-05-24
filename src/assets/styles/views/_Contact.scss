@@ -1,5 +1,4 @@
 .contact-container {
-  // border-right: 1px rgba($color: #000000, $alpha: 0.3) dashed;
   .navigator {
     margin: 12px 0;
   }
@@ -15,18 +14,14 @@
     border-radius: em($medium-space);
     margin-block-end: 24px;
   }
-
   .contacts {
-    // border: 1px black solid;
-    display: flex;
-    justify-content: space-around;
     min-height: 40vh;
     .box {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      min-width: 250px;
+      // min-width: 250px;
       h1 {
         margin-block-start: em(8px);
         margin-block-end: em(12px);
@@ -45,8 +40,6 @@
     display: flex;
     flex-direction: column;
     place-items: center;
-    // border: 1px black solid;
-
     .form-title {
       // height: 100px;
       grid-column: 1/-1;
@@ -56,16 +49,21 @@
 
     form {
       display: grid;
-      grid-template-rows: 52px 100px;
+      grid-template-rows: repeat(4, 50px);
+      grid-template-columns: 300px;
       gap: 22px;
-      grid-template-columns: 300px 300px;
-
       .message {
         grid-column: 1/-1;
-        grid-row: 2/4;
         height: 100%;
+        padding: 12px;
+        border-radius: 12px;
+        overflow: auto;
+        outline: none;
+        // -webkit-box-shadow: none;
+        // -moz-box-shadow: none;
+        // box-shadow: none;
+        // width: 100%;
       }
-
       .submit {
         grid-column: 1/-1;
         height: 52px;
@@ -82,22 +80,26 @@
           font-weight: 700;
         }
       }
-
       input {
         height: 100%;
         border-radius: 12px;
         padding: 8px;
       }
+    }
+  }
 
-      textarea {
-        // border: none;
-        padding: 12px;
-        border-radius: 12px;
-        overflow: auto;
-        outline: none;
-        -webkit-box-shadow: none;
-        -moz-box-shadow: none;
-        box-shadow: none;
+  // bigger than 620px
+  @include mq(mobile-breakpoint) {
+    .contacts {
+      display: flex;
+      justify-content: space-around;
+    }
+    .form-container {
+      form {
+        grid-template-columns: 300px 300px;
+        .message {
+          grid-row: 2/4;
+        }
       }
     }
   }

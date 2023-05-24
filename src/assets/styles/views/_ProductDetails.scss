@@ -5,15 +5,13 @@
   grid-auto-flow: column;
   font-weight: 400;
   // border: 1px black solid;
-
   .header {
     padding: 12px 0;
-    grid-column: 1/-1;
+    // grid-column: 1/-1;
     font-size: 1.2rem;
     display: flex;
     justify-content: space-between;
   }
-
   span {
     font-weight: 700;
     margin: 6px;
@@ -21,7 +19,7 @@
   .content {
     align-items: flex-start;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 100%;
     gap: 24px;
     .product-info {
       display: flex;
@@ -92,6 +90,13 @@
         transform: translateX(6px);
         transition: 0.3s;
       }
+    }
+  }
+
+  // bigger than 960px
+  @include mq(narrow-breakpoint) {
+    .content {
+      grid-template-columns: 1fr 1fr;
     }
   }
 }
