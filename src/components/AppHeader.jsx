@@ -13,7 +13,7 @@ export function AppHeader() {
     const cart = useSelector((storeState) => storeState.cartModule.cart)
     const [quantity, setQuantity] = useState(0)
     const [isSticky, setIsSticky] = useState(false);
-    const [isHeaderVisible, setIsHeaderVisible] = useState(false);
+    const [isHeaderOpen, setIsHeaderOpen] = useState(false);
 
 
     useEffect(() => {
@@ -51,7 +51,15 @@ export function AppHeader() {
             </div>
             <div className={`app-header full main container ${isSticky ? 'main-header flex sticky' : 'main-header flex'}`}>
 
-                <span onClick={() => setIsHeaderVisible(!isHeaderVisible)} className='hamburger'>hamburger</span>
+                <div
+                    id="hamburger"
+                    className={`hamburger ${isHeaderOpen ? 'open' : ''}`}
+                    onClick={() => setIsHeaderOpen(!isHeaderOpen)}
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
 
                 <div className="logo"><Link exact="true" to="/">
                     <img src={logo} alt="" />

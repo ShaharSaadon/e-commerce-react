@@ -6,10 +6,8 @@ import { Link, useParams } from 'react-router-dom'
 import bCover from '../assets/images/DynamicProducts/bedding-cover.jpg';
 import מוצרים from '../assets/images/DynamicProducts/pillows.jpg'
 import מגבות from '../assets/images//DynamicProducts/towels.jpg'
-// import מצעים from '../assets/images/linen.png'
 import מארזים from '../assets/images/DynamicProducts/happy.jpg'
 import מצעים from '../assets/images/bedding.jpg'
-// import linen from '../assets/images/linen.png'
 
 const imageMap = {
     'מגבות': מגבות,

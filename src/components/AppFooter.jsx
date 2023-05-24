@@ -7,7 +7,10 @@ import logo from '../assets/images/HomePage/0.png'
 export function AppFooter() {
     return (
         <footer className="app-footer full main-container">
-            <div className="footer-container flex full">e
+            <div className="footer-container flex full">
+                <div className="logo">
+                    <img src={logo} alt="" />
+                </div>
                 <nav className="king-size flex flex-column">
                     <h2 className='group-title'>King Size</h2>
                     <Link to="/blog" className="nav-link"> בלוג </Link>
@@ -23,7 +26,6 @@ export function AppFooter() {
                     <Link to="/מארזים" className="nav-link">המארזים שלנו</Link>
                     <Link to="/מוצרים" className="nav-link"> מוצרים משלימים למיטה</Link>
                 </nav>
-
                 <nav className="contact flex flex-column">
                     <h2 className='group-title'>דברו איתנו!</h2>
                     <p>תל אביב, רחוב האחים 15, 34343</p>
@@ -31,9 +33,7 @@ export function AppFooter() {
                     <p>929-242-6868</p>
 
                 </nav>
-                <div className="logo">
-                    <img src={logo} alt="" />
-                </div>
+
             </div>
             <div className="lower-footer full">
                 <div className="links-container">

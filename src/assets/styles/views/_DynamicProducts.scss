@@ -1,11 +1,8 @@
 .main-dynamic-content {
   display: grid;
-  // row-gap: em($medium-space);
   grid-template-areas:
-    'teaser teaser teaser'
-    // 'sub sub sub'
-    // 'filter  filter filter'
-    'products  products products';
+    'teaser teaser '
+    'products  products ';
   .teaser-container {
     grid-area: teaser;
     display: flex;
@@ -37,8 +34,13 @@
 
     .category-description {
       text-align: center;
-      max-width: 40%;
+      max-width: 90%;
       line-height: 1.4;
+
+      // bigger than 620px
+      @include mq(narrow-breakpoint) {
+        max-width: 50%;
+      }
     }
 
     .product-img-1 {

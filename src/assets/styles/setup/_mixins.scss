@@ -3,9 +3,9 @@
 @use 'sass:map';
 
 $breakpoints: (
-  mobile-breakpoint: em(460px),
-  narrow-breakpoint: em(720px),
-  normal-breakpoint: em(960px),
+  mobile-breakpoint: em(620px),
+  narrow-breakpoint: em(960px),
+  normal-breakpoint: em(1200px),
 );
 
 @mixin mq($key) {

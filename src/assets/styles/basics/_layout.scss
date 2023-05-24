@@ -1,6 +1,6 @@
 .main-container {
   display: grid;
-  grid-template-columns: 200px 1fr 200px;
+  grid-template-columns: em($mobile-padding) 1fr em($mobile-padding);
 
   > * {
     grid-column: 2;
@@ -10,22 +10,22 @@
     }
   }
 
-  @include for-narrow-layout {
-    grid-template-columns:
-      minmax(200px, 1fr)
-      minmax(auto, $mobile-breakpoint)
-      minmax(200px, 1fr);
+  // bigger than 620px
+  @include mq(mobile-breakpoint) {
+    grid-template-columns: em($narrow-padding) 1fr em($narrow-padding);
   }
-  @include for-normal-layout {
-    grid-template-columns:
-      minmax(200px, 1fr)
-      minmax(auto, $narrow-breakpoint)
-      minmax(200px, 1fr);
+
+  // bigger than 960px
+  @include mq(narrow-breakpoint) {
+    grid-template-columns: em($normal-padding) 1fr em($normal-padding);
+
+    // minmax(em($normal-padding), 1fr)
+    // minmax(auto, $narrow-breakpoint)
+    // minmax(em($normal-padding), 1fr);
   }
-  @include for-wide-layout {
-    grid-template-columns:
-      minmax(200px, 1fr)
-      minmax(auto, 70vw)
-      minmax(200px, 1fr);
+
+  // bigger than 1200px
+  @include mq(normal-breakpoint) {
+    grid-template-columns: em($wide-padding) 1fr em($wide-padding);
   }
 }
