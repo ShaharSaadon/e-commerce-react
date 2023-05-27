@@ -23,7 +23,9 @@ export function DynamicProducts({ setIsCartVisible = { setIsCartVisible } }) {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        document.title = `KingSize | ${category}`;
+        const formattedCategory = category.replace(/-/g, ' ');
+        console.log('formattedCategory:', formattedCategory)
+        document.title = `KingSize | ${formattedCategory}`;
         dispatch(loadProducts(category))
         console.log('category:', category)
     }, [category])
