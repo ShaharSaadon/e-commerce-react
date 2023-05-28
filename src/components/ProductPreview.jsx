@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '../store/actions/cart.actions';
 import { DynamicColors } from './DynamicColors';
 import rightArrow from '../assets/images/svgs/right-arrow.svg'
-export function ProductPreview({ product, onRemoveProduct, setIsCartVisible }) {
+export function ProductPreview({ product, setIsCartVisible }) {
   const dispatch = useDispatch();
 
   const handleAddToCart = (ev) => {
@@ -19,7 +19,6 @@ export function ProductPreview({ product, onRemoveProduct, setIsCartVisible }) {
         <div className="img-container">
           <img src={product.imgURL} className='square-ratio' />
         </div>
-
         <div className="box flex">
           <h3>{product.name}</h3>
           <p> Lorem ipsum dolor sit amet consectetur.</p>

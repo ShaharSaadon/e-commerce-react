@@ -59,7 +59,7 @@ export function DynamicProducts({ setIsCartVisible = { setIsCartVisible } }) {
                 {/* <img src={imageMap[category]} alt="" className='product-img-2' /> */}
             </div>
             <div className="product-list-container">
-                <ProductList products={products} onRemoveProduct={onRemoveProduct} setIsCartVisible={setIsCartVisible} />
+                <ProductList products={products} setIsCartVisible={setIsCartVisible} />
             </div>
         </section>
 

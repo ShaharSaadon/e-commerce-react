@@ -15,19 +15,29 @@ export function cartReducer(state = INITIAL_STATE, action = {}) {
     case ADD_TO_CART:
       console.log('action:', action);
       const itemInCart = state.cart.find(
-        (item) => item._id === action.product._id
+        (item) =>
+          item._id === action.product._id &&
+          item.size === action.product.size &&
+          item.color === action.product.color
       );
 
       if (itemInCart) {
         updatedCart = state.cart.map((item) =>
-          item._id === action.product._id
+          item._id === action.product._id &&
+          item.size === action.product.size &&
+          item.color === action.product.color
             ? { ...item, quantity: item.quantity + action.product.quantity }
             : item
         );
       } else {
-        updatedCart = [{ ...action.product, quantity: 1 }, ...state.cart];
+        updatedCart = [
+          ...state.cart,
+          action.product, // Use the action.product directly here
+        ];
       }
+
       storageService.saveCart(updatedCart);
+
       return {
         ...state,
         cart: updatedCart,
@@ -35,7 +45,7 @@ export function cartReducer(state = INITIAL_STATE, action = {}) {
 
     case REMOVE_FROM_CART:
       updatedCart = state.cart.filter(
-        (product) => product._id !== action.productId
+        (item) => item.cartItemId !== action.cartItemId
       );
       storageService.saveCart(updatedCart);
       return {

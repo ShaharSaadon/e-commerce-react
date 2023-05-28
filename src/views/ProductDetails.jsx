@@ -46,7 +46,12 @@ export function ProductDetails({ setIsCartVisible }) {
     function handleAddToCart(ev) {
         ev.preventDefault()
         setIsCartVisible((prevState) => !prevState)
-        dispatch(addToCart({ ...product, quantity, sizes: selectedSize, colors: selectedColor }));
+        dispatch(addToCart({
+            ...product,
+            size: selectedSize,
+            color: selectedColor,
+            quantity: quantity
+        }));
     };
 
     function handleColor(ev) {

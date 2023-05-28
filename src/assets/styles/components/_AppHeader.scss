@@ -164,7 +164,6 @@ header {
 
   // bigger than 960px
   @include mq(narrow-breakpoint) {
-    background-color: red;
     .main-header {
       padding: 0 em($normal-padding);
     }
@@ -172,7 +171,6 @@ header {
 
   // bigger than 1200px
   @include mq(normal-breakpoint) {
-    background-color: yellow;
     font-size: 1em;
     .main-header {
       padding: 0 em($wide-padding);

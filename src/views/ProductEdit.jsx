@@ -1,11 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useForm } from '../customHooks/useForm'
 import { productService } from '../services/product.service'
 import { useNavigate, useParams } from 'react-router';
 import { uploadService } from "../services/upload.service";
 import dragImg from '../assets/images/drag.png';
 import { DynamicColors } from '../components/DynamicColors';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeProduct } from '../store/actions/product.actions'
 
 
 export function ProductEdit() {
@@ -16,7 +17,16 @@ export function ProductEdit() {
     const { name, description, category, price, imgURL, sizes } = product
     const [selectedColors, setSelectedColors] = useState([])
     const [selectedSizes, setSelectedSizes] = useState([sizes]);
+    const dispatch = useDispatch()
 
+    const onRemoveProduct = useCallback(async (productId) => {
+        try {
+            console.log('removing product', productId)
+            dispatch(removeProduct(productId));
+        } catch (error) {
+            console.log('error:', error);
+        }
+    }, []);
 
     const params = useParams()
     const navigate = useNavigate()
@@ -122,6 +132,14 @@ export function ProductEdit() {
                         type="file"
                     />
                 </div>
+
+                <button
+                    onClick={() => onRemoveProduct(product._id)}
+                    className="btn-delete"
+                >
+                    Delete
+                </button>
+
                 <button type="button" onClick={() => fileInputRef.current.click()}>
                     Upload an image
                 </button>

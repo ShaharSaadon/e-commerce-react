@@ -97,7 +97,6 @@ export function HomePage() {
 
                     <p style={springs}>ריכזנו עבורכם את מקבץ הקטגוריות אותם אנו מספקים, כל מוצר חתום על ידינו באיכות הגבוהה ביותר תוך רצון לספק חמירים הונגנים לכל הלקוחות שלנו.    </p>
                 </div>
-
                 <div className="teaser-1 teaser">
                     <img src={collectionImg} alt="" className='' style={springs} />
                     <h2>המארזים שלנו</h2>
@@ -123,7 +122,7 @@ export function HomePage() {
                     <p>מוצרים המשלימים את המיטה שלכם הם הפתרון המושלם ליצירת חווית שינה מושלמת. בחרו מתוך מגוון המוצרים שלנו, המתאימים בצורה מושלמת לסגנון ולטעמים האישיים שלכם. סדינים איכותיים ונעימים, כריות מתכווננות לתמיכה מותאמת אישית, ושמיכות רכות ומפנקות. אלה הם רק חלק מהמוצרים המשגעים שנמצאים בקולקציה שלנו</p>
                 </div>
             </div>
-            {/* <div className="recommends-container">
+            <div className="recommends-container">
                 <h2>ההמלצות שלנו</h2>
                 <p>אנחנו בטוחים שתאהבו את זה</p>
                 <div className="recommends clean-list">
@@ -133,7 +132,7 @@ export function HomePage() {
                     </li>
                     )}
                     </div>
-                </div> */}
+                </div>
 
         </section>
     )

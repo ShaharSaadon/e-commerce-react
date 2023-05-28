@@ -2,16 +2,28 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { removeFromCart, updateCartItem } from '../store/actions/cart.actions';
 import { Link } from 'react-router-dom';
+import Select from 'react-select'
 
 export function ShoppingCartPage() {
-
+    const options = [
+        { value: 19.99, label: 'משלוח אקספקס - עד 48 שעות בבית הלקוח' },
+        { value: 0, label: 'משלוח רגיל - עד 4 ימי עסקים' },
+        { value: 9.99, label: 'איסוף מנקודת חלוקה סמוך לביתך' }
+    ]
     const cart = useSelector((state) => state.cartModule.cart);
     const dispatch = useDispatch();
     const [quantity, setQuantity] = useState(0)
+    const [selectedShipping, setSelectedShipping] = useState(options[0]);
 
     const handleRemoveFromCart = (productId) => {
         dispatch(removeFromCart(productId));
     };
+
+    const handleSelectChange = (selected) => {
+        setSelectedShipping(selected);
+    };
+
+
 
     const handleUpdateCartItem = (product, quantity) => {
         dispatch(updateCartItem({ ...product, quantity }));
@@ -20,7 +32,6 @@ export function ShoppingCartPage() {
     const calculateTotal = () => {
         return cart.reduce((total, item) => total + item.price * item.quantity, 0);
     };
-
 
     useEffect(() => {
         setQuantity(getQuantityProducts())
@@ -62,7 +73,7 @@ export function ShoppingCartPage() {
             </div>
 
             {cart.length === 0 ? (
-                <p>Your cart is empty.</p>
+                <div className='empty-cart'>העגלה שלך ריקה</div>
             ) : (
                 <ul className='clean-list items-list'>
                     {cart.map((item) => (
@@ -73,8 +84,8 @@ export function ShoppingCartPage() {
                                     <div className="box flex">
                                         <Link to={`/product/${item._id}`} className="nav-link">{item.name}</Link>
                                         <div className="attributes">
-                                            <p>Color: {item.colors}</p>
-                                            <p>Size: {item.sizes} </p>
+                                            <p>Color: {item.color}</p>
+                                            <p>Size: {item.size} </p>
                                         </div>
                                         {/* SHOULD CHANGE THE COLOR TO CHOSEN ONE */}
                                         {/* <p>{JSON.stringify(item.size)}</p> */}
@@ -95,12 +106,12 @@ export function ShoppingCartPage() {
                                             {/* <button className='nice-button' onClick={() => handleRemoveFromCart(item._id)}>
                                                 Remove from Cart
                                             </button> */}
-                                            <div className="actions">
-                                                <p onClick={() => handleRemoveFromCart(item._id)}>מחק</p><p>|</p>
-                                                <p> מתנה? </p> <p>|</p> <p> שמור במועדפים</p>
-                                            </div>
-                                        </div>
 
+                                        </div>
+                                        <div className="actions">
+                                            <p onClick={() => handleRemoveFromCart(item._id)}>מחק</p><p>|</p>
+                                            <p> מתנה? </p> <p>|</p> <p> שמור במועדפים</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <p>{item.price * item.quantity}₪</p>
@@ -112,17 +123,33 @@ export function ShoppingCartPage() {
             {cart.length > 0 && (
                 <div className='cart-actions'>
                     <div className='total'>
-                        <h3>סה"כ לתשלום</h3>
-                        {calculateTotal().toFixed(2)}₪
-                        <button className='nice-button'>Proceed to Checkout</button>
+                        <div className="sum-products">
+                            <p>סה"כ המוצרים</p>
+                            <p>
+                                {calculateTotal().toFixed(2)}₪
+                            </p>
+                        </div>
+                        <div className="sum-shipping">
+                            <Select
+                                options={options}
+                                defaultValue={options[0]}
+                                onChange={handleSelectChange}
+                            />
+                            <p> {selectedShipping.value}₪</p>
+
+                        </div>
+                        <div className="sum-total">
+                            <h3>סה"כ לתשלום</h3>
+                            {(calculateTotal() + selectedShipping.value).toFixed(2)}₪
+
+                        </div>
+                        <button className='nice-button'>המשך</button>
                     </div>
-
-
                     <div className="promo-code">
                         <h2>קוד קופון</h2>
                         <div className="code">
                             <button>הזן קוד</button>
-                            <input type="text" placeholder="הקוד שלך" name="" id="" />
+                            <input type="text" placeholder="הקוד שלך" id="" />
                         </div>
 
                     </div>

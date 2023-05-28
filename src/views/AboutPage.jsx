@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
-import about from '../assets/images/about.jpg'
-import aboutC from '../assets/images/about-cover.avif'
-import aboutC2 from '../assets/images/about-cover.jpg'
+import about from '../assets/images/About/about.jpg'
+import aboutC from '../assets/images/About/about-cover.avif'
+import aboutC2 from '../assets/images/About/about-cover.jpg'
+import aboutC3 from '../assets/images/About/AB_MakingSenseOfESGBondStructures-1600x760.w.jpg'
 import logo from '../assets/images/HomePage/0.png'
-import collection from '../assets/images/collection-img.png'
 export function AboutPage() {
 
     useEffect(() => {
@@ -12,39 +12,48 @@ export function AboutPage() {
 
     return (
         <section className='about full'>
-            {/* <div className="about-header">
-                <h1>קצת עלינו</h1>
-                <p>חברת קינג סייז שואפת לייצר קו חדש של טקסטיל בוטיק, אך יחד עם זאת הוגן לכל כיס</p>
-            
-            </div> */}
             <div className="img-container full">
-                <img src={aboutC2} alt="" />
+                <img src={aboutC3} alt="" />
             </div>
             <div className="content">
-                <h1 className='title'>KingSize, טקסטיל בוטיק במחירים הוגנים</h1>
-
-                <h2 className='logo'>
+                <div className='logo'>
                     <img src={logo} alt="" />
-                </h2>
+                </div>
+                <div className="main-content">
+                    <img src={about} alt="" />
+                    <p>היי,
 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero molestias sint sapiente nemo recusandae quod explicabo placeat a unde exercitationem dolorum doloribus, voluptatum dicta consectetur blanditiis impedit officiis similique necessitatibus cumque. Dolorum et, temporibus vero saepe at earum debitis
-                    nam in pariatur .</p>
 
-                <div className="text-2">
-                    Quam exercitationem voluptatibus placeat obcaecati ab dolorem.
+                        שמחים שקפצתם לבקר ולהכיר את הסיפור שלנו - סיפור של בדים, צבעים וסגנון, סיפור של אהבה לבית, לנוחות ולפינוק.
+
+
+                        הסיפור שלנו מתחיל אי-שם בתחילת שנות העשרים, כאשר אליעזר ורשבסקי עלה לארץ והקים מפעל טקסטיל לניקיון הבית. כאשר ראה שהרבה ישראלים הולכים לים, הוא התאים את ייעודו והפך אותו למפעל מגבות שזכה לשם ורדינון, שפירושו בושם ורדים.
+
+
+                        עם השנים הרחיבה החברה את פעילותה לייצור ושיווק מצעים וכלי מיטה, וכבר כמה עשורים שאנחנו בורדינון מלווים אתכם ביום ובלילה, בכל עונות השנה. יש לנו בשבילכם מבחר עצום של מצעים רכים, מגבות מלטפות, שמיכות מפנקות. מלבדם, אנחנו משתדלים לרגש ולהלהיב אתכם במוצרים לתינוקות, לילדים ולבני נוער, ולרפד לכם את הבית עם כריות צבעוניות, שטיחוני אמבטיה, סבונים ריחניים, מעמדי נרות ועוד שלל אביזרי נוי ועיצוב.
+
+
+                        להנאתכם ולנוחיותכם אנחנו מפעילים מעל 70 חנויות בפריסה ארצית ומזמינים אתכם לחוויית קנייה נעימה ובטוחה באתר המעודכן שלנו, בו תוכלו לצפות ולבחור בנוחות מכל שפע עולמות המוצרים שלנו.
+
+
+                        כל המוצרים שלנו עשויים מחומרים איכותיים בטכנולוגיות מתקדמות. אנחנו מקפידים על עיצובים עדכניים וטרנדיים, המחוברים למגמות השולטות בעולמות עיצוב ואבזור הבית.
+
+
+                        כנהוג בעולם, הקולקציות שלנו משלימות זו את זו, ואתם יכולים לסגנן באמצעותן אווירה נעימה, שלווה וביתית בכל חדרי הבית.
+
+
+                        אנחנו ממליצים שתתחילו את הסיבוב שלכם בבדיקת מוצרי חדר השינה, תעברו לפינוקים לאמבטיה ואל תשכחו להציץ גם בממלכת הילדים. גם להם מגיע.
+
+
+                        אנחנו מזמינים אתכם לחזור אלינו שוב ושוב כדי שתוכלו להתעדכן בקולקציות החדשות שלנו.
+
+
+                        אז בואו נעשה עסק: אנחנו נמשיך לרגש ולחדש לכם, ואתם תמשיכו לשמור על קשר. הולך?
+
+
+                        .</p>
                 </div>
 
-                <div className="images-container">
-                    <div className="box">
-                        <img src={about} alt="" />
-
-                    </div>
-                    <div className="box">
-                        <img src={collection} alt="" />
-                        <div className="text">text ipsum dolor sit amet consectetur.</div>
-                    </div>
-
-                </div>
             </div>
 
         </section>

@@ -25,6 +25,7 @@ function getById(productId) {
 }
 
 async function remove(productId) {
+  console.log('productId:', productId);
   return httpService.delete(`product/${productId}`);
 }
 async function save(product) {

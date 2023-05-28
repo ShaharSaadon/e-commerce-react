@@ -8,9 +8,10 @@ export function ShoppingCartCmp({ setIsCartVisible }) {
     const cart = useSelector((state) => state.cartModule.cart);
     const dispatch = useDispatch();
     const [isVisible, setisVisible] = useState(false)
-    const handleRemoveFromCart = (productId) => {
-        dispatch(removeFromCart(productId));
-        showWarning('Product Deleted Successfully')
+
+    const handleRemoveFromCart = (cartItemId) => {
+        dispatch(removeFromCart(cartItemId));
+        showWarning('Product Deleted Successfully');
     };
 
     const navigate = useNavigate()
@@ -48,8 +49,8 @@ export function ShoppingCartCmp({ setIsCartVisible }) {
                                     <div className="box">
                                         <Link to={`/product/${item._id}`} className="nav-link">{item.name}</Link>
                                         <p>{item.price}₪</p>
-                                        <p> <span> צבע: </span>{item.colors}</p>
-                                        <p> <span>גודל:</span>  {item.sizes}</p>
+                                        <p> <span> צבע: </span>{item.color}</p>
+                                        <p> <span>גודל:</span>  {item.size}</p>
                                         {/* <pre>{JSON.stringify(item, null, 2)}</pre> */}
                                         <div className="quantity flex">
                                             <button className='nice-button' onClick={() => handleUpdateCartItem(item, item.quantity - 1)} disabled={item.quantity <= 1}>
@@ -65,7 +66,7 @@ export function ShoppingCartCmp({ setIsCartVisible }) {
                                                 +
                                             </button>
                                         </div>
-                                        <button className='nice-button' onClick={() => handleRemoveFromCart(item._id)}>
+                                        <button className='nice-button' onClick={() => handleRemoveFromCart(item.cartItemId)}>
                                             Remove from Cart
                                         </button>
                                     </div>
