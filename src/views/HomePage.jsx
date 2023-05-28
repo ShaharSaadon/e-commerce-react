@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from 'react'
-import delivery from '../assets/images/HomePage/delivery.png'
-import shield from '../assets/images/HomePage/shield.png'
-import payment from '../assets/images/HomePage/payment.png'
-import quality from '../assets/images/HomePage/quality.png'
+import { useDispatch, useSelector } from 'react-redux';
+import { useSpring, animated } from 'react-spring';
+import { loadProducts } from '../store/actions/product.actions';
+import { ProductPreview } from '../components/ProductPreview';
+import { useEffect} from 'react'
+import { Link } from 'react-router-dom'
 import collectionImg from '../assets/images/collection-img.png'
 import centerImg from '../assets/images/HomePage/center-img.png'
 import towelsImg from '../assets/images/towels.png'
@@ -10,36 +11,30 @@ import linenImg from '../assets/images/linen-img.png'
 import blanketImg from '../assets/images/blanket-img.png'
 import teaser1 from '../assets/images/HomePage/teaser-1.jpg'
 import teaser2 from '../assets/images/HomePage/teaser-2.jpg'
-import nCover from '../assets/images/HomePage/cover.avif'
-import nCover2 from '../assets/images/HomePage/cover2.avif'
-import { useDispatch, useSelector } from 'react-redux';
-import { loadProducts } from '../store/actions/product.actions';
-import { ProductPreview } from '../components/ProductPreview';
-import { useSpring, animated } from 'react-spring';
-import { Link } from 'react-router-dom'
-
+// import nCover from '../assets/images/HomePage/cover.avif'
+// import nCover2 from '../assets/images/HomePage/cover2.avif'
+import {linkService} from '../services/link.service'
 export function HomePage() {
 
     const products = useSelector((storeState) => storeState.productModule.products.slice(0, 3))
+    const {featuresLinks} = linkService
     const dispatch = useDispatch()
-    console.log('products:', products)
+    const springs = useSpring({
+        from: { y: 0 },
+        to: { y: 50 },
+        config: { duration: 1500 },
+    })      
 
     useEffect(() => {
         document.title = 'KingSize | דף הבית';
         dispatch(loadProducts())
     }, [])
-    const springs = useSpring({
-        from: { y: 0 },
-        to: { y: 50 },
-        config: { duration: 1500 }, // Set the duration to 1500 milliseconds (1.5 seconds)
-    })
+
     return (
         <section className='home-page-container full main-container'>
             <div className="images-container full">
                 <div className="cover">
-                    {/* <animated.img src={nCover} alt="" style={fade} className='cover-img' /> */}
                 </div>
-                {/* <ImagesContainer /> */}
                 <div className="content">
                     <div className="box" style={{ backgroundImage: `url(${teaser2})` }}>
                         <h2>
@@ -64,32 +59,12 @@ export function HomePage() {
                 </div>
             </div>
             <div className="designed-nav full flex">
-                <div className="box">
-                <img src={delivery} alt="" />
-                    <h6>100% Cotton</h6>
-                </div>
-                <div className="box">
-                <img src={delivery} alt="" />
-                    <h6>100% Cotton</h6>
-                </div>
-                <div className="box">
-                    <img src={shield} alt="" />
-                    <h6>Hypoallergenic</h6>
-                </div>
-                <div className="box">
-                    <img src={delivery} alt="" />
-                    <h6>Fast Delivery</h6>
-                </div>
-                <div className="box">
-                <img src={payment} alt="" />
-                <h6>
-                High Quality Fair Prices                    </h6>
-                </div>
-                <div className="box">
-                    <img src={quality} alt="" />
-                    <h6>Safe Order
-                    </h6>
-                </div>
+    {featuresLinks.map((box, index) => (
+      <div className="box" key={index}>
+        <img src={box.src} alt={box.alt} />
+        <h6>{box.text}</h6>
+      </div>
+    ))}
             </div>
             <div className="teaser-container full">
                 <div className="title" >
@@ -133,7 +108,6 @@ export function HomePage() {
                     )}
                     </div>
                 </div>
-
         </section>
     )
 }

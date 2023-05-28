@@ -1,0 +1,18 @@
+{
+  "blog": "Blog",
+  "about": "About",
+  "home": "Home",
+  "contact": "Contact",
+
+  "beddings": "Beddings",
+  "towels": "Towels",
+  "packages": "Packages",
+  "bedroomProducts": "Bedroom Products",
+
+  "contact.title": "Contact Us!",
+  "contact.address": "Tel Aviv, Ha'achim St. 15, 34343",
+  "contact.email": "kingSize@info.com",
+  "contact.phone": "929-242-6868",
+
+  "copyRight": "Copyright © 2023 KingSize | Shahar Saadon Full Stack Developer"
+}

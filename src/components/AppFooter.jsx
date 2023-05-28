@@ -1,44 +1,42 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import mail from '../assets/images/svgs/mail.svg'
-import instagram from '../assets/images/svgs/instagram.svg'
-import logo from '../assets/images/HomePage/0.png'
+import { Link, NavLink } from 'react-router-dom'
+import mailSvg from '../assets/images/svgs/mail.svg';
+import instagramSvg from '../assets/images/svgs/instagram.svg';
+import logoImg from '../assets/images/HomePage/0.png';
+import { linkService } from '../services/link.service';
 
 export function AppFooter() {
+    const { productLinks, kingSizeLinks } = linkService;
     return (
         <footer className="app-footer full main-container">
             <div className="footer-container flex full">
                 <div className="logo">
-                    <img src={logo} alt="" />
+                    <img src={logoImg} alt="King Size | מצעי בוטיק" />
                 </div>
-                <nav className="king-size flex flex-column">
+                <section className="king-size flex flex-column">
                     <h2 className='group-title'>King Size</h2>
-                    <Link to="/blog" className="nav-link"> בלוג </Link>
-                    <Link to="/about" className="nav-link"> קצת עלינו </Link>
-                    <Link to="/" className="nav-link"> עמוד הבית </Link>
-                    <Link to="/contact" className="nav-link"> צרו איתנו קשר </Link>
-                    {/* <Link to="/contact" className="nav-link">  </Link> */}
-                </nav>
-                <nav className="Categories flex flex-column">
+                    {kingSizeLinks.map((link, index) => (
+                        <Link to={link.path} key={index} className="nav-link">{link.label}</Link>
+                    ))}
+                </section>
+                <section className="categories flex flex-column">
                     <h2 className='group-title'>מוצרים </h2>
-                    <Link to="/מצעים" className="nav-link"> מצעים </Link>
-                    <Link to="/מגבות" className="nav-link"> מגבות </Link>
-                    <Link to="/מארזים" className="nav-link">המארזים שלנו</Link>
-                    <Link to="/מוצרים" className="nav-link"> מוצרים משלימים למיטה</Link>
-                </nav>
-                <nav className="contact flex flex-column">
+                    {productLinks.map((link, index) => (
+                        <Link to={link.path} key={index} className="nav-link">{link.label}</Link>
+                    ))}
+                </section>
+                <address className="contact flex flex-column">
                     <h2 className='group-title'>דברו איתנו!</h2>
                     <p>תל אביב, רחוב האחים 15, 34343</p>
-                    <p> kingSize@info.com</p>
-                    <p>929-242-6868</p>
-
-                </nav>
+                    <p><a href="mailto:kingSize@info.com">kingSize@info.com</a></p>
+                    <p><a href="tel:929-242-6868">929-242-6868</a></p>
+                </address>
 
             </div>
             <div className="lower-footer full">
                 <div className="links-container">
-                    <img src={instagram} alt="" />
-                    <img src={mail} alt="" />
+                    <img src={instagramSvg} alt="instagram" />
+                    <img src={mailSvg} alt="mail" />
                 </div>
                 <div className="copyright">
                     Copyright © 2023 KignSize | Shahar Saadon Full Stack Developer

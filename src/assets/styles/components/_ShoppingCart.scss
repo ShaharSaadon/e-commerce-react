@@ -8,14 +8,13 @@
   z-index: 9;
 }
 .shopping-cart {
+  background-color: $clr2;
   position: fixed;
   top: 0;
   right: 0;
   z-index: 100;
-  background-color: $clr2;
-  height: 100vw;
+  height: 100vh;
   border-left: $clr2 2px solid;
-
   .btn-close {
     border-radius: 50%;
     position: absolute;
@@ -55,15 +54,14 @@
       border-bottom: 1px solid $clr-app-border;
     }
   }
-
   span {
     font-weight: 700;
   }
-
   p {
     color: gray;
   }
   .cart-actions {
+    background-color: $clr2;
     flex-direction: column;
 
     .total {

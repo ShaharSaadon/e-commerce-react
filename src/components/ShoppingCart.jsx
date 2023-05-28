@@ -87,10 +87,6 @@ export function ShoppingCartCmp({ setIsCartVisible }) {
                             View full Cart
                         </button>
 
-                        {/* <Link to={`/product/edit/${product._id}`} className="edit">
-                            Edit
-                        </Link> */}
-
                     </div>
                 )}
             </section>

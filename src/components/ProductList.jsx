@@ -1,8 +1,12 @@
 import { ProductPreview } from "../components/ProductPreview";
+import PropTypes from 'prop-types';
 import { memo } from 'react'
 
+function _ProductList({ products, setIsCartVisible }) {
+    if (!products) {
+        return <div>Loading...</div>;
+    }
 
-function _ProductList({ products, toggleCart, setIsCartVisible }) {
     return (
         <section className="clean-list product-list">
 
@@ -14,6 +18,11 @@ function _ProductList({ products, toggleCart, setIsCartVisible }) {
         </section>
     )
 }
+
+_ProductList.propTypes = {
+    products: PropTypes.array.isRequired,
+    setIsCartVisible: PropTypes.func.isRequired,
+};
 
 
 export const ProductList = memo(_ProductList)

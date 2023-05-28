@@ -42,17 +42,20 @@ export function cartReducer(state = INITIAL_STATE, action = {}) {
         ...state,
         cart: updatedCart,
       };
-
     case REMOVE_FROM_CART:
+      console.log('action:', action);
+      console.log('action.product:', action.product);
       updatedCart = state.cart.filter(
-        (item) => item.cartItemId !== action.cartItemId
+        (item) =>
+          item._id !== action.product._id ||
+          item.color !== action.product.color ||
+          item.size !== action.product.size
       );
       storageService.saveCart(updatedCart);
       return {
         ...state,
         cart: updatedCart,
       };
-
     case UPDATE_CART_ITEM:
       updatedCart = state.cart.map((item) =>
         item._id === action.product._id ? action.product : item

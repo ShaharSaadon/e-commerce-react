@@ -112,7 +112,7 @@
   .teaser-container {
     width: 100vw;
     padding: 12px;
-    max-width: 1260px;
+    // max-width: 1260px;
     justify-self: center;
     border-radius: 12px;
     background: $filter-background;
@@ -243,6 +243,8 @@
       }
     }
     .teaser-container {
+      padding: 0 300px;
+
       grid-template-areas:
         ' title title title '
         ' teaser-1 img teaser-2 '

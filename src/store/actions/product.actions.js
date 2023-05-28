@@ -31,9 +31,10 @@ export function removeProduct(productId) {
       await productService.remove(productId);
       const action = { type: REMOVE_PRODUCT, productId };
       dispatch(action);
-      return 'Removed!';
+      return true;
     } catch (error) {
       console.log('error:', error);
+      return false;
     }
   };
 }

@@ -19,11 +19,12 @@
       0,
       0,
       0,
-      0.2
+      0.05
     ); /* Adjust the alpha value (0.5) to control the darkness */
-    background-blend-mode: multiply; /* Helps darken the background */
+    background-blend-mode: multiply;
+    /* Helps darken the background */
     background-size: cover;
-    background-position: 20%;
+    background-position: 0 30%;
     .category-title {
       font-size: em(46px);
       z-index: 5;

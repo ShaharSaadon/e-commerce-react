@@ -1,0 +1,18 @@
+{
+  "blog": "בלוג",
+  "about": "קצת עלינו",
+  "home": "עמוד הבית",
+  "contact": "צור קשר",
+
+  "beddings": "מצעים",
+  "towels": "מגבות",
+  "packages": "מארזים",
+  "bedroomProducts": "מוצרים למיטה",
+
+  "contact.title": "דברו איתנו!",
+  "contact.address": "תל אביב, רחוב האחים 15, 34343",
+  "contact.email": "kingSize@info.com",
+  "contact.phone": "929-242-6868",
+
+  "copyRight": "כל הזכויות שמורות © 2023 KingSize | שחר סעדון מפתח Full Stack"
+}

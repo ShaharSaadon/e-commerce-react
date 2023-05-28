@@ -25,7 +25,7 @@ export function ProductDetails({ setIsCartVisible }) {
         try {
             const product = await productService.getById(params.id);
             setProduct(product);
-            // Set the initial selected color and size
+
             if (product.colors && product.colors.length > 0) {
                 setSelectedColor(product.colors[0]);
             }
@@ -63,10 +63,6 @@ export function ProductDetails({ setIsCartVisible }) {
         const selectedValue = event.target.value;
         setSelectedSize(selectedValue);
     };
-
-    function onBack() {
-        navigate(-1)
-    }
 
     if (!product) return <div>Loading...</div>;
     const { name, description, category, price, imgURL, colors, subCategory, sizes } = product

@@ -1,12 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { useForm } from '../customHooks/useForm'
-import { productService } from '../services/product.service'
-import { useNavigate, useParams } from 'react-router';
-import { uploadService } from "../services/upload.service";
-import dragImg from '../assets/images/drag.png';
-import { DynamicColors } from '../components/DynamicColors';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router';
+import { productService } from '../services/product.service'
+import { uploadService } from "../services/upload.service";
+import { DynamicColors } from '../components/DynamicColors';
 import { removeProduct } from '../store/actions/product.actions'
+import { useForm } from '../customHooks/useForm'
+import dragImg from '../assets/images/drag.png';
+import Select from 'react-select'
 
 
 export function ProductEdit() {
@@ -14,10 +15,20 @@ export function ProductEdit() {
     const fileInputRef = useRef(null);
     const allColors = useSelector((storeState) => storeState.productModule.colors)
     const allSizes = useSelector((storeState) => storeState.productModule.sizes)
-    const { name, description, category, price, imgURL, sizes } = product
+    const sizeOptions = allSizes.map(size => ({ label: size, value: size }));
+    const { imgURL, sizes } = product
     const [selectedColors, setSelectedColors] = useState([])
     const [selectedSizes, setSelectedSizes] = useState([sizes]);
+    const params = useParams()
+    const navigate = useNavigate()
     const dispatch = useDispatch()
+
+    const fields = [
+        { label: 'Name', name: 'name', type: 'text' },
+        { label: 'Description', name: 'description', type: 'text' },
+        { label: 'Price', name: 'price', type: 'number' },
+        { label: 'shortDescription', name: 'shortDescription', type: 'text' },
+    ];
 
     const onRemoveProduct = useCallback(async (productId) => {
         try {
@@ -28,18 +39,10 @@ export function ProductEdit() {
         }
     }, []);
 
-    const params = useParams()
-    const navigate = useNavigate()
-
     useEffect(() => {
         document.title = 'KingSize | Edit Product';
         loadProduct()
     }, [])
-
-    useEffect(() => {
-        setSelectedColors(product.colors)
-    }, [product])
-
 
     async function loadProduct() {
         const productId = params.id
@@ -79,49 +82,43 @@ export function ProductEdit() {
         }
     }
 
-    function handleSizeChange(ev) {
-        const size = ev.target.value;
-        if (selectedSizes.includes(size)) {
-            // The size is already selected, so we remove it
-            setSelectedSizes(selectedSizes.filter(s => s !== size));
-        } else {
-            // The size is not selected, so we add it
-            setSelectedSizes([...selectedSizes, size]);
-        }
+    function handleSizeChange(selectedOption) {
+        setSelectedSizes(selectedOption.map(option => option.value));
     }
 
+    const selectedSizeOptions = selectedSizes.map(size => ({ label: size, value: size }));
 
     return (
         <section className='product-edit'>
             <h1>{product._id ? 'Edit' : 'Add'} Product</h1>
             <form onSubmit={onSaveProduct} >
 
-
-                <label htmlFor="name">name</label>
-                <input value={name} onChange={handleChange} type="text" name="name" id="name" />
-
-                <label htmlFor="description">Description</label>
-                <input value={description} onChange={handleChange} type="text" name="description" id="description" />
-
-                <label htmlFor="category">Category</label>
-                <input value={category} onChange={handleChange} type="text" name="category" id="category" />
-
-                <label htmlFor="price">Price</label>
-                <input value={price} onChange={handleChange} type="number" name="price" id="price" />
+                {fields.map(({ label, name, type }) => (
+                    <div key={name}>
+                        <label htmlFor={name}>{label}</label>
+                        <input
+                            value={product[name]}
+                            onChange={handleChange}
+                            type={type}
+                            name={name}
+                            id={name}
+                        />
+                    </div>
+                ))}
 
                 <label htmlFor="price">Colors</label>
                 <DynamicColors colors={allColors} selectedColors={selectedColors} handleClick={handleColor} />
 
                 <label htmlFor="sizes">Sizes</label>
-                <select id="sizes" multiple value={selectedSizes} onChange={handleSizeChange}>
-                    {allSizes.map((size) => (
-                        <option key={size} value={size}>
-                            {size}
-                        </option>
-                    ))}
-                </select>
+                <Select
+                    id="sizes"
+                    options={sizeOptions}
+                    isMulti
+                    value={selectedSizeOptions}
+                    onChange={handleSizeChange}
+                />
 
-                <label htmlFor="imgURL">Image Url:</label>
+                <label htmlFor="imgURL">Image</label>
                 <div className="img-uploader">
                     <img src={imgURL || dragImg} alt="" />
                     <input
@@ -132,6 +129,9 @@ export function ProductEdit() {
                         type="file"
                     />
                 </div>
+                <button type="button" onClick={() => fileInputRef.current.click()}>
+                    Upload an image
+                </button>
 
                 <button
                     onClick={() => onRemoveProduct(product._id)}
@@ -140,10 +140,9 @@ export function ProductEdit() {
                     Delete
                 </button>
 
-                <button type="button" onClick={() => fileInputRef.current.click()}>
-                    Upload an image
-                </button>
+
                 <button>Save</button>
+
             </form>
         </section>)
 }
