@@ -89,16 +89,20 @@
     .process-bar {
       margin: 24px auto;
       display: flex;
-    }
-    .cart-summery {
-      .box {
-        gap: 24px;
-        display: flex;
-        flex-direction: row;
-        margin: 12px 0;
+      .summery.active {
+        font-weight: 700;
       }
-      margin-block-end: 24px;
     }
+  }
+
+  .cart-summery {
+    .box {
+      gap: 24px;
+      display: flex;
+      flex-direction: row;
+      margin: 12px 0;
+    }
+    margin-block-end: 24px;
   }
   .cart-item-preview {
     display: flex;

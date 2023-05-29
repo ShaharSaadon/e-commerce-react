@@ -55,7 +55,7 @@ export function AppHeader() {
                         </NavLink>
                     ))}
 
-                    {/* <NavLink to="/admin-panel" className="nav-link" > מנהל </NavLink> */}
+                    <NavLink to="/admin-panel" className="nav-link" > מנהל </NavLink>
                 </nav>
                 <nav className="right">
 
