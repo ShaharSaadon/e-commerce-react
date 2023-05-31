@@ -16,16 +16,14 @@ import { AboutPage } from './views/AboutPage.jsx';
 import { ContactPage } from './views/ContactPage.jsx';
 import { DynamicProducts } from './views/DynamicProducts';
 import { ShoppingCartPage } from './views/ShoppingCartPage.jsx';
-import { UserTable } from './components/UserTable';
-import { OrdersTable } from './components/OrdersTable';
 import { BlogArticle } from './views/BlogArticle.jsx';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Blog } from './views/Blog.jsx';
+
 // import { ToastContainer } from 'react-toastify';
 
 function App() {
   const [isCartVisible, setIsCartVisible] = useState(false);
-  useEffect(() => {}, [isCartVisible]);
 
   return (
     <Router>
@@ -47,9 +45,7 @@ function App() {
             path="/:category"
             element={<DynamicProducts setIsCartVisible={setIsCartVisible} />}
           />
-          <Route path="/admin-panel" element={<AdminPanel />} />
-          <Route path="/admin-panel/orders" element={<OrdersTable />} />
-          <Route path="/admin-panel/users" element={<UserTable />} />
+          <Route path="/admin-panel/*" element={<AdminPanel />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/user-profile" element={<UserProfile />} />
           <Route path="/signup" element={<Signup />} />

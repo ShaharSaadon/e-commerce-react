@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { removeFromCart, updateCartItem } from '../store/actions/cart.actions';
+import { removeFromCart, updateCartItem } from '../../store/actions/cart.actions';
 import { Link } from 'react-router-dom';
 import Select from 'react-select'
 
@@ -88,9 +88,7 @@ export function OrderSummery({ onNext }) {
                                                 +
                                             </button>
 
-                                            {/* <button className='nice-button' onClick={() => handleRemoveFromCart(item._id)}>
-                                                Remove from Cart
-                                            </button> */}
+
 
                                         </div>
                                         <div className="actions">

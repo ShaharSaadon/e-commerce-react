@@ -1,5 +1,6 @@
 .main-dynamic-content {
   display: grid;
+
   grid-template-areas:
     'teaser teaser '
     'products  products ';
@@ -64,9 +65,26 @@
     grid-area: products;
     width: content;
     .product-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      // grid-gap: 10px; // Gap between product divs
+      // bigger than 620px
+      @include mq(mobile-breakpoint) {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      }
+    }
+
+    // bigger than 620px
+    @include mq(mobile-breakpoint) {
+      padding: 0 em($narrow-padding);
+    }
+
+    @include mq(narrow-breakpoint) {
+      padding: 0 em($normal-padding);
+    }
+
+    @include mq(normal-breakpoint) {
+      padding: 0 em($wide-padding);
     }
   }
 }

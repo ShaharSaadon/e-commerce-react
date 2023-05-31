@@ -50,6 +50,7 @@ function getEmptyProduct() {
     category: '',
     sizes: [],
     colors: [],
+    shortDescription: '',
     price: 0,
     // "imgURL": 'https://robohash.org/2',
   };

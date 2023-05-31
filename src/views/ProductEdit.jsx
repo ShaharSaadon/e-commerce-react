@@ -8,11 +8,19 @@ import { removeProduct } from '../store/actions/product.actions'
 import { useForm } from '../customHooks/useForm'
 import dragImg from '../assets/images/drag.png';
 import Select from 'react-select'
-
+import ColorPicker from '../components/ColorPicker'
+import DeleteIcon from '@mui/icons-material/Delete';
+import Button from '@mui/material/Button';
+import { Stack } from '@mui/material';
+import SaveAltIcon from '@mui/icons-material/SaveAlt';
+import UploadIcon from '@mui/icons-material/Upload';
+import LoadingButton from '@mui/lab/LoadingButton';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export function ProductEdit() {
     const [product, handleChange, setProduct] = useForm(productService.getEmptyProduct())
     const fileInputRef = useRef(null);
+    const [isUploading, setIsUploading] = useState(false);
     const allColors = useSelector((storeState) => storeState.productModule.colors)
     const allSizes = useSelector((storeState) => storeState.productModule.sizes)
     const sizeOptions = allSizes.map(size => ({ label: size, value: size }));
@@ -40,7 +48,7 @@ export function ProductEdit() {
     }, []);
 
     useEffect(() => {
-        document.title = 'KingSize | Edit Product';
+        document.title = 'KingSize | ערוך מוצר';
         loadProduct()
     }, [])
 
@@ -57,9 +65,8 @@ export function ProductEdit() {
     }
 
     async function onSaveProduct(ev) {
-        ev.preventDefault()
         try {
-            await productService.save({ ...product })
+            await productService.save({ ...product, colors: selectedColors })
             navigate(-1)
         } catch (error) {
             console.log('error:', error)
@@ -67,21 +74,23 @@ export function ProductEdit() {
     }
 
     async function handleFile({ target }) {
+        setIsUploading(true);
         const imgURL = await uploadService.uploadImg(target.files[0]);
-        setProduct({ ...product, imgURL });
+        console.log('imgURL:', imgURL)
+        setProduct(prevProduct => ({ ...prevProduct, imgURL }));
+        setIsUploading(false);
     }
 
     async function handleColor(ev) {
         const color = ev.target.style.backgroundColor;
-        if (product.colors.includes(color)) {
+        if (selectedColors.includes(color)) {
             // The color is already selected, so we remove it
-            setProduct({ ...product, colors: product.colors.filter(c => c !== color) });
+            setSelectedColors(prevColors => prevColors.filter(c => c !== color));
         } else {
             // The color is not selected, so we add it
-            setProduct({ ...product, colors: [...product.colors, color] });
+            setSelectedColors(prevColors => [...prevColors, color]);
         }
     }
-
     function handleSizeChange(selectedOption) {
         setSelectedSizes(selectedOption.map(option => option.value));
     }
@@ -90,7 +99,7 @@ export function ProductEdit() {
 
     return (
         <section className='product-edit'>
-            <h1>{product._id ? 'Edit' : 'Add'} Product</h1>
+            <h1>{product._id ? 'ערוך' : 'הוסף'} Product</h1>
             <form onSubmit={onSaveProduct} >
 
                 {fields.map(({ label, name, type }) => (
@@ -106,9 +115,10 @@ export function ProductEdit() {
                     </div>
                 ))}
 
-                <label htmlFor="price">Colors</label>
+                <label htmlFor="price">צבעים</label>
                 <DynamicColors colors={allColors} selectedColors={selectedColors} handleClick={handleColor} />
 
+                <ColorPicker />
                 <label htmlFor="sizes">Sizes</label>
                 <Select
                     id="sizes"
@@ -118,8 +128,7 @@ export function ProductEdit() {
                     onChange={handleSizeChange}
                 />
 
-                <label htmlFor="imgURL">Image</label>
-                <div className="img-uploader">
+                {isUploading ? <CircularProgress /> : <div className="img-uploader">
                     <img src={imgURL || dragImg} alt="" />
                     <input
                         className="input-img"
@@ -127,21 +136,25 @@ export function ProductEdit() {
                         ref={fileInputRef}
                         accept="image/*"
                         type="file"
+                        style={{ display: 'none' }}
+
                     />
-                </div>
-                <button type="button" onClick={() => fileInputRef.current.click()}>
-                    Upload an image
-                </button>
+                </div>}
 
-                <button
-                    onClick={() => onRemoveProduct(product._id)}
-                    className="btn-delete"
-                >
-                    Delete
-                </button>
+                <Stack direction="column" spacing={2}>
+                    <LoadingButton loading={isUploading} onClick={() => fileInputRef.current.click()} startIcon={<UploadIcon />} variant="outlined">
+                        העלה תמונה
+                    </LoadingButton>
+                    <Button variant="outlined" color="secondary" startIcon={<DeleteIcon />} onClick={() => onRemoveProduct(product._id)}
+                        className="btn-delete">
+                        מחק מוצר
+                    </Button>
+                    <Button variant="contained" startIcon={<SaveAltIcon />} onClick={onSaveProduct}>
+                        שמור שינויים
+                    </Button>
+                </Stack>
 
 
-                <button>Save</button>
 
             </form>
         </section>)

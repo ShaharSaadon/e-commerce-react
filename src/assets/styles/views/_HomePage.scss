@@ -1,22 +1,20 @@
+// @use '@material/animation';
+
 .home-page-container {
   min-height: max-content;
   .images-container {
     width: 100%;
     display: flex;
     .cover {
+      .cover-img {
+        // display: none;
+      }
+      // display: hiden;
       width: 100%;
-      height: 600px;
-      min-height: max-content;
-      background-image: url('../../images/HomePage/cotton.jpg');
-      background-repeat: repeat;
-      background-color: rgba(
-        0,
-        0,
-        0,
-        0.3
-      ); /* Adjust the alpha value (0.5) to control the darkness */
-      background-blend-mode: multiply; /* Helps darken the background */
-      background-position: -150px;
+      height: 140vh;
+      max-height: min-content;
+      // background-image: url('../../images/HomePage/cotton.jpg');
+      // background-repeat: repeat;
     }
     .content {
       justify-content: center;
@@ -27,19 +25,22 @@
       width: 100%;
       height: 100%;
       flex-direction: column;
+      padding-top: 12px;
     }
     .box {
       padding: 24px;
-      width: 70%;
-      height: 35vh;
       display: flex;
+      width: 90%;
+      // width: 70%;
+      // height: 35vh;
+      height: 70vh;
       text-align: center;
       justify-content: center;
       align-items: center;
       gap: 8px;
       flex-direction: column;
       background-color: rgba($color: $clr1, $alpha: 0.7);
-      border: 2px $clr2 solid;
+      // border: 2px $clr2 solid;
       color: $clr2;
       border-radius: 12px;
       background-blend-mode: multiply; /* Helps darken the background */
@@ -225,6 +226,18 @@
   // bigger than 620px
   @include mq(mobile-breakpoint) {
     .images-container {
+      .cover {
+        height: 600px;
+        background-image: url('../../images/HomePage/cotton.jpg');
+        background-position: -150px;
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.3
+        ); /* Adjust the alpha value (0.5) to control the darkness */
+        background-blend-mode: multiply; /* Helps darken the background */
+      }
       .content {
         flex-direction: row;
         justify-content: center;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-
+import CountrySelect from './CountrySelect'
 export function AddressForm({ onNext, onAddressComplete }) {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -46,6 +46,8 @@ export function AddressForm({ onNext, onAddressComplete }) {
                 <input {...register("country", { required: true })} />
                 {errors.country && <p>This field is required</p>}
             </label>
+
+            <CountrySelect />
 
             <input type="submit" />
         </form>

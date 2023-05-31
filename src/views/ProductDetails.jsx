@@ -5,6 +5,12 @@ import { DynamicColors } from '../components/DynamicColors'
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../store/actions/cart.actions';
 import { Link, NavLink } from 'react-router-dom';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
 
 export function ProductDetails({ setIsCartVisible }) {
     const dispatch = useDispatch()
@@ -91,13 +97,26 @@ export function ProductDetails({ setIsCartVisible }) {
                     <p><span className='price'>{price}</span>&משלוח חינם - עד סוף חודש יוני</p>
                     <p className='description'>{description}</p>
                     <span>גודל</span>
-                    <select className="sizes" onChange={handleSizeChange} value={selectedSize}>
-                        {sizes.map((size, index) => (
-                            <option key={index} value={size}>
-                                {size}
-                            </option>
-                        ))}
-                    </select>
+
+                    <FormControl required sx={{ m: 1, minWidth: 120 }}>
+                        <InputLabel id="demo-simple-select-required-label">גודל</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-required-label"
+                            id="demo-simple-select-required"
+                            value={selectedSize}
+                            label="Age *"
+                            onChange={handleSizeChange}
+                        >
+                            <MenuItem value="">
+                                <em>None</em>
+                            </MenuItem>
+                            {sizes.map((size, index) => (
+                                <MenuItem value={size}>{size}</MenuItem>
+                            ))}
+                        </Select>
+                        <FormHelperText>Required</FormHelperText>
+                    </FormControl>
+
                     <span>צבעים</span>
                     <DynamicColors colors={colors || []} handleClick={handleColor} selectedColors={selectedColor}
                     />

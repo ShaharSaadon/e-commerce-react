@@ -2,12 +2,24 @@ import React, { useEffect } from 'react'
 import bambuk from '../assets/images/Blog/bambuk-linen.jpg'
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { pink } from '@mui/material/colors';
+import { styled } from '@mui/material/styles';
+import Button from '@mui/material/Button';
 
 export function Blog() {
 
     const articles = useSelector((storeState) => storeState.articleModule.articles)
     const navigate = useNavigate()
 
+    const ColorButton = styled(Button)(({ theme }) => ({
+        color: theme.palette.getContrastText(pink[300]),
+        backgroundColor: pink[300],
+        borderRadius: '20px',  // This sets border radius
+        maxWidth: '150px',
+        '&:hover': {
+            backgroundColor: pink[100],
+        },
+    }));
     useEffect(() => {
         document.title = `KingSize | בלוג`;
     }, [])
@@ -26,7 +38,11 @@ export function Blog() {
                         <div className="text">
                             <h1>{title}</h1>
                             <p>{content}</p>
-                            <Link className='continue' to={`/blog/${id}`}>להמשך קריאה </Link>
+                            <Link to={`/blog/${id}`}>
+                                <ColorButton variant="contained">
+                                    להמשך קריאה
+                                </ColorButton>
+                            </Link>
                         </div>
 
                     </div>
