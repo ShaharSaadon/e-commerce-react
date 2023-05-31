@@ -105,6 +105,11 @@
       justify-content: space-around;
       .box {
         margin-block-end: 0;
+        img {
+          &:hover {
+            animation: rise 1s ease-in-out infinite;
+          }
+        }
       }
     }
     .form-container {
@@ -115,5 +120,14 @@
         }
       }
     }
+  }
+}
+@keyframes rise {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, -15px, 0);
   }
 }

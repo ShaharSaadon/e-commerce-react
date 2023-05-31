@@ -1,9 +1,9 @@
 import React from 'react'
-import collectionImg from '../assets/images/collection-img.png';
-import centerImg from '../assets/images/HomePage/center-img.png';
-import towelsImg from '../assets/images/towels.png';
-import linenImg from '../assets/images/linen-img.png';
-import blanketImg from '../assets/images/blanket-img.png';
+import collectionImg from '../../assets/images/collection-img.png';
+import centerImg from '../../assets/images/HomePage/center-img.png';
+import towelsImg from '../../assets/images/towels.png';
+import linenImg from '../../assets/images/linen-img.png';
+import blanketImg from '../../assets/images/blanket-img.png';
 import { useSpring } from 'react-spring';
 import { InView } from 'react-intersection-observer';
 export function TeaserContainer() {
@@ -25,28 +25,27 @@ export function TeaserContainer() {
                 </p>
             </div>
             <div className='teaser-1 teaser'>
-                <img src={collectionImg} alt='' className='' style={springs} />
                 <h2>המארזים שלנו</h2>
                 <p>
                     מארזים שלנו מהווים תכנון ייחודי ומודרני שמעניק לחדר השינה שלכם מראה
                     אלגנטי ומרהיב. נשמה רומנטית מושקעת בפרטים האיכותיים והמדויקים, יחד
                     עם רמה גבוהה של נוחות ועמידות.
                 </p>
+                <img src={collectionImg} alt='' className='' style={springs} />
             </div>
             <div className='center-img'>
                 <img src={centerImg} alt='CENTER' className='center' style={springs} />
             </div>
             <div className='teaser-2 teaser'>
-                <img src={towelsImg} alt='' style={springs} />
                 <h2>המגבות</h2>
                 <p>
                     מגבות המכירה שלנו הן הבחירה המושלמת עבורכם. עשויות מ-100 אחוז כותנה
                     איכותית, הן מעניקות תחושה נעימה ורכה על העור. בנוסף לכך, הן עמידות
                     ואיכותיות מאוד, מה שמבטיח שתהנו מהן לאורך זמן.
                 </p>
+                <img src={towelsImg} alt='' style={springs} />
             </div>
             <div className='teaser-3 teaser'>
-                <img src={linenImg} alt='' style={springs} />
                 <h2>מצעים</h2>
                 <p>
                     צעים שלנו הם הבחירה המושלמת עבורכם. באיכותם המעולה ובמחירם ההוגן, הם
@@ -56,9 +55,9 @@ export function TeaserContainer() {
                     לשמור על המחירים ההוגנים ללקוחותינו, כך שתוכלו ליהנות ממצעים
                     איכותיים במחיר שפוי וסביר.
                 </p>
+                <img src={linenImg} alt='' style={springs} />
             </div>
             <div className='teaser-4 teaser'>
-                <img src={blanketImg} alt='' style={springs} onEnter />
                 <h2>מוצרים משלימים למיטה</h2>
                 <p>
                     מוצרים המשלימים את המיטה שלכם הם הפתרון המושלם ליצירת חווית שינה
@@ -67,6 +66,7 @@ export function TeaserContainer() {
                     לתמיכה מותאמת אישית, ושמיכות רכות ומפנקות. אלה הם רק חלק מהמוצרים
                     המשגעים שנמצאים בקולקציה שלנו.
                 </p>
+                <img src={blanketImg} alt='' style={springs} onEnter />
             </div>
         </div>)
 }

@@ -1,7 +1,7 @@
 
 import { NavLink, Outlet } from 'react-router-dom';
-import { OrderSummery } from '../components/Admin/OrderSummery';
-import { AddressForm } from '../components/AddressForm';
+import { OrderSummery } from '../components/ShoppingCart/OrderSummery';
+import { AddressForm } from '../components/ShoppingCart/AddressForm';
 import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';

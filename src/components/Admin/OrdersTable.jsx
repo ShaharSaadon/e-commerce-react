@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { loadOrders } from '../store/actions/order.actions'
+import { loadOrders } from '../../store/actions/order.actions'
 import { DataGrid } from '@mui/x-data-grid';
 
 

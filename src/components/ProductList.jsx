@@ -8,7 +8,7 @@ function _ProductList({ products, setIsCartVisible }) {
     }
 
     return (
-        <section className="clean-list product-list">
+        <section className="clean-list product-list ">
 
             {products.map((product) =>
                 <li key={product._id} className="product-container">

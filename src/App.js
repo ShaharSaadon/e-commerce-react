@@ -8,7 +8,7 @@ import { AppFooter } from './components/AppFooter.jsx';
 import { HomePage } from './views/HomePage.jsx';
 import { ProductDetails } from './views/ProductDetails.jsx';
 import { ProductEdit } from './views/ProductEdit.jsx';
-import { ShoppingCartCmp } from './components/ShoppingCart.jsx';
+import { ShoppingCartCmp } from './components/ShoppingCart/ShoppingCart.jsx';
 import { Signup } from './views/Signup.jsx';
 import { Login } from './views/Login.jsx';
 import { UserProfile } from './views/UserProfile.jsx';

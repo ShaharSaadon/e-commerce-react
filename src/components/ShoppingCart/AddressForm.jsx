@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import CountrySelect from './CountrySelect'
+import CountrySelect from '../CountrySelect'
 export function AddressForm({ onNext, onAddressComplete }) {
     const { register, handleSubmit, formState: { errors } } = useForm();
 

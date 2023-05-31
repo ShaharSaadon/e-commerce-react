@@ -1,5 +1,5 @@
 import React from 'react'
-import { ProductPreview } from './ProductPreview'
+import { ProductPreview } from '../ProductPreview'
 
 export function RecommendsProducts() {
     return (

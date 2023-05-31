@@ -5,8 +5,8 @@ import { Tabs, Tab } from '@mui/material';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import { OrdersTable } from '../components/OrdersTable'
-import { UserTable } from '../components/UserTable'
+import { OrdersTable } from '../components/Admin/OrdersTable'
+import { UserTable } from '../components/Admin/UserTable'
 
 export function AdminPanel() {
     const location = useLocation();

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart, updateCartItem } from '../store/actions/cart.actions';
-import { showWarning, showSuccess } from '../services/alert.message'
+import { removeFromCart, updateCartItem } from '../../store/actions/cart.actions';
+import { showWarning, showSuccess } from '../../services/alert.message'
 import { Link, useNavigate } from 'react-router-dom';
 export function ShoppingCartCmp({ setIsCartVisible }) {
 
