@@ -5,7 +5,7 @@ import quality from '../assets/images/HomePage/quality.png';
 import מצעים from '../assets/images/DynamicProducts/bedding-cover.jpg';
 import מוצרים from '../assets/images/DynamicProducts/pillows.jpg';
 import מגבות from '../assets/images//DynamicProducts/towels.png';
-import מארזים from '../assets/images/DynamicProducts/happy.jpg';
+import מארזים from '../assets/images/DynamicProducts/happy.jpeg';
 
 const navLinks = [
   { path: '/', text: 'בית' },

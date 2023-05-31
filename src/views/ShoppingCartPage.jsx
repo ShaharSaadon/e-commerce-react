@@ -3,6 +3,8 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { OrderSummery } from '../components/ShoppingCart/OrderSummery';
 import { AddressForm } from '../components/ShoppingCart/AddressForm';
 import { useState } from 'react';
+import { httpService } from '../services/http.service';
+
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
@@ -13,18 +15,29 @@ export function ShoppingCartPage() {
     const [address, setAddress] = useState(null);
 
     const handleNextStep = () => {
-        setCurrentStep(prevStep => prevStep + 1);
+        if (currentStep !== 2) setCurrentStep(prevStep => prevStep + 1);
+        else {
+            const orderId = 'YOUR_ORDER_ID';
+            const amount = 'YOUR_AMOUNT';
+            const currency = 'YOUR_CURRENCY';
+
+            httpService.post('payme/pay', { orderId, amount, currency })
+                .then(response => {
+                    console.log('Payment response:', response.data);
+                    // Handle the next step here
+                })
+                .catch(err => console.error(err));
+
+            setCurrentStep(prevStep => prevStep + 1);
+        }
+
     };
-
-
     const steps = [
         'סיכום עגלת קניוית',
         'פרטי משלוח',
         'שיטת תשלום',
         'סיום הזמנה וקבלה',
     ];
-
-
     return (
         <section className='shopping-cart-page'>
 
