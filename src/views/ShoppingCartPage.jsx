@@ -2,6 +2,7 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import { OrderSummery } from '../components/ShoppingCart/OrderSummery';
 import { AddressForm } from '../components/ShoppingCart/AddressForm';
+import { PaymentForm } from '../components/ShoppingCart/PaymentForm.jsx';
 import { useState } from 'react';
 import { httpService } from '../services/http.service';
 
@@ -21,7 +22,7 @@ export function ShoppingCartPage() {
             const amount = 'YOUR_AMOUNT';
             const currency = 'YOUR_CURRENCY';
 
-            httpService.post('payme/pay', { orderId, amount, currency })
+            httpService.post('order/pay', { orderId, amount, currency })
                 .then(response => {
                     console.log('Payment response:', response.data);
                     // Handle the next step here
@@ -72,6 +73,7 @@ export function ShoppingCartPage() {
             </div>
             {currentStep === 0 && <OrderSummery onNext={handleNextStep} />}
             {currentStep === 1 && <AddressForm onNext={handleNextStep} onAddressComplete={setAddress} />}
+            {currentStep === 2 && <PaymentForm onNext={handleNextStep} />}
             {/* More steps here */}
         </section>
     )

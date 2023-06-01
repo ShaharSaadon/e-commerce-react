@@ -1,4 +1,5 @@
 // import { storageService } from './async-storage.service';
+import axios from 'axios';
 import { httpService } from './http.service';
 
 // import { store } from '../store/store'
@@ -9,7 +10,9 @@ export const ordersService = {
   query,
   getById,
   remove,
-  create,
+  createOrder,
+  tokenizeCard,
+  createSale,
 };
 
 async function query(filterBy = { txt: '' }) {
@@ -33,6 +36,22 @@ function remove(orderId) {
   return httpService.delete(`order/${orderId}`);
 }
 
-async function create(order) {
+async function createOrder(order) {
   return await httpService.post(`order`, order);
+}
+async function createSale(order) {
+  return await httpService.post(`order/pay`, order);
+}
+
+async function tokenizeCard(cardDetails) {
+  try {
+    const response = await axios.post(
+      'https://payme/api/v1/tokenize',
+      cardDetails
+    );
+    return response.data;
+  } catch (err) {
+    console.log('Failed to tokenize card', err);
+    throw err;
+  }
 }

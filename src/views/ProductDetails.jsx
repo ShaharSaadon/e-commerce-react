@@ -11,6 +11,9 @@ import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
+import { ProductAccordion } from '../components/Accordion';
+import { RecommendationsContainer } from '../components/HomePage/RecommendationsContainer';
+
 
 export function ProductDetails({ setIsCartVisible }) {
     const dispatch = useDispatch()
@@ -65,7 +68,7 @@ export function ProductDetails({ setIsCartVisible }) {
         setSelectedColor(color)
     }
 
-    const handleSizeChange = (event) => {
+    function handleSizeChange(event) {
         const selectedValue = event.target.value;
         setSelectedSize(selectedValue);
     };
@@ -77,10 +80,7 @@ export function ProductDetails({ setIsCartVisible }) {
         <section className='product-details'>
             <div className="header">
                 <p><Link to={`/${category}`} className="nav-link">{category}</Link>
-                    {subCategory ?
-                        <Link to={`/${category}/${subCategory}`} className="nav-link">{subCategory}</Link>
-                        :
-                        ''} | {name} </p>
+                    | {name} </p>
 
                 <div className="nav">
                     <span>הקודם </span>
@@ -90,6 +90,8 @@ export function ProductDetails({ setIsCartVisible }) {
             <div className="content">
                 <div className="img-container">
                     <img src={imgURL} className='square-ratio' />
+                    <ProductAccordion />
+
                 </div>
                 <section className='product-info'>
 
@@ -116,17 +118,26 @@ export function ProductDetails({ setIsCartVisible }) {
                         </Select>
                         <FormHelperText>Required</FormHelperText>
                     </FormControl>
+                    <div className="details flex justify-between">
+                        <div className="colors flex flex-column">
+                            <span>צבעים</span>
+                            <DynamicColors colors={colors || []} handleClick={handleColor} selectedColors={selectedColor}
+                            />
+                        </div>
+                        <div className="quantity-container flex flex-column">
+                            <span>כמות</span>
+                            <div className="box">
+                                <button className='act' onClick={() => handleClick(-1)}>-</button>
+                                <input type="number" className='quantity' value={quantity} />
+                                <button className='act' onClick={() => handleClick(+1)}>+</button>
+                            </div>
+                        </div>
 
-                    <span>צבעים</span>
-                    <DynamicColors colors={colors || []} handleClick={handleColor} selectedColors={selectedColor}
-                    />
-                    <span>כמות</span>
-                    <div className="quantity-container">
-                        <button className='act' onClick={() => handleClick(-1)}>-</button>
-                        <input type="number" className='quantity' value={quantity} />
-                        <button className='act' onClick={() => handleClick(+1)}>+</button>
                     </div>
+
                     <button className='designed-btn' onClick={handleAddToCart}>Add to Cart</button>
+                    {/* <RecommendationsContainer /> */}
+
                     {/* <button className='designed-btn' onClick={handleAddToCart}>Buy it Now</button> */}
                     {/* <button onClick={onBack} className="designed-btn">Back</button> */}
                 </section>

@@ -6,7 +6,7 @@
   font-weight: 400;
   // border: 1px black solid;
   .header {
-    padding: 12px 0;
+    padding: 32px 0;
     // grid-column: 1/-1;
     font-size: 1.2rem;
     display: flex;
@@ -14,7 +14,7 @@
   }
   span {
     font-weight: 700;
-    margin: 6px;
+    margin: 6px 0;
   }
   .content {
     align-items: flex-start;
@@ -22,6 +22,7 @@
     grid-template-columns: 100%;
     gap: 24px;
     .product-info {
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-content: start;
@@ -55,7 +56,7 @@
     .img-container {
       width: 100%;
       max-width: 500px;
-      max-height: 500px;
+      // max-height: 500px;
       background-size: cover;
       background-position: center;
       img {
@@ -95,7 +96,7 @@
   // bigger than 960px
   @include mq(narrow-breakpoint) {
     .content {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 50% 50%;
       justify-items: end;
       width: 100%;
     }

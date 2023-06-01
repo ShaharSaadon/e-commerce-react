@@ -1,5 +1,5 @@
 import { SET_ORDERS } from '../reducers/order.reducer';
-import { ordersService } from '../../services/orders.service';
+import { ordersService } from '../../services/order.service';
 
 export function loadOrders() {
   return async (dispatch, getState) => {
