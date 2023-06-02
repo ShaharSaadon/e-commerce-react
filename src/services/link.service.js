@@ -2,6 +2,8 @@ import delivery from '../assets/images/HomePage/delivery.png';
 import shield from '../assets/images/HomePage/shield.png';
 import payment from '../assets/images/HomePage/payment.png';
 import quality from '../assets/images/HomePage/quality.png';
+import bambuk from '../assets/images/HomePage/bambuk.png';
+import cotton from '../assets/images/HomePage/cotton.png';
 import מצעים from '../assets/images/DynamicProducts/bedding-cover.jpg';
 import מוצרים from '../assets/images/DynamicProducts/pillows.jpg';
 import מגבות from '../assets/images//DynamicProducts/towels.png';
@@ -33,10 +35,10 @@ const productLinks = [
 ];
 
 const featuresLinks = [
-  { src: delivery, alt: 'משלוח', text: '100% Cotton' },
-  { src: delivery, alt: 'משלוח', text: '100% Cotton' },
   { src: shield, alt: 'מאובטח', text: 'Hypoallergenic' },
   { src: delivery, alt: 'משלוח', text: 'Fast Delivery' },
+  { src: bambuk, alt: 'משלוח', text: '100% Bambuk' },
+  { src: cotton, alt: 'משלוח', text: '100% Cotton' },
   { src: payment, alt: 'תשלום', text: 'High Quality Fair Prices' },
   { src: quality, alt: 'איכותי', text: 'Safe Order' },
 ];

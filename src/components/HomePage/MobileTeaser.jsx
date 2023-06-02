@@ -6,6 +6,6 @@ export function MobileTeaser() {
 
         <div className="mobile-teaser">
             <img src={cotton} alt="" className='cotton' />
-            <div className="text">פשוט, איכות</div>
+            <div className="text"></div>
         </div>)
 }

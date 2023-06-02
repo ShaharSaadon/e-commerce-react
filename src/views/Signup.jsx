@@ -15,6 +15,7 @@ export function Signup() {
 
 
     useEffect(() => {
+        document.title = 'KingSize | הרשמה';
         if (loggedinUser) navigate('/user-profile')
     }, [loggedinUser]);
 

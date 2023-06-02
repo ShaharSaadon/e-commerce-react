@@ -18,6 +18,7 @@ export function Login() {
 
 
     useEffect(() => {
+        document.title = 'KingSize | התחברות';
         if (loggedinUser) navigate('/')
     }, [loggedinUser]);
 

@@ -1,5 +1,8 @@
 // @use '@material/animation';
 
+$transition-duration: 0.5s;
+$transition-timing-function: ease-in-out;
+
 .home-page-container {
   min-height: max-content;
 
@@ -170,6 +173,16 @@
       line-height: 1.4;
     }
 
+    .animated {
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity $transition-duration $transition-timing-function,
+        transform $transition-duration $transition-timing-function;
+      &.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
     .title {
       h1 {
         margin-block-end: 12px;
@@ -232,25 +245,30 @@
     }
   }
   .recommends-container {
+    // width: 50vw;
+    // width: 100%;
     margin-block-start: 40px;
     justify-content: center;
     justify-items: center;
     text-align: center;
     display: flex;
     flex-direction: column;
-    // justify-content: space-evenly;
+    justify-content: space-evenly;
+    // justify-content: space-around;
     p {
       font-size: 1.5rem;
       margin-block-start: 12px;
     }
+    // place-items: center;
     .recommends {
       flex-wrap: wrap;
       display: flex;
-      justify-content: space-between; /* adjust as needed */
+      // justify-content: space-between; /* adjust as needed */
+      justify-content: space-around;
 
       // max-width: 300px;
       // margin: 0 auto;
-      // justify-self: center;
+      justify-self: center;
       // display: inline-flex;
     }
 
@@ -312,8 +330,9 @@
     .recommends-container {
       .recommends {
         display: flex;
+        justify-content: space-around;
         .product-container {
-          flex: 1 0 30%; /* The '30%' means each item will take up 30% of the total width of the container. Adjust this percentage as needed. */
+          // flex: 1 0 25%; /* The '30%' means each item will take up 30% of the total width of the container. Adjust this percentage as needed. */
         }
       }
     }

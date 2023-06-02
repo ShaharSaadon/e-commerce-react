@@ -14,7 +14,7 @@ export function HomePage() {
             <ImagesContainer />
             <FeaturesContainer />
             <TeaserContainer />
-            <RecommendationsContainer />
+            <RecommendationsContainer title="הנמכרים ביותר" />
         </section>
     );
 }

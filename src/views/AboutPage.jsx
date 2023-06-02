@@ -12,9 +12,6 @@ export function AboutPage() {
 
     return (
         <section className='about full'>
-            {/* <div className="img-container full">
-                <img src={aboutC3} alt="" />
-            </div> */}
             <div className="content">
                 <div className='logo'>
                     <img src={logo} alt="" />
