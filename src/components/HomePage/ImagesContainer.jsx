@@ -10,15 +10,15 @@ import { useInView } from 'react-intersection-observer';
 import Grow from '@mui/material/Grow';
 import bCover from '../../assets/images/DynamicProducts/bedding-cover.jpg';
 export function ImagesContainer() {
-    const [ref, inView] = useInView({
-        triggerOnce: false,
-    });
+    // const [ref, inView] = useInView({
+    //     triggerOnce: false,
+    // });
 
-    const springs = useSpring({
-        transform: inView ? 'scale(1)' : 'scale(0.5)',
-        from: { transform: 'scale(0.5)' },
-        config: { tension: 300, friction: 20, duration: 600 },
-    });
+    // const springs = useSpring({
+    //     transform: inView ? 'scale(1)' : 'scale(0.5)',
+    //     from: { transform: 'scale(0.5)' },
+    //     config: { tension: 300, friction: 20, duration: 600 },
+    // });
 
     const ColorButtonHome = styled(Button)(({ theme }) => ({
         color: theme.palette.getContrastText(blueGrey[900]),
@@ -35,10 +35,8 @@ export function ImagesContainer() {
             <div className='cover'></div>
             <div className='content'>
                 <div
-                    ref={ref}
                     className='box'
                     style={{
-                        ...springs,
                         backgroundImage: `url(${teaser2})`,
                     }}
                 >
@@ -52,10 +50,8 @@ export function ImagesContainer() {
                     </Link>
                 </div>
                 <div
-                    ref={ref}
                     className='box'
                     style={{
-                        ...springs,
                         backgroundImage: `url(${teaser1})`,
                     }}
                 >
