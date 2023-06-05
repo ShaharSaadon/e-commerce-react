@@ -9,7 +9,6 @@ import Button from '@mui/material/Button';
 export function Blog() {
 
     const articles = useSelector((storeState) => storeState.articleModule.articles)
-    const navigate = useNavigate()
 
     const ColorButton = styled(Button)(({ theme }) => ({
         color: theme.palette.getContrastText(pink[300]),
