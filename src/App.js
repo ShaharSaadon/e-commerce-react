@@ -27,11 +27,11 @@ function App() {
 
   return (
     <Router>
-      {isCartVisible ? (
-        <ShoppingCartCmp setIsCartVisible={setIsCartVisible} />
-      ) : (
-        ''
-      )}
+      <ShoppingCartCmp
+        setIsCartVisible={setIsCartVisible}
+        isCartVisible={isCartVisible}
+      />
+
       <section className="main-container">
         <ScrollToTop />
         <AppHeader />

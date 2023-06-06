@@ -8,7 +8,7 @@ import { linkService } from '../services/link.service';
 export function AppFooter() {
     const { productLinks, kingSizeLinks } = linkService;
     return (
-        <footer className="app-footer full main-container">
+        <footer className="app-footer full">
             <div className="footer-container flex full">
                 <div className="logo">
                     <img src={logoImg} alt="King Size | מצעי בוטיק" />

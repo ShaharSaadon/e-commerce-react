@@ -37,9 +37,6 @@ export function ProductPreview({ product, setIsCartVisible }) {
     borderRadius: '0',
     '&:hover': {
       backgroundColor: grey[500],
-      border: '2px pink solid',
-      boxShadow: '0 0 0 2px pink',
-
     },
   }));
 

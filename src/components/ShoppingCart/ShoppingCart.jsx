@@ -1,29 +1,26 @@
-import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, updateCartItem } from '../../store/actions/cart.actions';
-import { showWarning, showSuccess } from '../../services/alert.message'
+import { showWarning } from '../../services/alert.message'
 import { Link, useNavigate } from 'react-router-dom';
-export function ShoppingCartCmp({ setIsCartVisible }) {
-
+import { QuantityPicker } from '../QuantityPicker';
+export function ShoppingCartCmp({ setIsCartVisible, isCartVisible }) {
+    console.log('isCartVisible:', isCartVisible)
     const cart = useSelector((state) => state.cartModule.cart);
     const dispatch = useDispatch();
-    const [isVisible, setisVisible] = useState(false)
+    const navigate = useNavigate()
 
-    const handleRemoveFromCart = (cartItemId) => {
+    function handleRemoveFromCart(cartItemId) {
         dispatch(removeFromCart(cartItemId));
         showWarning('Product Deleted Successfully');
     };
 
-    const navigate = useNavigate()
-    const handleUpdateCartItem = (product, quantity) => {
+    function handleUpdateCartItem(product, quantity) {
         dispatch(updateCartItem({ ...product, quantity }));
-        showSuccess(`Product Quantity Updated to ${quantity}`)
+    }
 
-    };
-
-    const calculateTotal = () => {
+    function calculateTotal() {
         return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
-    };
+    }
 
     function handleToggle() {
         setIsCartVisible((prevState) => !prevState)
@@ -34,12 +31,13 @@ export function ShoppingCartCmp({ setIsCartVisible }) {
         handleToggle()
     }
     return (
-        <div className="shopping-background">
-            <section className='shopping-cart'>
+        <div className={isCartVisible ? 'shopping-background' : 'shopping-background hide'}>
+            <section className={isCartVisible ? 'shopping-cart' : 'shopping-cart hide'}>
                 <button className='btn-close' onClick={handleToggle}>X</button>
-                <h2 className='title'>Cart</h2>
+                <h2 className='title'>עגלת הקניות</h2>
+
                 {cart.length === 0 ? (
-                    <p>Your cart is empty.</p>
+                    <p>אין מוצרים בעגלה.</p>
                 ) : (
                     <ul className='clean-list items-list'>
                         {cart.map((item) => (
@@ -53,18 +51,11 @@ export function ShoppingCartCmp({ setIsCartVisible }) {
                                         <p> <span>גודל:</span>  {item.size}</p>
                                         {/* <pre>{JSON.stringify(item, null, 2)}</pre> */}
                                         <div className="quantity flex">
-                                            <button className='nice-button' onClick={() => handleUpdateCartItem(item, item.quantity - 1)} disabled={item.quantity <= 1}>
-                                                -
-                                            </button>
-                                            <p>{item.quantity}</p>
+                                            <QuantityPicker product={item} handleUpdateCartItem={handleUpdateCartItem} />
 
-                                            <button className='nice-button'
-                                                onClick={() =>
-                                                    handleUpdateCartItem(item, item.quantity + 1)
-                                                }
-                                            >
-                                                +
-                                            </button>
+
+
+
                                         </div>
                                         <button className='nice-button' onClick={() => handleRemoveFromCart(item.cartItemId)}>
                                             Remove from Cart
@@ -78,13 +69,13 @@ export function ShoppingCartCmp({ setIsCartVisible }) {
                 {cart.length > 0 && (
                     <div className='cart-actions flex'>
                         <div className='total'>
-                            <h3>Total</h3>
+                            <h3>סה"כ לתשלום</h3>
                             {calculateTotal()}₪
                         </div>
-                        <button className='nice-button'>Proceed to Checkout</button>
+                        {/* <button className='nice-button'>Proceed to Checkout</button> */}
 
                         <button className='nice-button' onClick={handleViewCart}>
-                            View full Cart
+                            המשך לתשלום / צפה בכל העגלה
                         </button>
 
                     </div>

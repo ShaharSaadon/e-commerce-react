@@ -3,11 +3,11 @@
   color: $clr0;
   .footer-container {
     padding: 0 em($mobile-padding);
-    background-color: $clr1;
+    background-color: $clr3;
     flex-direction: column;
     justify-content: center;
     .group-title {
-      margin: em($xxLarge-space) 0 em(52px) 0;
+      margin: em($min-space) 0 em(52px) 0;
       font-size: 1.2em;
     }
     .nav-link {
@@ -41,7 +41,7 @@
     width: 100%;
     display: flex;
     justify-content: space-around;
-    background-color: $pink;
+    background-color: $second-color;
     color: $clr3;
 
     .links-container {
