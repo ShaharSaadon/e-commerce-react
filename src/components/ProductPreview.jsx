@@ -53,9 +53,9 @@ export function ProductPreview({ product, setIsCartVisible }) {
           <p className='price'>{product.price.toLocaleString('he-IL', { style: 'currency', currency: 'ILS' })}</p>
           <DynamicColors colors={[...product.colors]} handleClick={handleColor} selectedColors={selectedColor} />
           <div className="actions">
-            {/* <Link to={`/product/edit/${product._id}`} className="edit">
+            <Link to={`/product/edit/${product._id}`} className="edit">
               Edit
-            </Link> */}
+            </Link>
             <div className="btn-buy">
               <ColorButtonBuy variant="contained" onClick={handleAddToCart}>
                 <img src={rightArrow} alt='הוסף לעגלה' />

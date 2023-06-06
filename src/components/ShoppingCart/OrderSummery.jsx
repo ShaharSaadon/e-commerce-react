@@ -28,7 +28,7 @@ export function OrderSummery({ onNext }) {
         return quantity
     }
 
-    const handleRemoveFromCart = (item) => {
+    function handleRemoveFromCart(item) {
         dispatch(removeFromCart(item));
     };
 

@@ -24,9 +24,9 @@ $modifier--text-color: #888;
 }
 
 #{$block}__modifier {
-  padding: 0.7rem;
-  width: 3rem;
-  font-size: 1.5rem;
+  padding: 0.35rem;
+  width: 1.5rem;
+  font-size: 0.75rem;
 
   background: $color--primary;
   color: $modifier--text-color;
@@ -51,9 +51,9 @@ $modifier--text-color: #888;
 }
 
 #{$block}__screen {
-  width: 4rem;
-  padding: 0.7rem;
-  font-size: 1.5rem;
+  width: 2rem;
+  padding: 0.35rem;
+  font-size: 0.75rem;
 
   border: 0;
   border-top: $border;
