@@ -1,20 +1,21 @@
 .product-preview {
-  // padding: 32px;
+  // height: ;
   padding: 6px;
   margin: 24px 4px;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  height: 50vh;
   background-color: $clr2;
-  // margin: 24px;
   border-radius: em($large-space);
+  // padding: 32px;
   // border: 1px black solid;
+  // height: 50vh;
+  // margin: 24px;
 
   .img-container {
     width: 100%;
-    height: 30vh;
-    background-size: cover;
+    // height: 30vh;
+    // background-size: cover;
     background-position: center;
     img {
       object-fit: cover;
@@ -93,10 +94,9 @@
   }
 
   @include mq(mobile-breakpoint) {
-    height: 500px;
     .img-container {
-      width: 300px;
-      height: 300px;
+      // width: 300px;
+      // height: 300px;
     }
     .box {
       // align-items: center;

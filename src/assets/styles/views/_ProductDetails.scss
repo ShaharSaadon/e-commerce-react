@@ -1,25 +1,29 @@
 .product-details {
+  min-height: 100vh;
   display: grid;
-  color: gray;
-  grid-template-rows: 1fr 6fr;
   grid-auto-flow: column;
   font-weight: 400;
+  padding: 12px;
+  // color: gray;
   // border: 1px black solid;
-  .header {
-    padding: 32px 0;
-    // grid-column: 1/-1;
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: space-between;
-  }
-  span {
-    font-weight: 700;
-    margin: 6px 0;
-  }
+  // .header {
+  //   padding: 32px 0;
+  //   // grid-column: 1/-1;
+  //   font-size: 1.2rem;
+  //   display: flex;
+  //   justify-content: space-between;
+  // }
+  // span {
+  //   font-weight: 700;
+  //   margin: 6px 0;
+  // }
   .content {
-    align-items: flex-start;
+    // align-items: center;
     display: grid;
     grid-template-columns: 100%;
+    justify-items: center;
+    align-items: start;
+    text-align: start;
     gap: 24px;
     .product-info {
       width: 100%;
@@ -29,19 +33,12 @@
       .product-name {
         font-size: 2rem;
         color: black;
+        font-weight: normal;
         margin-block-end: 12px;
       }
       .description {
         line-height: 1.7;
       }
-
-      .sizes {
-        width: 150px;
-        height: 44px;
-        border-radius: 12px;
-        padding: 8px 16px;
-      }
-
       p {
         margin: 6px 0;
         .price {
@@ -52,53 +49,37 @@
       .quantity {
         width: 32px;
       }
+      .details {
+        justify-content: space-around;
+      }
     }
     .img-container {
       width: 100%;
-      max-width: 500px;
+      max-width: 560px;
       // max-height: 500px;
       background-size: cover;
       background-position: center;
       img {
         object-fit: cover;
         width: 100%;
-        border: 1px black solid;
+        // border: 1px black solid;
       }
     }
   }
   .act {
     width: 40px;
   }
-  .designed-btn {
-    width: 200px;
-    display: flex;
-    align-items: center;
-    margin-block-start: 24px;
-    background-color: inherit;
-    padding: 12px 24px;
-    border: 1px solid black;
-    font-weight: 700;
-    img {
-      width: 24px;
-    }
-    &:hover {
-      background-color: black;
-      color: white;
-      transition: 0.3s;
-      img {
-        filter: invert(1);
-        transform: translateX(6px);
-        transition: 0.3s;
-      }
-    }
-  }
 
   // bigger than 960px
   @include mq(narrow-breakpoint) {
+    .product-details {
+      padding: 0;
+    }
     .content {
       grid-template-columns: 50% 50%;
-      justify-items: end;
+      // align-items: top;
       width: 100%;
+      margin-block-start: 80px;
     }
   }
 }

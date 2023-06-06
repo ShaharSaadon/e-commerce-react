@@ -8,6 +8,9 @@ import מצעים from '../assets/images/DynamicProducts/bedding-cover.jpg';
 import מוצרים from '../assets/images/DynamicProducts/pillows.jpg';
 import מגבות from '../assets/images//DynamicProducts/towels.png';
 import מארזים from '../assets/images/DynamicProducts/happy.jpeg';
+import { pink } from '@mui/material/colors';
+import { styled } from '@mui/material/styles';
+import Button from '@mui/material/Button';
 
 const navLinks = [
   { path: '/', text: 'בית' },
@@ -50,10 +53,24 @@ const imageMap = {
   מארזים: מארזים,
 };
 
+const ColorButton = styled(Button)(({ theme }) => ({
+  color: theme.palette.getContrastText(pink[300]),
+  backgroundColor: pink[300],
+  borderRadius: '20px', // This sets border radius
+  width: '100%',
+  fontWeight: '700',
+  padding: '8px 16px',
+  marginBlock: '24px',
+  '&:hover': {
+    backgroundColor: pink[100],
+  },
+}));
+
 export const linkService = {
   navLinks,
   productLinks,
   kingSizeLinks,
   featuresLinks,
   imageMap,
+  ColorButton,
 };

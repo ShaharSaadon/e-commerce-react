@@ -7,7 +7,6 @@ import rightArrow from '../assets/images/svgs/right-arrow.svg'
 import { grey } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
 
 export function ProductPreview({ product, setIsCartVisible }) {
   const dispatch = useDispatch();
@@ -33,8 +32,9 @@ export function ProductPreview({ product, setIsCartVisible }) {
 
   const ColorButtonBuy = styled(Button)(({ theme }) => ({
     color: 'black',
-    backgroundColor: grey[700],
+    backgroundColor: 'inherit',
     borderRadius: '0',
+    border: '1px solid black',
     '&:hover': {
       backgroundColor: grey[500],
     },

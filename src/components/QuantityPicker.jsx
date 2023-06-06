@@ -7,7 +7,9 @@ export function QuantityPicker({ product, handleUpdateCartItem }) {
     function increment() {
         setQuantity(prevValue => {
             const newValue = prevValue + 1;
-            handleUpdateCartItem({ ...product, quantity: newValue });
+            if (typeof handleUpdateCartItem === 'function') {
+                handleUpdateCartItem({ ...product, quantity: newValue });
+            }
             return newValue;
 
         })
@@ -16,8 +18,9 @@ export function QuantityPicker({ product, handleUpdateCartItem }) {
     function decrement() {
         setQuantity(prevValue => {
             const newValue = (prevValue > 0 ? prevValue - 1 : 0);
-            handleUpdateCartItem({ ...product, quantity: newValue });
-            return newValue;
+            if (typeof handleUpdateCartItem === 'function') {
+                handleUpdateCartItem({ ...product, quantity: newValue });
+            } return newValue;
         });
     };
 

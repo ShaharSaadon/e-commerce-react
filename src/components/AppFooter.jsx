@@ -35,12 +35,15 @@ export function AppFooter() {
             </div>
             <div className="lower-footer full">
                 <div className="links-container">
-                    <img src={instagramSvg} alt="instagram" />
-                    <img src={mailSvg} alt="mail" />
+                    <a href="https://www.instagram.com/kingsizeboutique/">
+                        <img src={instagramSvg} alt="instagram" />
+                    </a>
+                    <a href="mailto:kingSize@info.com">      <img src={mailSvg} alt="mail" /></a>
+
+
                 </div>
                 <div className="copyright">
-                    Copyright © 2023 KignSize | Shahar Saadon Full Stack Developer
-
+                    <p>  Copyright © 2023 KignSize | Created with ♥ by Shahar Saadon Full Stack Developer</p>
                 </div>
             </div>
         </footer>

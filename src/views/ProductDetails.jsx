@@ -13,6 +13,8 @@ import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import { ProductAccordion } from '../components/Accordion';
 import { RecommendationsContainer } from '../components/HomePage/RecommendationsContainer';
+import { QuantityPicker } from '../components/QuantityPicker.jsx'
+import { linkService } from '../services/link.service';
 
 
 export function ProductDetails({ setIsCartVisible }) {
@@ -22,6 +24,7 @@ export function ProductDetails({ setIsCartVisible }) {
     const [product, setProduct] = useState(null)
     const [quantity, setQuantity] = useState(1)
     const [selectedColor, setSelectedColor] = useState('')
+    const { ColorButton } = linkService
     const [selectedSize, setSelectedSize] = useState('')
 
     useEffect(() => {
@@ -74,23 +77,13 @@ export function ProductDetails({ setIsCartVisible }) {
     };
 
     if (!product) return <div>Loading...</div>;
-    const { name, description, category, price, imgURL, colors, subCategory, sizes } = product
+    const { name, description, price, imgURL, colors, sizes } = product
 
     return (
         <section className='product-details'>
-            <div className="header">
-                <p><Link to={`/${category}`} className="nav-link">{category}</Link>
-                    | {name} </p>
-
-                <div className="nav">
-                    <span>הקודם </span>
-                    <span>הבא </span>
-                </div>
-            </div>
             <div className="content">
                 <div className="img-container">
                     <img src={imgURL} className='square-ratio' />
-                    <ProductAccordion />
 
                 </div>
                 <section className='product-info'>
@@ -98,7 +91,7 @@ export function ProductDetails({ setIsCartVisible }) {
                     <h1 className='product-name'>{name}</h1>
                     <p><span className='price'>{price}</span>&משלוח חינם - עד סוף חודש יוני</p>
                     <p className='description'>{description}</p>
-                    <span>גודל</span>
+                    <span>מידה</span>
 
                     <FormControl required sx={{ m: 1, minWidth: 120 }}>
                         <InputLabel id="demo-simple-select-required-label">גודל</InputLabel>
@@ -109,16 +102,13 @@ export function ProductDetails({ setIsCartVisible }) {
                             label="Age *"
                             onChange={handleSizeChange}
                         >
-                            <MenuItem value="">
-                                <em>None</em>
-                            </MenuItem>
                             {sizes.map((size, index) => (
                                 <MenuItem value={size}>{size}</MenuItem>
                             ))}
                         </Select>
-                        <FormHelperText>Required</FormHelperText>
+                        <FormHelperText></FormHelperText>
                     </FormControl>
-                    <div className="details flex justify-between">
+                    <div className="details flex">
                         <div className="colors flex flex-column">
                             <span>צבעים</span>
                             <DynamicColors colors={colors || []} handleClick={handleColor} selectedColors={selectedColor}
@@ -126,20 +116,25 @@ export function ProductDetails({ setIsCartVisible }) {
                         </div>
                         <div className="quantity-container flex flex-column">
                             <span>כמות</span>
-                            <div className="box">
-                                <button className='act' onClick={() => handleClick(-1)}>-</button>
-                                <input type="number" className='quantity' value={quantity} />
-                                <button className='act' onClick={() => handleClick(+1)}>+</button>
-                            </div>
+
+                            <QuantityPicker product={{ ...product }} quantity={quantity} />
+
+
                         </div>
 
                     </div>
 
-                    <button className='designed-btn' onClick={handleAddToCart}>Add to Cart</button>
-                    {/* <RecommendationsContainer /> */}
+                    <ColorButton variant="contained" width="100%" onClick={handleAddToCart}>
+                        הוספה לסל הקניות
+                    </ColorButton>
 
+                    <ProductAccordion />
+
+                    {/* <RecommendationsContainer /> */}
                     {/* <button className='designed-btn' onClick={handleAddToCart}>Buy it Now</button> */}
                     {/* <button onClick={onBack} className="designed-btn">Back</button> */}
+                    {/* <button className='designed-btn' >הוספה לסל הקניות</button> */}
+
                 </section>
 
             </div>

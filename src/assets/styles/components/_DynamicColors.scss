@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  place-items: center;
   max-width: em($color-palette-width);
   margin-block-start: em($medium-space);
 
@@ -9,7 +10,7 @@
     height: em($xxLarge-space);
     width: em($xxLarge-space);
     border-radius: 50%;
-    border: 3px solid $clr3;
+    // border: 3px solid $clr3;
     margin-inline-end: em($min-space);
     margin-block-end: em($min-space);
     position: relative;
@@ -18,7 +19,8 @@
     }
 
     &.selected {
-      box-shadow: 5px 4px 5px $clr4, 0 0 1em $clr5, 0 0 0.2em $clr6;
+      // box-shadow: 5px 4px 5px $clr4, 0 0 1em $clr5, 0 0 0.2em $clr6;
+      border: 3px black solid;
     }
   }
 }
