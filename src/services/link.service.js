@@ -12,13 +12,20 @@ import { pink } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 
-const navLinks = [
-  { path: '/', text: 'בית' },
+const mainNavLinks = [
   { path: '/about', text: 'קצת עלינו' },
   { path: '/מצעים', text: 'מצעים' },
   { path: '/מגבות', text: 'מגבות' },
   { path: '/מארזים', text: 'המארזים שלנו' },
   { path: '/מוצרים-משלימים-למיטה', text: 'מוצרים משלימים למיטה' },
+];
+const sideNavLinks = [
+  { path: '/about', text: 'קצת עלינו' },
+  { path: '/מצעים', text: 'מצעים' },
+  { path: '/מגבות', text: 'מגבות' },
+  { path: '/מארזים', text: 'המארזים שלנו' },
+  { path: '/מוצרים-משלימים-למיטה', text: 'מוצרים משלימים למיטה' },
+  { path: '/', text: 'בית' },
   { path: '/blog', text: 'בלוג' },
   { path: '/contact', text: 'צור קשר' },
 ];
@@ -67,10 +74,11 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 
 export const linkService = {
-  navLinks,
+  mainNavLinks,
   productLinks,
   kingSizeLinks,
   featuresLinks,
   imageMap,
   ColorButton,
+  sideNavLinks,
 };

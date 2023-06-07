@@ -7,11 +7,12 @@ import shoppingCartSvg from '../assets/images/svgs/shoppingCart.svg'
 import personSvg from '../assets/images/svgs/person.svg'
 import logoImg from '../assets/images/HomePage/0.png'
 import { linkService } from '../services/link.service';
+import closeBtn from '../assets/images/close.png'
 
 export function AppHeader() {
     const { cart } = useSelector(({ cartModule }) => cartModule);
     const { loggedinUser } = useSelector(({ userModule }) => userModule);
-    const { navLinks } = linkService;
+    const { mainNavLinks, sideNavLinks } = linkService;
     const [quantity, setQuantity] = useState(0)
     const [isHeaderOpen, setIsHeaderOpen] = useState(false);
     const isSticky = useScrollSticky();
@@ -48,14 +49,25 @@ export function AppHeader() {
                 </div>
 
                 <nav className={`center ${isHeaderOpen ? 'open' : ''}`} onClick={handleClickHeader}>
-                    <div className="close nav-link"> X סגור </div>
-                    {navLinks.map((link, index) => (
+                    {/* <div className="close nav-link"> X סגור </div> */}
+                    {mainNavLinks.map((link, index) => (
                         <NavLink key={index} to={link.path} className="nav-link">
                             {link.text}
                         </NavLink>
                     ))}
+                    {/* <NavLink to="/admin-panel" className="nav-link" > מנהל </NavLink> */}
+                </nav>
 
-                    <NavLink to="/admin-panel" className="nav-link" > מנהל </NavLink>
+                <nav onClick={handleClickHeader} className={`side-nav ${isHeaderOpen ? 'open' : ''}`}>
+                    <div className="close nav-link">
+                        <img src={closeBtn} className='btn-close' alt="" onClick={handleClickHamburger} />
+                    </div>
+                    {sideNavLinks.map((link, index) => (
+                        <NavLink key={index} to={link.path} className="nav-link">
+                            {link.text}
+                        </NavLink>
+                    ))}
+                    {/* <NavLink to="/admin-panel" className="nav-link" > מנהל </NavLink> */}
                 </nav>
                 <nav className="right">
 
