@@ -50,11 +50,6 @@ export function ProductDetails({ setIsCartVisible }) {
 
     }
 
-    function handleClick(operator) {
-        if (operator === -1) setQuantity(quantity - 1)
-        else setQuantity(quantity + 1)
-    }
-
     function handleAddToCart(ev) {
         ev.preventDefault()
         setIsCartVisible((prevState) => !prevState)

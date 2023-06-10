@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import about from '../assets/images/About/about.jpg'
-import aboutC from '../assets/images/About/about-cover.avif'
-import aboutC2 from '../assets/images/About/about-cover.jpg'
-import aboutC3 from '../assets/images/About/AB_MakingSenseOfESGBondStructures-1600x760.w.jpg'
 import logo from '../assets/images/HomePage/0.png'
+// import aboutC from '../assets/images/About/about-cover.avif'
+// import aboutC2 from '../assets/images/About/about-cover.jpg'
+// import aboutC3 from '../assets/images/About/AB_MakingSenseOfESGBondStructures-1600x760.w.jpg'
 export function AboutPage() {
 
     useEffect(() => {

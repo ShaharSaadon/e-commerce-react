@@ -55,7 +55,7 @@ export function AppHeader() {
                             {link.text}
                         </NavLink>
                     ))}
-                    {/* <NavLink to="/admin-panel" className="nav-link" > מנהל </NavLink> */}
+                    <NavLink to="/admin-panel" className="nav-link" > מנהל </NavLink>
                 </nav>
 
                 <nav onClick={handleClickHeader} className={`side-nav ${isHeaderOpen ? 'open' : ''}`}>

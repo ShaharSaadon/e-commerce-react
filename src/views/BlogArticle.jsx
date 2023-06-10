@@ -7,7 +7,7 @@ export function BlogArticle() {
     const articles = useSelector((storeState) => storeState.articleModule.articles)
     const currArticle = articles.find((ar) => ar.id === article);
 
-    const { id, image, title, content } = currArticle
+    const { title, content } = currArticle
     console.log('currArticle:', currArticle)
     console.log('params:', article)
     return (

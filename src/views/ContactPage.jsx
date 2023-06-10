@@ -3,8 +3,7 @@ import clock from '../assets/images/Contact/clock.svg'
 import mail from '../assets/images/Contact/mail.svg'
 import phone from '../assets/images/Contact/phone.svg'
 import { useForm } from "react-hook-form";
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+
 
 export function ContactPage() {
     const { register, handleSubmit, watch } = useForm();

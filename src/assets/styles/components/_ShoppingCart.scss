@@ -104,6 +104,7 @@
   }
 }
 .shopping-cart-page {
+  min-height: 80vh;
   .header {
     border-bottom: 1px solid $clr-app-border;
     display: flex;
@@ -120,7 +121,6 @@
       }
     }
   }
-
   .cart-summery {
     .box {
       gap: 24px;

@@ -1,11 +1,9 @@
 
-import { NavLink, Outlet } from 'react-router-dom';
 import { OrderSummery } from '../components/ShoppingCart/OrderSummery';
 import { AddressForm } from '../components/ShoppingCart/AddressForm';
 import { PaymentForm } from '../components/ShoppingCart/PaymentForm.jsx';
 import { useState } from 'react';
 import { httpService } from '../services/http.service';
-
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
@@ -13,7 +11,6 @@ import StepLabel from '@mui/material/StepLabel'
 export function ShoppingCartPage() {
 
     const [currentStep, setCurrentStep] = useState(0);
-    const [address, setAddress] = useState(null);
 
     const handleNextStep = () => {
         if (currentStep !== 2) setCurrentStep(prevStep => prevStep + 1);

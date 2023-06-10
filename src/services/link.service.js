@@ -20,12 +20,12 @@ const mainNavLinks = [
   { path: '/מוצרים-משלימים-למיטה', text: 'מוצרים משלימים למיטה' },
 ];
 const sideNavLinks = [
+  { path: '/', text: 'בית' },
   { path: '/about', text: 'קצת עלינו' },
   { path: '/מצעים', text: 'מצעים' },
   { path: '/מגבות', text: 'מגבות' },
   { path: '/מארזים', text: 'המארזים שלנו' },
   { path: '/מוצרים-משלימים-למיטה', text: 'מוצרים משלימים למיטה' },
-  { path: '/', text: 'בית' },
   { path: '/blog', text: 'בלוג' },
   { path: '/contact', text: 'צור קשר' },
 ];

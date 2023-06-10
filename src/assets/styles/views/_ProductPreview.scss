@@ -1,5 +1,4 @@
 .product-preview {
-  // height: ;
   padding: 6px;
   margin: 24px 4px;
   flex-direction: column;
@@ -7,6 +6,7 @@
   text-align: center;
   background-color: $clr2;
   border-radius: em($large-space);
+  // height: ;
   // padding: 32px;
   // border: 1px black solid;
   // height: 50vh;
@@ -14,6 +14,7 @@
 
   .img-container {
     width: 100%;
+    max-width: 300px;
     // height: 30vh;
     // background-size: cover;
     background-position: center;

@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect } from 'react'
-import { loadProducts, removeProduct } from '../store/actions/product.actions'
+import React, { useEffect } from 'react'
+import { loadProducts } from '../store/actions/product.actions'
 import { useDispatch, useSelector } from 'react-redux'
 import { ProductList } from '../components/ProductList'
 import { Link, useParams } from 'react-router-dom'
