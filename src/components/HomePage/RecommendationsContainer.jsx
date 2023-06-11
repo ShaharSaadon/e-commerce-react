@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { loadProducts } from '../../store/actions/product.actions';
-export function RecommendationsContainer({ title }) {
+export function RecommendationsContainer({ title, setIsCartVisible }) {
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -23,7 +23,7 @@ export function RecommendationsContainer({ title }) {
             <div className='recommends clean-list'>
                 {products.map((product) => (
                     <li key={product._id} className='product-container'>
-                        <ProductPreview product={product} />
+                        <ProductPreview product={product} setIsCartVisible={setIsCartVisible} />
                     </li>
                 ))}
             </div>

@@ -43,28 +43,28 @@ export function ProductPreview({ product, setIsCartVisible }) {
 
   return (
     <article className="product-preview flex">
-      <Link to={`/product/${product._id}`} className="details">
-        <div className="img-container">
-          <img src={product.imgURL} className='square-ratio' alt={product.name} />
-        </div>
-        <div className="box flex">
+      <div className="img-container">
+        <img src={product.imgURL} className='square-ratio' alt={product.name} />
+      </div>
+      <div className="box flex">
+        <Link to={`/product/${product._id}`} className="details">
           <h3>{product.name}</h3>
           <p> {product.shortDescription}</p>
           <p className='price'>{product.price.toLocaleString('he-IL', { style: 'currency', currency: 'ILS' })}</p>
-          <DynamicColors colors={[...product.colors]} handleClick={handleColor} selectedColors={selectedColor} />
-          <div className="actions">
-            {/* <Link to={`/product/edit/${product._id}`} className="edit">
+        </Link>
+        <DynamicColors colors={[...product.colors]} handleClick={handleColor} selectedColors={selectedColor} />
+        <div className="actions">
+          {/* <Link to={`/product/edit/${product._id}`} className="edit">
               Edit
             </Link> */}
-            <div className="btn-buy">
-              <ColorButtonBuy variant="contained" onClick={handleAddToCart}>
-                <img src={rightArrow} alt='הוסף לעגלה' />
-                הוסף לעגלה
-              </ColorButtonBuy>
-            </div>
+          <div className="btn-buy">
+            <ColorButtonBuy variant="contained" onClick={handleAddToCart}>
+              <img src={rightArrow} alt='הוסף לעגלה' />
+              הוסף לעגלה
+            </ColorButtonBuy>
           </div>
         </div>
-      </Link>
+      </div>
 
     </article >
   );

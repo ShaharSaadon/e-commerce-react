@@ -56,8 +56,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route
             path="/"
-            element={<HomePage />}
-            setIsCartVisible={setIsCartVisible}
+            element={<HomePage setIsCartVisible={setIsCartVisible} />}
           />
         </Routes>
 

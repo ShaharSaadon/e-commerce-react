@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import { useLocation, useRoutes, Link } from 'react-router-dom'
-import Box from '@mui/material/Box';
 import { Tabs, Tab } from '@mui/material';
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
 import { OrdersTable } from '../components/Admin/OrdersTable'
 import { UserTable } from '../components/Admin/UserTable'
+// import Box from '@mui/material/Box';
+// import TabContext from '@mui/lab/TabContext';
+// import TabList from '@mui/lab/TabList';
+// import TabPanel from '@mui/lab/TabPanel';
 
 export function AdminPanel() {
     const location = useLocation();
@@ -35,6 +35,7 @@ export function AdminPanel() {
             >
                 <Tab label="Orders" value="orders" component={Link} to="/admin-panel/orders" />
                 <Tab label="Users" value="users" component={Link} to="/admin-panel/users" />
+                <Tab label="Messages" value="edit" component={Link} to="/admin-panel/messages" />
                 <Tab label="Add Product" value="edit" component={Link} to="/product/edit" />
             </Tabs>
             {element}

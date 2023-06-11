@@ -5,7 +5,7 @@ import { FeaturesContainer } from '../components/HomePage/FeaturesContainer';
 import { ImagesContainer } from '../components/HomePage/ImagesContainer';
 import { MobileTeaser } from '../components/HomePage/MobileTeaser';
 
-export function HomePage() {
+export function HomePage({ setIsCartVisible }) {
 
 
     return (
@@ -14,7 +14,7 @@ export function HomePage() {
             <ImagesContainer />
             <FeaturesContainer />
             <TeaserContainer />
-            <RecommendationsContainer title="הנמכרים ביותר" />
+            <RecommendationsContainer title="הנמכרים ביותר" setIsCartVisible={setIsCartVisible} />
         </section>
     );
 }

@@ -31,8 +31,9 @@ export function cartReducer(state = INITIAL_STATE, action = {}) {
         );
       } else {
         updatedCart = [
+          action.product,
           ...state.cart,
-          action.product, // Use the action.product directly here
+          // Use the action.product directly here
         ];
       }
 
@@ -56,9 +57,21 @@ export function cartReducer(state = INITIAL_STATE, action = {}) {
         ...state,
         cart: updatedCart,
       };
+    // case UPDATE_CART_ITEM:
+    //   updatedCart = state.cart.map((item) =>
+    //     item._id === action.product._id ? action.product : item
+    //   );
+    //   storageService.saveCart(updatedCart);
+
+    //   return {
+    //     ...state,
+    //     cart: updatedCart,
+    //   };
     case UPDATE_CART_ITEM:
       updatedCart = state.cart.map((item) =>
-        item._id === action.product._id ? action.product : item
+        item._id === action.product._id
+          ? { ...item, quantity: action.product.quantity }
+          : item
       );
       storageService.saveCart(updatedCart);
 
@@ -66,7 +79,6 @@ export function cartReducer(state = INITIAL_STATE, action = {}) {
         ...state,
         cart: updatedCart,
       };
-
     default:
       return state;
   }

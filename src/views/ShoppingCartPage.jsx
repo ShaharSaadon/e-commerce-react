@@ -10,7 +10,9 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel'
 export function ShoppingCartPage() {
 
-    const [currentStep, setCurrentStep] = useState(0);
+    const [currentStep, setCurrentStep] = useState(0)
+    const [address, setAddress] = useState('')
+
 
     const handleNextStep = () => {
         if (currentStep !== 2) setCurrentStep(prevStep => prevStep + 1);

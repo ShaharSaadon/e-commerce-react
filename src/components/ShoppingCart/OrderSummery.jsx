@@ -44,9 +44,6 @@ export function OrderSummery({ onNext }) {
         return cart.reduce((total, item) => total + item.price * item.quantity, 0);
     };
 
-
-
-
     return (
         <div>
             <div className="cart-summery">

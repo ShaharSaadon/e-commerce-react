@@ -1,43 +1,35 @@
-import React, { useState } from "react";
+import React from "react";
+import { updateCartItem } from "../store/actions/cart.actions";
+import { useDispatch } from "react-redux";
 
-export function QuantityPicker({ product, handleUpdateCartItem }) {
-    console.log('product:', product)
-    const [quantity, setQuantity] = useState(product.quantity || 1);
+export function QuantityPicker({ item }) {
+    console.log('item:', item)
+    const dispatch = useDispatch();
+
+    function handleUpdateCartItem(product, quantity) {
+        dispatch(updateCartItem({ ...product, quantity }));
+    };
 
     function increment() {
-        setQuantity(prevValue => {
-            const newValue = prevValue + 1;
-            if (typeof handleUpdateCartItem === 'function') {
-                handleUpdateCartItem({ ...product, quantity: newValue });
-            }
-            return newValue;
-
-        })
+        console.log('item.quantity:', item.quantity)
+        handleUpdateCartItem({ ...item, quantity: item.quantity + 1 });
     }
 
     function decrement() {
-        setQuantity(prevValue => {
-            const newValue = (prevValue > 0 ? prevValue - 1 : 0);
-            if (typeof handleUpdateCartItem === 'function') {
-                handleUpdateCartItem({ ...product, quantity: newValue });
-            } return newValue;
-        });
+        handleUpdateCartItem({ ...item, quantity: item.quantity - 1 });
     };
 
     return (
         <div>
-            {/* <p>Set the quantity</p> */}
-            {/* <p>{product}</p> */}
             <div className="quantity-input">
-                <button className="quantity-input__modifier quantity-input__modifier--left" onClick={decrement} disabled={product.quantity <= 1}>
+                <button className="quantity-input__modifier quantity-input__modifier--left" onClick={decrement} disabled={item.quantity <= 1}>
                     &mdash;
                 </button>
-                <input className="quantity-input__screen" type="text" value={quantity} />
+                <input className="quantity-input__screen" type="text" value={item.quantity} />
                 <button className="quantity-input__modifier quantity-input__modifier--right" onClick={increment}>
                     &#xff0b;
                 </button>
             </div>
         </div>
     );
-
 }

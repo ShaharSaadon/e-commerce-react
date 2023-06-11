@@ -6,7 +6,6 @@ import { QuantityPicker } from '../QuantityPicker';
 import closeBtn from '../../assets/images/close.png'
 
 export function ShoppingCartCmp({ setIsCartVisible, isCartVisible }) {
-    console.log('isCartVisible:', isCartVisible)
     const cart = useSelector((state) => state.cartModule.cart);
     const dispatch = useDispatch();
     const navigate = useNavigate()
@@ -16,7 +15,11 @@ export function ShoppingCartCmp({ setIsCartVisible, isCartVisible }) {
         showWarning('Product Deleted Successfully');
     };
 
-    function handleUpdateCartItem(product, quantity) {
+    function handleRemoveFromCart(item) {
+        dispatch(removeFromCart(item));
+    };
+
+    function item(product, quantity) {
         dispatch(updateCartItem({ ...product, quantity }));
     }
 
@@ -32,10 +35,6 @@ export function ShoppingCartCmp({ setIsCartVisible, isCartVisible }) {
         navigate('/shopping-cart')
         handleToggle()
     }
-
-    function handleRemoveFromCart(item) {
-        dispatch(removeFromCart(item));
-    };
 
 
     return (
@@ -62,7 +61,7 @@ export function ShoppingCartCmp({ setIsCartVisible, isCartVisible }) {
                                         <p>{item.color}/{item.size}</p>
                                         <div className="box">
                                             <div className="quantity flex">
-                                                <QuantityPicker product={item} handleUpdateCartItem={handleUpdateCartItem} />
+                                                <QuantityPicker item={item} />
                                             </div>
                                             <p>₪{item.price}</p>
 
