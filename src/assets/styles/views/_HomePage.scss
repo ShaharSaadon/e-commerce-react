@@ -168,21 +168,10 @@ $transition-timing-function: ease-in-out;
       ' teaser-3'
       'teaser-4 ';
 
-    p,
-    animated.p {
+    p {
       line-height: 1.4;
     }
 
-    .animated {
-      opacity: 0;
-      transform: translateY(-20px);
-      transition: opacity $transition-duration $transition-timing-function,
-        transform $transition-duration $transition-timing-function;
-      &.active {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
     .title {
       h1 {
         margin-block-end: 12px;

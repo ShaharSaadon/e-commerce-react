@@ -7,17 +7,9 @@ import blanketImg from '../../assets/images/blanket-img.png';
 import { useSpring } from 'react-spring';
 import { InView, useInView } from 'react-intersection-observer';
 export function TeaserContainer() {
-    const [animated, inView, entry] = useInView();
-
-    const springs = useSpring({
-        transform: InView ? 'scale(1)' : 'scale(0.5)',
-        from: { transform: 'scale(0.5)' },
-        config: { tension: 300, friction: 20, duration: 1500 },
-    });
-
     return (
         <div className='teaser-container full'>
-            <div className={`title animated ${inView ? 'active' : ''}`} ref={animated}>
+            <div className={`title animated`} >
                 <h1> מה חדש?</h1>
                 <p>
                     ריכזנו עבורכם את מקבץ הקטגוריות אותם אנו מספקים, כל מוצר חתום על
@@ -25,7 +17,7 @@ export function TeaserContainer() {
                     שלנו.
                 </p>
             </div>
-            <div className={`teaser-1 teaser animated ${inView ? 'active' : ''}`} ref={animated}>
+            <div className={`teaser-1 teaser animated`} >
                 <h2>המארזים שלנו</h2>
                 <p>
                     מארזים שלנו מהווים תכנון ייחודי ומודרני שמעניק לחדר השינה שלכם מראה
@@ -34,10 +26,10 @@ export function TeaserContainer() {
                 </p>
                 <img src={collectionImg} alt='' className='' />
             </div>
-            <div className={`center-img animated ${inView ? 'active' : ''}`} ref={animated}>
+            <div className={`center-img animated`} >
                 <img src={centerImg} alt='CENTER' className='center' />
             </div>
-            <div className={`teaser-2 teaser animated ${inView ? 'active' : ''}`} ref={animated}>
+            <div className={`teaser-2 teaser animated`} >
                 <h2>המגבות</h2>
                 <p>
                     מגבות המכירה שלנו הן הבחירה המושלמת עבורכם. עשויות מ-100 אחוז כותנה
@@ -46,7 +38,7 @@ export function TeaserContainer() {
                 </p>
                 <img src={towelsImg} alt='' />
             </div>
-            <div className={`teaser-3 teaser animated ${inView ? 'active' : ''}`} ref={animated}>
+            <div className={`teaser-3 teaser animated`} >
                 <h2>מצעים</h2>
                 <p>
                     צעים שלנו הם הבחירה המושלמת עבורכם. באיכותם המעולה ובמחירם ההוגן, הם
@@ -58,7 +50,7 @@ export function TeaserContainer() {
                 </p>
                 <img src={linenImg} alt='' />
             </div>
-            <div className={`teaser-4 teaser animated ${inView ? 'active' : ''}`} ref={animated}>
+            <div className={`teaser-4 teaser animated`} >
                 <h2>מוצרים משלימים למיטה</h2>
                 <p>
                     מוצרים המשלימים את המיטה שלכם הם הפתרון המושלם ליצירת חווית שינה
