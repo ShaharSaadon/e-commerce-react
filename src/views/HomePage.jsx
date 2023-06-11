@@ -12,7 +12,7 @@ export function HomePage({ setIsCartVisible }) {
         <section className='home-page-container full main-container'>
             <MobileTeaser />
             <ImagesContainer />
-            <ImagesContainer />
+            <FeaturesContainer />
             <TeaserContainer />
             <RecommendationsContainer title="הנמכרים ביותר" setIsCartVisible={setIsCartVisible} />
         </section>
