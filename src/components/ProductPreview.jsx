@@ -43,15 +43,15 @@ export function ProductPreview({ product, setIsCartVisible }) {
 
   return (
     <article className="product-preview flex">
-      <div className="img-container">
-        <img src={product.imgURL} className='square-ratio' alt={product.name} />
-      </div>
+      <Link to={`/product/${product._id}`} className="details">
+        <div className="img-container">
+          <img src={product.imgURL} className='square-ratio' alt={product.name} />
+        </div>
+      </Link>
       <div className="box flex">
-        <Link to={`/product/${product._id}`} className="details">
-          <h3>{product.name}</h3>
-          <p> {product.shortDescription}</p>
-          <p className='price'>{product.price.toLocaleString('he-IL', { style: 'currency', currency: 'ILS' })}</p>
-        </Link>
+        <h3>{product.name}</h3>
+        <p> {product.shortDescription}</p>
+        <p className='price'>{product.price.toLocaleString('he-IL', { style: 'currency', currency: 'ILS' })}</p>
         <DynamicColors colors={[...product.colors]} handleClick={handleColor} selectedColors={selectedColor} />
         <div className="actions">
           {/* <Link to={`/product/edit/${product._id}`} className="edit">

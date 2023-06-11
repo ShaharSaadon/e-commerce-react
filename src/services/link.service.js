@@ -8,7 +8,7 @@ import מצעים from '../assets/images/DynamicProducts/bedding-cover.jpg';
 import מוצרים from '../assets/images/DynamicProducts/pillows.jpg';
 import מגבות from '../assets/images//DynamicProducts/towels.png';
 import מארזים from '../assets/images/DynamicProducts/happy.jpeg';
-import { pink } from '@mui/material/colors';
+import { blueGrey, pink } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 
@@ -73,6 +73,16 @@ const ColorButton = styled(Button)(({ theme }) => ({
   },
 }));
 
+const ColorButtonHome = styled(Button)(({ theme }) => ({
+  color: theme.palette.getContrastText(blueGrey[900]),
+  backgroundColor: 'inherit',
+  border: 'white 2px solid',
+  '&:hover': {
+    backgroundColor: blueGrey[900],
+    border: 'black 2px solid',
+  },
+}));
+
 export const linkService = {
   mainNavLinks,
   productLinks,
@@ -81,4 +91,5 @@ export const linkService = {
   imageMap,
   ColorButton,
   sideNavLinks,
+  ColorButtonHome,
 };
