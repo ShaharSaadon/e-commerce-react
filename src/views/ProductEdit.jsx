@@ -6,12 +6,12 @@ import { uploadService } from "../services/upload.service";
 import { DynamicColors } from '../components/DynamicColors';
 import { removeProduct } from '../store/actions/product.actions'
 import { useForm } from '../customHooks/useForm'
+import { Stack } from '@mui/material';
+import { linkService } from '../services/link.service';
 import dragImg from '../assets/images/drag.png';
 import Select from 'react-select'
-import ColorPicker from '../components/ColorPicker'
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
-import { Stack } from '@mui/material';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import UploadIcon from '@mui/icons-material/Upload';
 import LoadingButton from '@mui/lab/LoadingButton';
@@ -19,33 +19,18 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 export function ProductEdit() {
     const [product, handleChange, setProduct] = useForm(productService.getEmptyProduct())
-    const fileInputRef = useRef(null);
+    const { imgURL, sizes } = product
     const [isUploading, setIsUploading] = useState(false);
+    const [selectedColors, setSelectedColors] = useState([])
+    const [selectedSizes, setSelectedSizes] = useState(sizes);
+    const fileInputRef = useRef(null);
     const allColors = useSelector((storeState) => storeState.productModule.colors)
     const allSizes = useSelector((storeState) => storeState.productModule.sizes)
     const sizeOptions = allSizes.map(size => ({ label: size, value: size }));
-    const { imgURL, sizes } = product
-    const [selectedColors, setSelectedColors] = useState([])
-    const [selectedSizes, setSelectedSizes] = useState([sizes]);
+    const { editFields } = linkService
     const params = useParams()
     const navigate = useNavigate()
     const dispatch = useDispatch()
-
-    const fields = [
-        { label: 'Name', name: 'name', type: 'text' },
-        { label: 'Description', name: 'description', type: 'text' },
-        { label: 'Price', name: 'price', type: 'number' },
-        { label: 'shortDescription', name: 'shortDescription', type: 'text' },
-    ];
-
-    const onRemoveProduct = useCallback(async (productId) => {
-        try {
-            console.log('removing product', productId)
-            dispatch(removeProduct(productId));
-        } catch (error) {
-            console.log('error:', error);
-        }
-    }, []);
 
     useEffect(() => {
         document.title = 'KingSize | ערוך מוצר';
@@ -63,13 +48,12 @@ export function ProductEdit() {
             }
         }
     }
-
     async function onSaveProduct(ev) {
         try {
-            await productService.save({ ...product, colors: selectedColors })
-            navigate(-1)
+            await productService.save({ ...product, colors: selectedColors, sizes: selectedSizes });
+            navigate(-1);
         } catch (error) {
-            console.log('error:', error)
+            console.log('error:', error);
         }
     }
 
@@ -80,10 +64,8 @@ export function ProductEdit() {
         setProduct(prevProduct => ({ ...prevProduct, imgURL }));
         setIsUploading(false);
     }
-
-    async function handleColor(ev) {
-        const color = ev.target.style.backgroundColor;
-        if (selectedColors.includes(color)) {
+    function handleColor(color) {
+        if (selectedColors.find(c => c === color)) {
             // The color is already selected, so we remove it
             setSelectedColors(prevColors => prevColors.filter(c => c !== color));
         } else {
@@ -92,17 +74,27 @@ export function ProductEdit() {
         }
     }
     function handleSizeChange(selectedOption) {
-        setSelectedSizes(selectedOption.map(option => option.value));
+        setSelectedSizes(selectedOption.map(option => option));
     }
+
+    const onRemoveProduct = useCallback(async (productId) => {
+        try {
+            console.log('removing product', productId)
+            dispatch(removeProduct(productId));
+        } catch (error) {
+            console.log('error:', error);
+        }
+    }, []);
+
 
     const selectedSizeOptions = selectedSizes.map(size => ({ label: size, value: size }));
 
     return (
         <section className='product-edit'>
-            <h1>{product._id ? 'ערוך' : 'הוסף'} Product</h1>
+            <h1>{product._id ? 'ערוך' : 'הוסף'} מוצר</h1>
             <form onSubmit={onSaveProduct} >
 
-                {fields.map(({ label, name, type }) => (
+                {editFields.map(({ label, name, type }) => (
                     <div key={name}>
                         <label htmlFor={name}>{label}</label>
                         <input
@@ -116,9 +108,8 @@ export function ProductEdit() {
                 ))}
 
                 <label htmlFor="price">צבעים</label>
-                <DynamicColors colors={allColors} selectedColors={selectedColors} handleClick={handleColor} />
+                <DynamicColors allColors={allColors} selectedColor={selectedColors} handleClick={handleColor} />
 
-                <ColorPicker />
                 <label htmlFor="sizes">Sizes</label>
                 <Select
                     id="sizes"

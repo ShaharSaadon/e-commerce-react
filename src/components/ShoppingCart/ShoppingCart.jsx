@@ -19,9 +19,10 @@ export function ShoppingCartCmp({ setIsCartVisible, isCartVisible }) {
         dispatch(removeFromCart(item));
     };
 
-    function item(product, quantity) {
+    const handleUpdateCartItem = (product, quantity) => {
         dispatch(updateCartItem({ ...product, quantity }));
-    }
+    };
+
 
     function calculateTotal() {
         return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);

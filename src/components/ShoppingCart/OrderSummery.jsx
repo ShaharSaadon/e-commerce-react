@@ -77,11 +77,7 @@ export function OrderSummery({ onNext }) {
                                             </button>
                                             <p>{item.quantity}</p>
 
-                                            <button
-                                                onClick={() =>
-                                                    handleUpdateCartItem(item, item.quantity + 1)
-                                                }
-                                            >
+                                            <button onClick={() => handleUpdateCartItem(item, item.quantity + 1)}>
                                                 +
                                             </button>
 

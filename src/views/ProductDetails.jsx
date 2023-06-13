@@ -4,15 +4,12 @@ import { productService } from '../services/product.service'
 import { DynamicColors } from '../components/DynamicColors'
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../store/actions/cart.actions';
-import { Link, NavLink } from 'react-router-dom';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import { ProductAccordion } from '../components/Accordion';
-import { RecommendationsContainer } from '../components/HomePage/RecommendationsContainer';
 import { QuantityPicker } from '../components/QuantityPicker.jsx'
 import { linkService } from '../services/link.service';
 
@@ -61,9 +58,8 @@ export function ProductDetails({ setIsCartVisible }) {
         }));
     };
 
-    function handleColor(ev) {
-        const color = ev.target.style.backgroundColor;
-        setSelectedColor(color)
+    function handleColor(color) {
+        setSelectedColor(color.label)
     }
 
     function handleSizeChange(event) {
@@ -106,13 +102,13 @@ export function ProductDetails({ setIsCartVisible }) {
                     <div className="details flex">
                         <div className="colors flex flex-column">
                             <span>צבעים</span>
-                            <DynamicColors colors={colors || []} handleClick={handleColor} selectedColors={selectedColor}
+                            <DynamicColors allColors={colors || []} handleClick={handleColor} selectedColor={selectedColor}
                             />
                         </div>
                         <div className="quantity-container flex flex-column">
                             <span>כמות</span>
 
-                            <QuantityPicker product={{ ...product }} quantity={quantity} />
+                            <QuantityPicker item={{ ...product, }} />
 
 
                         </div>

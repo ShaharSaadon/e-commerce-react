@@ -11,7 +11,13 @@ export const SET_CURR_CATEGORY = 'SET_CURR_CATEGORY';
 const INITIAL_STATE = {
   products: [],
   categories: ['מגבות', 'מצעים', 'מארזים', 'מוצרים'],
-  colors: ['white', 'black', 'red', 'lightgray', 'navy'],
+  colors: [
+    { label: 'לבן', value: 'white' },
+    { label: 'שחור', value: 'black' },
+    { label: 'אפור', value: 'lightgray' },
+    { label: 'קורל', value: 'lightcoral' },
+    { label: 'כחל', value: 'lightblue' },
+  ],
   sizes: ['100/100', '200/200', '300/300'],
   filterBy: [],
 };

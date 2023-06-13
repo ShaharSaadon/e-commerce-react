@@ -29,21 +29,18 @@ const sideNavLinks = [
   { path: '/blog', text: 'בלוג' },
   { path: '/contact', text: 'צור קשר' },
 ];
-
 const kingSizeLinks = [
   { path: '/blog', label: 'בלוג' },
   { path: '/about', label: 'קצת עלינו' },
   { path: '/', label: 'עמוד הבית' },
   { path: '/contact', label: 'צרו איתנו קשר' },
 ];
-
 const productLinks = [
   { path: '/מצעים', label: 'מצעים' },
   { path: '/מגבות', label: 'מגבות' },
   { path: '/מארזים', label: 'המארזים שלנו' },
   { path: '/מוצרים', label: 'מוצרים משלימים למיטה' },
 ];
-
 const featuresLinks = [
   { src: shield, alt: 'מאובטח', text: 'Hypoallergenic' },
   { src: delivery, alt: 'משלוח', text: 'Fast Delivery' },
@@ -52,7 +49,6 @@ const featuresLinks = [
   { src: payment, alt: 'תשלום', text: 'High Quality Fair Prices' },
   { src: quality, alt: 'איכותי', text: 'Safe Order' },
 ];
-
 const imageMap = {
   מגבות: מגבות,
   'מוצרים-משלימים-למיטה': מוצרים,
@@ -83,6 +79,13 @@ const ColorButtonHome = styled(Button)(({ theme }) => ({
   },
 }));
 
+const editFields = [
+  { label: 'שם המוצר', name: 'name', type: 'text' },
+  { label: 'תיאור', name: 'description', type: 'text' },
+  { label: 'מחיר', name: 'price', type: 'number' },
+  { label: 'תיאור קצר', name: 'shortDescription', type: 'text' },
+];
+
 export const linkService = {
   mainNavLinks,
   productLinks,
@@ -92,4 +95,5 @@ export const linkService = {
   ColorButton,
   sideNavLinks,
   ColorButtonHome,
+  editFields,
 };

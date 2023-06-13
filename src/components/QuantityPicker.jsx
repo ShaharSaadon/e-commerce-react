@@ -3,21 +3,24 @@ import { updateCartItem } from "../store/actions/cart.actions";
 import { useDispatch } from "react-redux";
 
 export function QuantityPicker({ item }) {
-    console.log('item:', item)
     const dispatch = useDispatch();
 
     function handleUpdateCartItem(product, quantity) {
         dispatch(updateCartItem({ ...product, quantity }));
     };
-
     function increment() {
-        console.log('item.quantity:', item.quantity)
-        handleUpdateCartItem({ ...item, quantity: item.quantity + 1 });
+        console.log('Incrementing quantity from:', item.quantity);
+        const newQuantity = item.quantity + 1;
+        console.log('To:', newQuantity);
+        handleUpdateCartItem({ ...item, quantity: newQuantity });
     }
 
     function decrement() {
-        handleUpdateCartItem({ ...item, quantity: item.quantity - 1 });
-    };
+        console.log('Decrementing quantity from:', item.quantity);
+        const newQuantity = item.quantity - 1;
+        console.log('To:', newQuantity);
+        handleUpdateCartItem({ ...item, quantity: newQuantity });
+    }
 
     return (
         <div>

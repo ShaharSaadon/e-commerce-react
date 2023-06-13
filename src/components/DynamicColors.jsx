@@ -1,20 +1,25 @@
-import React from 'react'
-
-export function DynamicColors(props) {
-
-  const { colors, selectedColors, handleClick } = props;
-  console.log('selectedColors:', selectedColors)
+export function DynamicColors({ allColors, selectedColor, handleClick }) {
+  const isSelected = color => {
+    if (!selectedColor) return false;
+    if (Array.isArray(selectedColor)) {
+      return selectedColor.find(c => c.label === color.label);
+    } else {
+      return color.label === selectedColor;
+    }
+  }
   return (
-    <section >
+    <section>
       <div className="color-palette">
-        {colors.map((value, index) => (
+        {allColors.map((color, index) => (
           <div
             key={index}
-            style={{ backgroundColor: value }}
-            className={selectedColors?.includes(value) ? 'color selected' : 'color'}
-            onClick={handleClick}
-          ></div>))}
+            id={color.label}
+            style={{ backgroundColor: color.value }}
+            className={isSelected(color) ? 'color selected' : 'color'}
+            onClick={() => handleClick(color)}
+          ></div>
+        ))}
       </div>
-    </section >
-  )
+    </section>
+  );
 }

@@ -293,7 +293,8 @@ $transition-timing-function: ease-in-out;
       }
     }
     .teaser-container {
-      padding: 0 300px;
+      padding: 0 75px;
+
       .center-img {
         grid-area: 'img';
         display: inline;
@@ -302,10 +303,10 @@ $transition-timing-function: ease-in-out;
         width: 50%;
       }
       grid-template-areas:
-        ' title title title '
-        ' teaser-1 img teaser-2 '
-        ' teaser-3  img teaser-4 '
-        ' footer  footer footer ';
+        ' title title title title title '
+        ' teaser-1 teaser-1 img teaser-2 teaser-2 '
+        ' teaser-3 teaser-3  img teaser-4 teaser-4 '
+        ' footer  footer footer footer footer ';
     }
 
     .recommends-container {
@@ -316,6 +317,17 @@ $transition-timing-function: ease-in-out;
           // flex: 1 0 25%; /* The '30%' means each item will take up 30% of the total width of the container. Adjust this percentage as needed. */
         }
       }
+    }
+  }
+
+  @include mq(normal-breakpoint) {
+    .teaser-container {
+      padding: 0 150px;
+    }
+  }
+  @include mq(wide-breakpoint) {
+    .teaser-container {
+      padding: 0 300px;
     }
   }
 }

@@ -1,7 +1,7 @@
 
 import { OrderSummery } from '../components/ShoppingCart/OrderSummery';
 import { AddressForm } from '../components/ShoppingCart/AddressForm';
-import { PaymentForm } from '../components/ShoppingCart/PaymentForm.jsx';
+import { PaymentForm } from '../components/ShoppingCart/PaymentForm2.jsx';
 import { useState } from 'react';
 import { httpService } from '../services/http.service';
 import Box from '@mui/material/Box';
