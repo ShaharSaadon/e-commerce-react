@@ -1,12 +1,20 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import CountrySelect from '../CountrySelect'
-export function AddressForm({ onNext, onAddressComplete }) {
+import { GoogleLogin } from '@react-oauth/google';
+
+export function AddressForm({ onNext, onAddressComplete, onPrevious }) {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = data => {
         onAddressComplete(data);
         onNext();
+    };
+    function responseMessage(response) {
+        console.log(response);
+    };
+    function errorMessage(error) {
+        console.log(error);
     };
 
     return (
@@ -15,54 +23,56 @@ export function AddressForm({ onNext, onAddressComplete }) {
                 <label>
                     אמצעי ליצירת קשר
                 </label>
-                <input {...register("fullName", { required: true })} />
-                {errors.fullName && <p>This field is required</p>}
-                <input type="checkbox" />
+                <input {...register("fullName", { required: true })} placeholder="דוא''ל" className='mail' />
+                {errors.fullName && <p>אנא הזן כתובת מייל</p>}
+                <GoogleLogin clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID} onSuccess={responseMessage} onError={errorMessage} className='google' />
+
+                <div className="box">
+                    <input type="checkbox" className='register' />
+                    <label htmlFor="register" className='add-me'>צרפו אותי לחברי מועדון משפחת kingSize בחינם, שלחו לי התראות על מצבעים וקופני הנחה בלעדיים.</label>
+                </div>
             </div>
-            <label>
+
+
+            <label className='details'>
                 פרטים אישיים וכתובת מגורים
             </label>
 
-            <label>
-                <input {...register("country", { required: true })} />
-                {errors.country && <p>This field is required</p>}
-            </label>
+
+            <div className="fields">
+                <CountrySelect className='country-select' />
+
+                <input {...register("firstname", { required: true })} placeholder='שם פרטי' />
+                {errors.firstname && <p>אנא הזן שם פרטי</p>}
+
+                <input {...register("latsname", { required: true })} placeholder='שם משפחה' />
+                {errors.latsname && <p>אנא הזן שם משפחה</p>}
+
+                <input {...register("street", { required: true })} placeholder='כתובת מגורים' className='address' />
+                {errors.street && <p>אנא הזן כתובת מגורים</p>}
+
+                <input {...register("city", { required: true })} placeholder='עיר' />
+                {errors.city && <p>אנא הזן עיר</p>}
+
+                <input {...register("zip", { required: true })} placeholder='מיקוד(אופציונלי)' />
+                {errors.zip && <p>אנא הזן מיקוד</p>}
+
+                <input {...register("phone", { required: true })} placeholder='טלפון נייד' className='phone' />
+                {errors.zip && <p>אנא הזן מיקוד</p>}
 
 
-            <input {...register("firstname", { required: true })} />
-            {errors.fullName && <p>This field is required</p>}
+            </div>
 
-            <input {...register("latsname", { required: true })} />
-            {errors.fullName && <p>This field is required</p>}
-
-            <label>
-                Street:
-                <input {...register("street", { required: true })} />
-                {errors.street && <p>This field is required</p>}
-            </label>
-
-            <label>
-                City:
-                <input {...register("city", { required: true })} />
-                {errors.city && <p>This field is required</p>}
-            </label>
-
-            <label>
-                State:
-                <input {...register("state", { required: true })} />
-                {errors.state && <p>This field is required</p>}
-            </label>
-
-            <label>
-                Zip Code:
-                <input {...register("zip", { required: true })} />
-                {errors.zip && <p>This field is required</p>}
-            </label>
+            <div className="box">
+                <input type="checkbox" />
+                <label className='save-me'>שמור מידע זה לפעם הבאה שתבקר אצלנו </label>
+            </div>
 
 
-            <CountrySelect />
-
-            <input type="submit" />
-        </form>
+            <div className="actions">
+                <div className="back" onClick={() => onPrevious()}>חזרה אל סל הקניות</div>
+                <input type="submit" className='nice-button' />
+            </div>
+        </form >
     );
 }

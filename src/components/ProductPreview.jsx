@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../store/actions/cart.actions';
 import { DynamicColors } from './DynamicColors';
 import { grey } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
+import { linkService } from '../services/link.service';
 
 export function ProductPreview({ product, setIsCartVisible }) {
+  const { loggedinUser } = useSelector(({ userModule }) => userModule);
+  const { ColorButton } = linkService
   const dispatch = useDispatch();
   const [selectedColor, setSelectedColor] = useState(product.colors?.[0])
   const [selectedSize, setSelectedSize] = useState(product.sizes?.[0])
@@ -26,15 +29,6 @@ export function ProductPreview({ product, setIsCartVisible }) {
   function handleColor(color) {
     setSelectedColor(color.label);
   }
-  const ColorButtonBuy = styled(Button)(({ theme }) => ({
-    color: 'black',
-    backgroundColor: 'inherit',
-    borderRadius: '0',
-    border: '1px solid black',
-    '&:hover': {
-      backgroundColor: grey[500],
-    },
-  }));
 
 
   return (
@@ -50,14 +44,13 @@ export function ProductPreview({ product, setIsCartVisible }) {
         </Link>
         <DynamicColors allColors={product.colors} handleClick={handleColor} selectedColor={selectedColor} />
         <div className="actions">
-          {/* <Link to={`/product/edit/${product._id}`} className="edit">
-                <img src={rightArrow} alt='הוסף לעגלה' />
-              Edit
-            </Link> */}
+          {loggedinUser?.isAdmin ? <Link to={`/product/edit/${product._id}`} className="edit">
+            Edit
+          </Link> : ''}
           <div className="btn-buy">
-            <ColorButtonBuy variant="contained" onClick={handleAddToCart}>
+            <ColorButton variant="contained" onClick={handleAddToCart}>
               הוסף לעגלה
-            </ColorButtonBuy>
+            </ColorButton>
           </div>
         </div>
       </div>

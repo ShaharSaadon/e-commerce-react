@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import mailSvg from '../assets/images/svgs/mail.svg';
 import instagramSvg from '../assets/images/svgs/instagram.svg';
 import logoImg from '../assets/images/HomePage/0.png';
@@ -31,7 +31,6 @@ export function AppFooter() {
                     <p><a href="mailto:kingSize@info.com">kingSize@info.com</a></p>
                     <p><a href="tel:929-242-6868">929-242-6868</a></p>
                 </address>
-
             </div>
             <div className="lower-footer full">
                 <div className="links-container">

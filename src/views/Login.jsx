@@ -6,7 +6,6 @@ import { login } from "../store/actions/user.actions";
 import { useForm } from "../customHooks/useForm";
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import { GoogleLogin } from '@react-oauth/google';
 
 export function Login() {
     const loggedinUser = useSelector((storeState) => storeState.userModule.loggedinUser);
@@ -31,12 +30,7 @@ export function Login() {
             console.error(err);
         }
     }
-    const responseMessage = (response) => {
-        console.log(response);
-    };
-    const errorMessage = (error) => {
-        console.log(error);
-    };
+
     return (
 
         <section className='login-container'>
@@ -64,7 +58,6 @@ export function Login() {
 
                     <button>Submit</button>
                 </form>
-                <GoogleLogin clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID} onSuccess={responseMessage} onError={errorMessage} />
                 <p>Forgot password?</p>
             </div>
 

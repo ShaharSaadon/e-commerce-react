@@ -65,10 +65,9 @@ async function update(userCred) {
 
 async function login(userCred) {
   const user = await httpService.post('auth/login', userCred);
-  if (user) {
-    // socketService.login(user._id)
-    return saveLocalUser(user);
-  }
+  console.log('user:', user);
+  // socketService.login(user._id)
+  return saveLocalUser(user);
 }
 
 async function signup(userCred) {
@@ -83,15 +82,16 @@ async function logout() {
   // socketService.logout()
   return await httpService.post('auth/logout');
 }
-
 function saveLocalUser(user) {
   user = {
     _id: user._id,
     fullname: user.fullname,
     username: user.username,
+    isAdmin: user.isAdmin,
   };
+
+  console.log('user:', user);
   sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user));
-  saveLocalUser(user);
 
   return user;
 }

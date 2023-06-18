@@ -1,0 +1,19 @@
+.payment-form {
+  width: 500px;
+  margin: 0 auto;
+
+  .fields {
+    display: grid;
+    height: 310px;
+    gap: 12px;
+    grid-template-rows: repeat(auto-fill, minmax(42px, auto));
+    grid-template-columns: 50% 50%;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block-start: 24px;
+  }
+}

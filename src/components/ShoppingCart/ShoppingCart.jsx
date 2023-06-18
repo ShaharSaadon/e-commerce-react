@@ -59,7 +59,7 @@ export function ShoppingCartCmp({ setIsCartVisible, isCartVisible }) {
                                         <Link to={`/product/${item._id}`} className="nav-link">
                                             <h3 className='product-title'>{item.name} </h3>
                                         </Link>
-                                        <p>{item.color}/{item.size}</p>
+                                        <p>{item.color.label}/{item.size}</p>
                                         <div className="box">
                                             <div className="quantity flex">
                                                 <QuantityPicker item={item} />

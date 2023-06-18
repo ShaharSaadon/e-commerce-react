@@ -124,7 +124,7 @@ export function OrderSummery({ onNext }) {
                     <div className="promo-code">
                         <h2>קוד קופון</h2>
                         <div className="code">
-                            <button >הזן קוד</button>
+                            <button className='nice-button' >הזן קוד</button>
                             <input type="text" placeholder="הקוד שלך" id="" />
                         </div>
 

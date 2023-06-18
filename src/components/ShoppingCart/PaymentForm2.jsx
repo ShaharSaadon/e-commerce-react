@@ -1,41 +1,35 @@
 import React, { useEffect, useRef } from 'react';
+import { useForm } from 'react-hook-form';
 
-export function PaymentForm() {
-    const cardNumberRef = useRef();
-    const cardExpirationRef = useRef();
-    const cardCvvRef = useRef();
-
-    useEffect(() => {
-        const script = document.createElement('script');
-        script.src = 'https://cdn.paymeservice.com/hf/v1/hostedfields.js';
-        script.onload = () => {
-            if (window.payme) {
-                const settings = {
-                    // your settings here
-                };
-                const hf = window.payme.hostedFields(settings);
-                const cardNumber = hf.create('cardNumber');
-                const cardExpiration = hf.create('cardExpiration');
-                const cvc = hf.create('cvc');
-                cardNumber.mount(cardNumberRef.current);
-                cardExpiration.mount(cardExpirationRef.current);
-                cvc.mount(cardCvvRef.current);
-            }
-        };
-        document.body.appendChild(script);
-
-        return () => {
-            document.body.removeChild(script);
-        };
-    }, []);
+export function PaymentForm({ onPrevious }) {
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     return (
-        <form>
-            <div ref={cardNumberRef}></div>
-            <div ref={cardExpirationRef}></div>
-            <div ref={cardCvvRef}></div>
-            <button type="submit">Submit</button>
-        </form>
+        <form onSubmit={handleSubmit} className='payment-form'>
+
+            <div className="fields">
+
+                <input {...register("card-number", { required: true })} placeholder='מספר כרטיס' />
+                {errors.firstname && <p>אנא הזן שם פרטי</p>}
+
+                <input {...register("date", { required: true })} placeholder='שנה' />
+                {errors.firstname && <p>אנא הזן שם פרטי</p>}
+
+                <input {...register("firstname", { required: true })} placeholder='חודש' />
+                {errors.firstname && <p>אנא הזן שם פרטי</p>}
+
+                <input {...register("firstname", { required: true })} placeholder='CVV' />
+                {errors.firstname && <p>אנא הזן שם פרטי</p>}
+
+
+
+            </div>
+
+            <div className="actions">
+                <div className="back" onClick={() => onPrevious()}>חזרה אל סל הקניות</div>
+                <input type="submit" className='nice-button' />
+            </div>
+        </form >
     );
 };
 

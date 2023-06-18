@@ -14,24 +14,14 @@ export function ShoppingCartPage() {
     const [address, setAddress] = useState('')
 
 
-    const handleNextStep = () => {
-        if (currentStep !== 2) setCurrentStep(prevStep => prevStep + 1);
-        else {
-            const orderId = 'YOUR_ORDER_ID';
-            const amount = 'YOUR_AMOUNT';
-            const currency = 'YOUR_CURRENCY';
-
-            httpService.post('order/pay', { orderId, amount, currency })
-                .then(response => {
-                    console.log('Payment response:', response.data);
-                    // Handle the next step here
-                })
-                .catch(err => console.error(err));
-
-            setCurrentStep(prevStep => prevStep + 1);
-        }
-
+    function handleNextStep() {
+        setCurrentStep(prevStep => prevStep + 1);
     };
+    function handlePreviousStep() {
+        setCurrentStep(prevStep => prevStep - 1);
+    };
+
+
     const steps = [
         'סיכום עגלת קניוית',
         'פרטי משלוח',
@@ -70,8 +60,8 @@ export function ShoppingCartPage() {
 
             </div>
             {currentStep === 0 && <OrderSummery onNext={handleNextStep} />}
-            {currentStep === 1 && <AddressForm onNext={handleNextStep} onAddressComplete={setAddress} />}
-            {currentStep === 2 && <PaymentForm onNext={handleNextStep} />}
+            {currentStep === 1 && <AddressForm onNext={handleNextStep} onAddressComplete={setAddress} onPrevious={handlePreviousStep} />}
+            {currentStep === 2 && <PaymentForm onNext={handleNextStep} onPrevious={handlePreviousStep} />}
             {/* More steps here */}
         </section>
     )

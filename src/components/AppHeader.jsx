@@ -16,6 +16,7 @@ export function AppHeader() {
     const [quantity, setQuantity] = useState(0)
     const [isHeaderOpen, setIsHeaderOpen] = useState(false);
     const isSticky = useScrollSticky();
+    console.log('loggedinUser:', loggedinUser)
 
     useEffect(() => {
         setQuantity(calculateQuantity(cart))
@@ -55,7 +56,7 @@ export function AppHeader() {
                             {link.text}
                         </NavLink>
                     ))}
-                    <NavLink to="/admin-panel" className="nav-link" > מנהל </NavLink>
+                    {loggedinUser?.isAdmin ? <NavLink to="/admin-panel" className="nav-link" > מנהל </NavLink> : ''}
                 </nav>
 
                 <nav onClick={handleClickHeader} className={`side-nav ${isHeaderOpen ? 'open' : ''}`}>

@@ -1,6 +1,55 @@
 .address-form {
+  width: 500px;
+  margin: 0 auto;
+
   .contact {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    // margin: 0;
+    .mail {
+      width: 100%;
+      height: 42px;
+      margin-block: 12px;
+    }
+
+    .add-me {
+      line-height: 1;
+      font-size: 0.8rem;
+    }
+    margin-block-end: 18px;
+  }
+
+  .google {
+    width: 100%;
+  }
+  .details {
+    margin-block-end: 120px;
+  }
+
+  .fields {
+    display: grid;
+    height: 310px;
+    gap: 12px;
+    grid-template-rows: repeat(auto-fill, minmax(42px, auto));
+    grid-template-columns: 50% 50%;
+  }
+
+  .country-select {
+    grid-column: span 2;
+    width: 100%;
+  }
+  .address {
+    grid-column: span 2;
+  }
+  .phone {
+    grid-column: span 2;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block-start: 24px;
   }
 }
