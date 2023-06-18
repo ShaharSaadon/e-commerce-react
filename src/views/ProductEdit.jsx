@@ -22,7 +22,7 @@ export function ProductEdit() {
     const { imgURL, sizes } = product
     const [isUploading, setIsUploading] = useState(false);
     const [selectedColors, setSelectedColors] = useState([])
-    const [selectedSizes, setSelectedSizes] = useState(sizes);
+    const [selectedSizes, setSelectedSizes] = useState(Array.isArray(sizes) ? sizes : []);
     const fileInputRef = useRef(null);
     const allColors = useSelector((storeState) => storeState.productModule.colors)
     const allSizes = useSelector((storeState) => storeState.productModule.sizes)
@@ -56,7 +56,6 @@ export function ProductEdit() {
             console.log('error:', error);
         }
     }
-
     async function handleFile({ target }) {
         setIsUploading(true);
         const imgURL = await uploadService.uploadImg(target.files[0]);
@@ -74,7 +73,7 @@ export function ProductEdit() {
         }
     }
     function handleSizeChange(selectedOption) {
-        setSelectedSizes(selectedOption.map(option => option));
+        setSelectedSizes(selectedOption.map(option => ({ label: option.label, value: option.value })));
     }
 
     const onRemoveProduct = useCallback(async (productId) => {
@@ -87,13 +86,12 @@ export function ProductEdit() {
     }, []);
 
 
-    const selectedSizeOptions = selectedSizes.map(size => ({ label: size, value: size }));
+    const selectedSizeOptions = selectedSizes.map(size => ({ label: size.label, value: size.value }));
 
     return (
         <section className='product-edit'>
             <h1>{product._id ? 'ערוך' : 'הוסף'} מוצר</h1>
             <form onSubmit={onSaveProduct} >
-
                 {editFields.map(({ label, name, type }) => (
                     <div key={name}>
                         <label htmlFor={name}>{label}</label>
@@ -106,11 +104,9 @@ export function ProductEdit() {
                         />
                     </div>
                 ))}
-
                 <label htmlFor="price">צבעים</label>
                 <DynamicColors allColors={allColors} selectedColor={selectedColors} handleClick={handleColor} />
-
-                <label htmlFor="sizes">Sizes</label>
+                <label htmlFor="sizes">מידות</label>
                 <Select
                     id="sizes"
                     options={sizeOptions}
@@ -118,7 +114,6 @@ export function ProductEdit() {
                     value={selectedSizeOptions}
                     onChange={handleSizeChange}
                 />
-
                 {isUploading ? <CircularProgress /> : <div className="img-uploader">
                     <img src={imgURL || dragImg} alt="" />
                     <input
@@ -131,7 +126,6 @@ export function ProductEdit() {
 
                     />
                 </div>}
-
                 <Stack direction="column" spacing={2}>
                     <LoadingButton loading={isUploading} onClick={() => fileInputRef.current.click()} startIcon={<UploadIcon />} variant="outlined">
                         העלה תמונה
@@ -144,9 +138,6 @@ export function ProductEdit() {
                         שמור שינויים
                     </Button>
                 </Stack>
-
-
-
             </form>
         </section>)
 }

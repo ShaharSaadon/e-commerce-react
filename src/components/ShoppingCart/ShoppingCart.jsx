@@ -37,7 +37,7 @@ export function ShoppingCartCmp({ setIsCartVisible, isCartVisible }) {
         handleToggle()
     }
 
-
+    console.log('cart:', cart)
     return (
         <div className={isCartVisible ? 'shopping-background' : 'shopping-background hide'}>
             <section className={isCartVisible ? 'shopping-cart' : 'shopping-cart hide'}>

@@ -106,13 +106,11 @@
 .shopping-cart-page {
   min-height: 80vh;
   .header {
-    border-bottom: 1px solid $clr-app-border;
+    margin-block: 52px;
+    // border-bottom: 1px solid $clr-app-border;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    .logo {
-      margin: 12px auto;
-    }
     .process-bar {
       margin: 24px auto;
       display: flex;

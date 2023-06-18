@@ -94,7 +94,7 @@ export function ProductDetails({ setIsCartVisible }) {
                             onChange={handleSizeChange}
                         >
                             {sizes.map((size, index) => (
-                                <MenuItem value={size}>{size}</MenuItem>
+                                <MenuItem value={size.value}>{size.label}</MenuItem>
                             ))}
                         </Select>
                         <FormHelperText></FormHelperText>

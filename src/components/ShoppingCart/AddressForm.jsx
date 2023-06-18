@@ -10,12 +10,30 @@ export function AddressForm({ onNext, onAddressComplete }) {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <label>
-                Full Name:
+        <form onSubmit={handleSubmit(onSubmit)} className='address-form'>
+            <div className="contact">
+                <label>
+                    אמצעי ליצירת קשר
+                </label>
                 <input {...register("fullName", { required: true })} />
                 {errors.fullName && <p>This field is required</p>}
+                <input type="checkbox" />
+            </div>
+            <label>
+                פרטים אישיים וכתובת מגורים
             </label>
+
+            <label>
+                <input {...register("country", { required: true })} />
+                {errors.country && <p>This field is required</p>}
+            </label>
+
+
+            <input {...register("firstname", { required: true })} />
+            {errors.fullName && <p>This field is required</p>}
+
+            <input {...register("latsname", { required: true })} />
+            {errors.fullName && <p>This field is required</p>}
 
             <label>
                 Street:
@@ -41,11 +59,6 @@ export function AddressForm({ onNext, onAddressComplete }) {
                 {errors.zip && <p>This field is required</p>}
             </label>
 
-            <label>
-                Country:
-                <input {...register("country", { required: true })} />
-                {errors.country && <p>This field is required</p>}
-            </label>
 
             <CountrySelect />
 

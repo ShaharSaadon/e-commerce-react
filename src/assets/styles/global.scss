@@ -15,10 +15,11 @@
 
 // COMPONENTS
 
+@import 'views/HomePage.scss';
 @import 'components/AppHeader.scss';
 @import 'components/QuantityPicker.scss';
 @import 'components/ShoppingCart.scss';
-@import 'views/HomePage.scss';
+@import 'components/AddressForm.scss';
 @import 'components/nice-button.scss';
 @import 'components/AppFooter.scss';
 @import 'components/ProductList';

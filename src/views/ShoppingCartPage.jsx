@@ -42,7 +42,6 @@ export function ShoppingCartPage() {
         <section className='shopping-cart-page'>
 
             <div className="header">
-                <h1 className='logo'>LOGO</h1>
                 {/* <div className="process-bar">
                     <div className={currentStep === 1 ? "summery active" : "summery"}>
                         <p><span>1</span> Summary</p>

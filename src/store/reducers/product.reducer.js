@@ -18,7 +18,7 @@ const INITIAL_STATE = {
     { label: 'קורל', value: 'lightcoral' },
     { label: 'כחל', value: 'lightblue' },
   ],
-  sizes: ['100/100', '200/200', '300/300'],
+  sizes: ['100-100', '200-200', '300-300'],
   filterBy: [],
 };
 

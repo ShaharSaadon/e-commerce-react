@@ -1,11 +1,5 @@
-// @use '@material/animation';
-
-$transition-duration: 0.5s;
-$transition-timing-function: ease-in-out;
-
 .home-page-container {
   min-height: max-content;
-
   .cotton {
     height: 85vh;
     object-fit: cover;
@@ -67,10 +61,6 @@ $transition-timing-function: ease-in-out;
       background-blend-mode: multiply; /* Helps darken the background */
       background-size: cover;
       background-position: center;
-      // width: 70%;
-      // height: 35vh;
-      // border: 2px $clr2 solid;
-      // justify-content: center;
       background-color: rgba(
         0,
         0,
@@ -264,7 +254,7 @@ $transition-timing-function: ease-in-out;
       height: max-content;
       .cover {
         width: 100%;
-        height: 63vh;
+        height: 65vh;
         background-image: url('../../images/HomePage/cotton.jpeg');
         background-position: -300px;
         background-color: rgba(
@@ -279,9 +269,9 @@ $transition-timing-function: ease-in-out;
         flex-direction: row;
         justify-content: center;
         .box {
-          padding: em(100px);
-          height: em(400px);
-          width: em(500px);
+          // padding: em(76px);
+          height: em(310px);
+          width: em(385px);
         }
       }
     }
@@ -319,10 +309,18 @@ $transition-timing-function: ease-in-out;
       }
     }
   }
-
   @include mq(normal-breakpoint) {
     .teaser-container {
       padding: 0 150px;
+    }
+    .images-container {
+      .content {
+        .box {
+          padding: em(100px);
+          height: em(400px);
+          width: em(500px);
+        }
+      }
     }
   }
   @include mq(wide-breakpoint) {
