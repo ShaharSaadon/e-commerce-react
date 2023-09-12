@@ -105,8 +105,7 @@ export function AppHeader() {
                         </NavLink>
                     ))}
                     <NavLink to="/admin-panel" className="nav-link">
-                        {" "}
-                        מנהל דדד
+                        מנהל
                     </NavLink>
                 </nav>
                 <nav className="right">

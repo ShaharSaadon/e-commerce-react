@@ -5,7 +5,7 @@ import { DynamicColors } from "../components/DynamicColors";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../store/actions/cart.actions";
 import { ProductAccordion } from "../components/Accordion";
-import { QuantityPicker } from "../components/QuantityPicker.jsx";
+import { QuantityPicker } from "../components/QuantityPicker";
 import { linkService } from "../services/link.service";
 
 import MenuItem from "@mui/material/MenuItem";
@@ -113,8 +113,7 @@ export function ProductDetails({ setIsCartVisible }) {
                         </div>
                         <div className="quantity-container flex flex-column">
                             <span>כמות</span>
-
-                            <QuantityPicker item={{ ...product }} />
+                            <QuantityPicker />
                         </div>
                     </div>
 

@@ -115,6 +115,8 @@ const contactData = [
     },
 ];
 
+const sizesData = ["180/100", "200-200", "300-300"];
+
 const teaserContainerData = [
     {
         className: "title animated",
@@ -189,6 +191,12 @@ const editFields = [
     { label: "תיאור", name: "description", type: "text" },
     { label: "מחיר", name: "price", type: "number" },
     { label: "תיאור קצר", name: "shortDescription", type: "text" },
+    {
+        label: "קטגוריה",
+        name: "category",
+        type: "select",
+        options: ["מגבות", "מצעים", "מארזים", "מוצרים"],
+    },
 ];
 
 export const linkService = {

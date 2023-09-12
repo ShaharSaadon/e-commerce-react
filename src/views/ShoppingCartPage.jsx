@@ -51,7 +51,6 @@ export function ShoppingCartPage() {
                     onPrevious={handlePreviousStep}
                 />
             )}
-            {/* More steps here */}
         </section>
     );
 }

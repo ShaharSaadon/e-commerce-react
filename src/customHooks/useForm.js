@@ -1,31 +1,34 @@
-import { useState } from 'react';
-import { useEffectUpdate } from './useEffectUpdate';
+import { useState } from "react";
+import { useEffectUpdate } from "./useEffectUpdate";
 
 export function useForm(initialFields, cb = () => {}) {
-  const [fields, setFields] = useState(initialFields);
+    const [fields, setFields] = useState(initialFields);
 
-  useEffectUpdate(() => {
-    cb(fields);
-  }, [fields]);
+    useEffectUpdate(() => {
+        cb(fields);
+    }, [fields]);
 
-  function handleChange({ target }) {
-    const field = target.name;
-    let value = target.value;
+    function handleChange({ target }) {
+        const field = target.name;
+        let value = target.value;
 
-    switch (target.type) {
-      case 'number':
-      case 'range':
-        value = +value;
-        break;
-      case 'checkbox':
-        value = target.checked;
-        break;
-      default:
-        break;
+        switch (target.type) {
+            case "number":
+            case "range":
+                value = +value;
+                break;
+            case "checkbox":
+                value = target.checked;
+                break;
+            case "select":
+                value = target.selected;
+                break;
+            default:
+                break;
+        }
+
+        setFields((prevFields) => ({ ...prevFields, [field]: value }));
     }
 
-    setFields((prevFields) => ({ ...prevFields, [field]: value }));
-  }
-
-  return [fields, handleChange, setFields];
+    return [fields, handleChange, setFields];
 }
