@@ -46,9 +46,12 @@ export function ProductDetails({ setIsCartVisible }) {
     function handleAddToCart(ev) {
         ev.preventDefault();
         setIsCartVisible((prevState) => !prevState);
+        if (!(selectedColor && selectedSize)) return;
         dispatch(
             addToCart({
-                ...product,
+                name,
+                price,
+                imgURL,
                 size: selectedSize,
                 color: selectedColor,
                 quantity: quantity,
@@ -113,7 +116,10 @@ export function ProductDetails({ setIsCartVisible }) {
                         </div>
                         <div className="quantity-container flex flex-column">
                             <span>כמות</span>
-                            <QuantityPicker />
+                            <QuantityPicker
+                                quantity={quantity}
+                                setQuantity={setQuantity}
+                            />
                         </div>
                     </div>
 

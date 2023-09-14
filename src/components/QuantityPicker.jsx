@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { updateCartItem } from "../store/actions/cart.actions";
+import { useDispatch } from "react-redux";
 
-export const QuantityPicker = (props) => {
-    const [quantity, setQuantity] = useState();
+export const QuantityPicker = ({ quantity, setQuantity }) => {
+    const dispatch = useDispatch();
 
     const decrement = () => {
         if (quantity > 0) {
@@ -15,9 +17,9 @@ export const QuantityPicker = (props) => {
 
     return (
         <div className="quantity-picker">
-            <button onClick={decrement}>-</button>
+            {setQuantity ? <button onClick={decrement}>-</button> : ""}
             <span className="quantity-value">{quantity}</span>
-            <button onClick={increment}>+</button>
+            {setQuantity ? <button onClick={increment}>+</button> : ""}
         </div>
     );
 };
