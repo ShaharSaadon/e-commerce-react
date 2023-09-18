@@ -14,9 +14,10 @@ const INITIAL_STATE = {
     colors: [
         { label: "לבן", value: "white" },
         { label: "שחור", value: "black" },
-        { label: "אפור", value: "lightgray" },
-        { label: "קורל", value: "lightcoral" },
-        { label: "כחל", value: "lightblue" },
+        { label: "אפור בהיר", value: "lightgray" },
+        { label: "אפור כהה", value: "darkgray" },
+        { label: "ורוד", value: "pink" },
+        { label: "טורקיז", value: "turquoise" },
     ],
     sizes: [
         "45/70",

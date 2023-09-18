@@ -1,11 +1,12 @@
-import * as React from 'react';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import * as React from "react";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-export function ProductAccordion() {
+export function ProductAccordion(product) {
+    console.log(product);
     return (
         <div>
             <Accordion>
@@ -18,7 +19,8 @@ export function ProductAccordion() {
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        המוצר שלנו הוא מתבטא באיכות הגבוהה ביותר בשוק היום בלה בלה בלה
+                        {/* {JSON.stringify(product)} */}
+                        <p>{product.description}</p> description
                     </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -32,7 +34,9 @@ export function ProductAccordion() {
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi maiores quam sit nemo perferendis ut? Architecto quidem cumque et error.
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Modi maiores quam sit nemo perferendis ut?
+                        Architecto quidem cumque et error.
                     </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -46,11 +50,12 @@ export function ProductAccordion() {
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi maiores quam sit nemo perferendis ut? Architecto quidem cumque et error.
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Modi maiores quam sit nemo perferendis ut?
+                        Architecto quidem cumque et error.
                     </Typography>
                 </AccordionDetails>
             </Accordion>
-
         </div>
     );
 }

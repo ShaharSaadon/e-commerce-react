@@ -34,8 +34,8 @@ export function AppHeader() {
         <header className="app-header full main container">
             <div className="upper-header">
                 <p>
-                    לרגל פתיחת החנות, עד סוף חודש מאי- המשלוחים עלינו! קוד קופון{" "}
-                    <span>KING2023</span>
+                    לרגל פתיחת החנות, עד סוף חודש אוקטובר- המשלוחים עלינו! קוד
+                    קופון <span>KING2023</span>
                 </p>
             </div>
             <div
@@ -108,30 +108,12 @@ export function AppHeader() {
                         {" "}
                         מנהל דדד
                     </NavLink>
+                    <NavLink to="/login" className="nav-link">
+                        {" "}
+                        התחברות
+                    </NavLink>
                 </nav>
                 <nav className="right">
-                    {loggedinUser ? (
-                        <NavLink to="/user-profile" className="nav-link flex">
-                            <img
-                                src={personSvg}
-                                alt="user-profile"
-                                className="icon"
-                            />
-                        </NavLink>
-                    ) : (
-                        <>
-                            <div className="login flex">
-                                <NavLink to="/login" className="nav-link">
-                                    <img
-                                        src={personSvg}
-                                        alt="user-profile"
-                                        className="icon"
-                                    />
-                                </NavLink>
-                            </div>
-                        </>
-                    )}
-
                     <NavLink to="/shopping-cart" className="nav-link">
                         <img
                             src={shoppingCartSvg}

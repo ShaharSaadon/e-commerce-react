@@ -47,6 +47,11 @@ export function ProductEdit() {
         loadProduct();
     }, []);
 
+    useEffect(() => {
+        console.log("colors=", colors);
+        setSelectedColors(colors);
+    }, [colors]);
+
     async function loadProduct() {
         const productId = params.id;
         if (productId) {
@@ -84,6 +89,7 @@ export function ProductEdit() {
         setIsUploading(false);
     }
     function handleColor(color) {
+        console.log("color=", color);
         if (selectedColors.find((c) => c === color)) {
             // The color is already selected, so we remove it
             setSelectedColors((prevColors) =>
@@ -93,6 +99,7 @@ export function ProductEdit() {
             // The color is not selected, so we add it
             setSelectedColors((prevColors) => [...prevColors, color]);
         }
+        console.log("colors=", colors);
     }
     function handleSizeChange(selectedOption) {
         setSelectedSizes(

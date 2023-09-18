@@ -37,6 +37,7 @@ export function cartReducer(state = INITIAL_STATE, action = {}) {
             }
 
             storageService.saveCart(updatedCart);
+            // storageService.load('cart',updatedCart)
 
             return {
                 ...state,

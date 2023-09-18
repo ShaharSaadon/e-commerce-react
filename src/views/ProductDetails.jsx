@@ -69,7 +69,7 @@ export function ProductDetails({ setIsCartVisible }) {
     }
 
     if (!product) return <div>Loading...</div>;
-    const { name, description, price, imgURL, colors, sizes } = product;
+    const { name, shortDescription, price, imgURL, colors, sizes } = product;
 
     return (
         <section className="product-details">
@@ -83,7 +83,7 @@ export function ProductDetails({ setIsCartVisible }) {
                         <span className="price">{price}</span>&משלוח חינם - עד
                         סוף חודש יוני
                     </p>
-                    <p className="description">{description}</p>
+                    <p className="shortDescription">{shortDescription}</p>
                     <span>מידה</span>
 
                     <FormControl required sx={{ m: 1, minWidth: 120 }}>
@@ -131,7 +131,7 @@ export function ProductDetails({ setIsCartVisible }) {
                         הוספה לסל הקניות
                     </ColorButton>
 
-                    <ProductAccordion />
+                    <ProductAccordion product={product} />
 
                     {/* <RecommendationsContainer /> */}
                     {/* <button className='designed-btn' onClick={handleAddToCart}>Buy it Now</button> */}

@@ -12,7 +12,6 @@ export const CartItem = ({ item }) => {
 
     return (
         <li key={item._id}>
-            {JSON.stringify(item, 0, null)}
             <div className="cart-item-preview">
                 <img src={item.imgURL} alt={item.name} width="100" />
                 <div className="content">
